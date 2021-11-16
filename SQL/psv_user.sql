@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 16 nov. 2021 à 13:31
+-- Généré le : mar. 16 nov. 2021 à 14:32
 -- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
@@ -34,7 +34,8 @@ CREATE TABLE `psv_user` (
   `age` date NOT NULL,
   `created_at` datetime NOT NULL,
   `email` varchar(200) NOT NULL,
-  `token` varchar(255) NOT NULL
+  `token` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
