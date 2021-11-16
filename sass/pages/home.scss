@@ -1,3 +1,20 @@
 #home {
   background-color: yellow;
+  .wrap0 {
+    .title_absolute {
+
+      h2 {
+        font-family: $roboto;
+        font-weight: 700;
+        font-size: 4rem;
+      }
+
+      h2:first-child {
+        color: #88BABF;
+      }
+      h2:nth-child(2) {
+        color: #60A6A6;
+      }
+    }
+  }
 }

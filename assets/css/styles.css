@@ -4,9 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*GOOGLE FONT
-
-  */
+  /*GOOGLE FONT */
+  @import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto+Condensed:wght@300;400;700&display=swap");
 }
 
 .clear:before, .clear:after {
@@ -23,7 +22,6 @@
 }
 
 body {
-  /*font-family: 'Bebas Neue', cursive;*/
   color: red;
   background-color: blue;
   overflow-x: hidden;
@@ -51,7 +49,12 @@ img {
   vertical-align: bottom;
 }
 
+p {
+  font-family: "Poiret One", cursive;
+}
+
 a {
+  font-family: "Roboto Condensed", sans-serif;
   color: var(--noir);
   text-decoration: none;
 }
@@ -97,6 +100,42 @@ textarea {
   background-size: cover;
 }
 
+/* WRAPS */
+.wrap0 {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrap1 {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap2 {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap3 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap4 {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .header {
   background-color: darkgrey;
   display: flex;
@@ -119,6 +158,21 @@ textarea {
 }
 
 /*ajout des page ici*/
+#home {
+  background-color: yellow;
+}
+#home .wrap0 .title_absolute h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+}
+#home .wrap0 .title_absolute h2:first-child {
+  color: #88BABF;
+}
+#home .wrap0 .title_absolute h2:nth-child(2) {
+  color: #60A6A6;
+}
+
 #footer {
   background-color: #bebebebe;
 }
