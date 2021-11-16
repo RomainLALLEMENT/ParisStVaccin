@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 16 nov. 2021 à 14:32
+-- Généré le : mar. 16 nov. 2021 à 14:55
 -- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `psv_carnet`
+--
+
+CREATE TABLE `psv_carnet` (
+  `id` int(11) NOT NULL,
+  `id_vaccin` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `premiere_date` date NOT NULL,
+  `date_prochain` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `psv_user`
 --
 
@@ -38,9 +52,30 @@ CREATE TABLE `psv_user` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `psv_vaccin`
+--
+
+CREATE TABLE `psv_vaccin` (
+  `id` int(11) NOT NULL,
+  `libelle` varchar(255) NOT NULL,
+  `temps_rappel` int(3) NOT NULL,
+  `pays` varchar(255) DEFAULT NULL,
+  `obligatoire` tinyint(1) NOT NULL,
+  `description` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `psv_carnet`
+--
+ALTER TABLE `psv_carnet`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `psv_user`
@@ -49,13 +84,31 @@ ALTER TABLE `psv_user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `psv_vaccin`
+--
+ALTER TABLE `psv_vaccin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `psv_carnet`
+--
+ALTER TABLE `psv_carnet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `psv_user`
 --
 ALTER TABLE `psv_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `psv_vaccin`
+--
+ALTER TABLE `psv_vaccin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
