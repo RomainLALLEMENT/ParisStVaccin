@@ -6,7 +6,7 @@ Installation sur un pc de sass :
 
 le fichier 'style.scss' est le fichier où va ecrire le css
 la commande :
-sass sass/style.scss asset/css/styles.css --watch
+sass sass/style.scss assets/css/styles.css --watch
 permet de transformer directement le scss en css
 
 liste des dossiers :
