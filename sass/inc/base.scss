@@ -3,16 +3,17 @@
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
-    /*GOOGLE FONT
+    /*GOOGLE FONT */
+        @import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto+Condensed:wght@300;400;700&display=swap');
 
-    */
 }
 .clear:before, .clear:after {content: ' ';display: table}
 .clear:after { clear : both }
 .clear {*zoom: 1;}
 
 body {
-    /*font-family: 'Bebas Neue', cursive;*/
+    //font-family: 'Poiret One', cursive;
+    //font-family: 'Roboto Condensed', sans-serif;
     color: red;
     background-color: blue;
     overflow-x: hidden;
@@ -34,7 +35,11 @@ img{
     width: 100%;
     vertical-align: bottom;
 }
+p {
+    font-family: $poiret;
+}
 a {
+    font-family: $roboto;
     color: var(--noir);
     text-decoration: none;
 }
