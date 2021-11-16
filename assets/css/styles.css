@@ -97,6 +97,42 @@ textarea {
   background-size: cover;
 }
 
+/* WRAPS */
+.wrap0 {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrap1 {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap2 {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap3 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap4 {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .header {
   background-color: darkgrey;
   display: flex;
@@ -120,7 +156,19 @@ textarea {
 
 /*ajout des page ici*/
 #footer {
-  background-color: #bebebebe;
+  background: #bebebe;
+  position: fixed;
+  bottom: 0;
+}
+#footer nav {
+  text-align: center;
+}
+#footer nav ul {
+  display: flex;
+  flex-direction: row;
+}
+#footer nav ul li {
+  gap: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
