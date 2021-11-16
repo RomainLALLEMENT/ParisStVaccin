@@ -1,0 +1,10 @@
+/*REPONSIVE*/
+@mixin breakpoints($size) {
+    @if $size == phone {
+        @media (max-width: 480px){ @content;}
+    }@else if $size == tablette {
+        @media (max-width: 700px){ @content;}
+    }@else if $size == petitlaptop {
+        @media (max-width: 900px){ @content;}
+    }
+}
