@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header class="header">
+<header id="header">
     <div class="wrap0">
         <nav>
             <ul>
@@ -25,14 +25,14 @@
         </nav>
         <div class="connection">
             <div class="coimg">
-                <img src="../maquette/icons/user.svg" alt="user">
+                <img src="./maquette/icons/user.svg" alt="img user">
             </div>
-            <div class="colink">
+            <nav>
                 <ul>
                     <li><a href="#">Inscription</a></li>
                     <li><a href="#">Connexion</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
     </div>
 </header>

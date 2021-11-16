@@ -97,23 +97,74 @@ textarea {
   background-size: cover;
 }
 
-.header {
-  background-color: darkgrey;
+/* WRAPS */
+.wrap0 {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrap1 {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap2 {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap3 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap4 {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+#header {
+  background-color: lightgrey;
+  color: black;
+  font-family: "Roboto Light";
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   padding: 1rem;
 }
-.header nav {
+#header .wrap0 {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .wrap0 .coimg {
+  width: 50%;
+}
+#header .wrap0 nav {
   display: flex;
   flex-flow: row;
   margin: 0 0.4rem;
+  width: 25%;
 }
-.header nav li {
+#header .wrap0 nav ul {
+  display: flex;
+}
+#header .wrap0 nav li {
   padding: 0 0.4rem;
   transition: 0.7s;
 }
-.header nav li :hover {
+#header .wrap0 nav li :hover {
   color: white;
   background-color: lightblue;
 }
