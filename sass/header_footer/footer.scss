@@ -1,3 +1,20 @@
 #footer{
-  background-color: #bebebebe;
+
+    background:#bebebe;
+    position: fixed;
+    bottom: 0;
+
+  nav{
+      text-align: center;
+
+    ul{
+      display: flex;
+      flex-direction: row;
+
+      li{
+        gap: 1rem;
+
+      }
+    }
+  }
 }
