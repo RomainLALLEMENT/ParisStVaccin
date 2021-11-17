@@ -1,0 +1,39 @@
+@import "../inc/variable";
+@import "../inc/fonction";
+
+#vaccins{
+    background-color: white;
+    color: black;
+      .vrecher{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+      }
+      .vrecher label{
+        font-size: $sizeH1;
+      }
+      .vrecher input{
+        width: 30%;
+        border-radius: 22px;
+        border: 1px solid;
+        text-align: center;
+        padding: .5rem;
+        margin: 1rem;
+      }
+      .vaccins {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .vaccin {
+        width: 48%;
+        margin-right: 1rem;
+        background-color: yellow;
+        text-align: center;
+      }
+      .vaccin h2{
+        font-size: $sizeH2;
+      }
+      .vaccin p{
+        font-size: $sizeParagraphe;
+      }
+}

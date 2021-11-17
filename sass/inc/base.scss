@@ -18,7 +18,7 @@ body {
     background-color: blue;
     overflow-x: hidden;
     font-size: 2vw;
-    font-family: 'Arvo', serif;
+    font-family: $roboto;
     @include breakpoints(tablette) {
         font-size: 4vw;
     }
