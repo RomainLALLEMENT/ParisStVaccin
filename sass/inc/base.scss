@@ -74,6 +74,9 @@ textarea{
 .shadow-image{
     filter: drop-shadow(0.1rem 0.1rem 0.1rem black);
 }
+.text-shadow {
+    text-shadow: 1px 2px 3px #666;
+}
 .cover{
     background-size: cover;
 }

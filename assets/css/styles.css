@@ -96,6 +96,10 @@ textarea {
   filter: drop-shadow(0.1rem 0.1rem 0.1rem black);
 }
 
+.text-shadow {
+  text-shadow: 1px 2px 3px #666;
+}
+
 .cover {
   background-size: cover;
 }
@@ -144,6 +148,7 @@ textarea {
   flex-flow: row;
   justify-content: space-between;
   padding: 1rem;
+  font-size: 1.5rem;
 }
 #header .wrap0 {
   display: flex;
@@ -160,7 +165,8 @@ textarea {
   background: url("../../maquette/icons/user.svg") no-repeat;
   background-size: 100%;
   width: 144px;
-  height: 126px;
+  height: 90px;
+  margin-top: -35px;
 }
 #header .wrap0 ul {
   display: flex;
@@ -186,18 +192,37 @@ textarea {
 
 /*ajout des page ici*/
 #home {
-  background-color: yellow;
+  background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat;
+  background-size: 100%;
+  height: 1199px;
+}
+#home .wrap0 {
+  position: relative;
+}
+#home .wrap0 .title_absolute {
+  position: absolute;
+  top: 250px;
+  right: 3%;
+  text-align: center;
 }
 #home .wrap0 .title_absolute h2 {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 6rem;
 }
 #home .wrap0 .title_absolute h2:first-child {
   color: #88BABF;
 }
 #home .wrap0 .title_absolute h2:nth-child(2) {
   color: #60A6A6;
+  padding-bottom: 3rem;
+}
+#home .wrap0 .title_absolute a {
+  color: #73625C;
+  border: 2px #73625C solid;
+  border-radius: 20px;
+  padding: 0.8rem;
+  font-weight: 700;
 }
 
 #footer {

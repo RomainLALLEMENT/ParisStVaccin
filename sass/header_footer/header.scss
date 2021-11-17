@@ -9,6 +9,7 @@
     flex-flow: row;
     justify-content: space-between;
     padding: 1rem;
+    font-size: $sizeH2;
     .wrap0{
         display: flex;
         flex-flow: row;
@@ -23,7 +24,8 @@
             background: url("../../maquette/icons/user.svg") no-repeat;
             background-size: 100%;
             width: 144px;
-            height: 126px;
+            height: 90px;
+            margin-top: -35px;
         }
         ul{
             display: flex;

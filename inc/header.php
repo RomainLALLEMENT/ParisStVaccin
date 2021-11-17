@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="#">accueil</a></li>
-                <p>-</p>
+                <span>-</span>
                 <li><a href="#">vaccins</a></li>
             </ul>
         </nav>
@@ -25,7 +25,7 @@
             </div>
                 <ul>
                     <li><a href="#">Inscription</a></li>
-                    <p>/</p>
+                    <span>/</span>
                     <li><a href="#">Connexion</a></li>
                 </ul>
         </div>
