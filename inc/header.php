@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="#">accueil</a></li>
                 <span>-</span>
-                <li><a href="#">vaccins</a></li>
+                <li><a href="vaccins.php">vaccins</a></li>
             </ul>
         </nav>
         <div class="connection">
