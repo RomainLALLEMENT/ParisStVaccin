@@ -15,20 +15,19 @@
     <div class="wrap0">
         <nav>
             <ul>
-                <li><a href="#">accueil</a></li>
-                <li><a href="#">vaccins</a></li>
+                <li><a href="index.php">accueil</a></li>
+                <span>-</span>
+                <li><a href="vaccins.php">vaccins</a></li>
             </ul>
         </nav>
         <div class="connection">
             <div class="coimg">
-                <img src="./maquette/icons/user.svg" alt="img user">
             </div>
-            <nav>
                 <ul>
-                    <li><a href="#">Inscription</a></li>
-                    <li><a href="#">Connexion</a></li>
+                    <li><a href="register.php">Inscription</a></li>
+                    <span>|</span>
+                    <li><a href="login.php">Connexion</a></li>
                 </ul>
-            </nav>
         </div>
     </div>
 </header>

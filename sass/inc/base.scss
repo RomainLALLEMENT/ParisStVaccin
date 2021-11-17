@@ -18,7 +18,7 @@ body {
     background-color: blue;
     overflow-x: hidden;
     font-size: 2vw;
-    font-family: 'Arvo', serif;
+    font-family: $roboto;
     @include breakpoints(tablette) {
         font-size: 4vw;
     }
@@ -74,6 +74,9 @@ textarea{
 .shadow-image{
     filter: drop-shadow(0.1rem 0.1rem 0.1rem black);
 }
+.text-shadow {
+    text-shadow: 1px 2px 3px #666;
+}
 .cover{
     background-size: cover;
 }
@@ -110,3 +113,4 @@ textarea{
     margin: 0 auto;
     padding: 0 1rem;
 }
+@include formulaire();
