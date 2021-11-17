@@ -37,7 +37,7 @@
             }
             input::placeholder,textarea::placeholder{
                 color: black;
-                font-style: $roboto;
+                font-family: $roboto;
             }
             input[type='submit']{
                 background-color: $lightblue;
