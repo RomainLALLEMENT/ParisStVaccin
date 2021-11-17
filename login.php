@@ -5,7 +5,7 @@ require ('inc/pdo.php');
 require ('inc/request.php');
 
 $errors = [];
-debug($errors);
+//debug($errors);
 if (!empty($_POST['submitted'])) {
     // Faille XSS
     $login = cleanXss('login');
@@ -21,7 +21,7 @@ if (!empty($_POST['submitted'])) {
     $query->execute();
     $user = $query->fetch();
 
-    debug($user);
+//    debug($user);
     // Si User existe
     if (!empty($user)) {
         // Password verify
@@ -29,7 +29,7 @@ if (!empty($_POST['submitted'])) {
             echo 'MDP OK';
             // true =>
             $_SESSION['user'] = array(
-                'id'      => $user['ID'],
+                'id'      => $user['id'],
                 'email'   => $user['email'],
                 'pseudo'   => $user['pseudo'],
                 'nom'  => $user['nom'],
@@ -38,12 +38,13 @@ if (!empty($_POST['submitted'])) {
                 'role'    => $user['role'],
                 'ip'      => $_SERVER['REMOTE_ADDR'] // ::1
             );
-            debug($_SESSION);
+            header('Location: index.php');
+//            debug($_SESSION);
         } else {
             $errors['login'] = 'Quelque chose a bug';
         }
     } else {
-        $errors['login'] = 'Problème';
+        $errors['login'] = 'Problèmes';
     }
 }
 
