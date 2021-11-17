@@ -33,7 +33,7 @@ body {
     font-size: 4vw;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 350px) {
   body {
     font-size: 6vw;
   }
@@ -226,11 +226,29 @@ textarea {
   padding: 1rem;
   font-size: 1.5rem;
 }
+@media (max-width: 700px) {
+  #header {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 350px) {
+  #header {
+    font-size: 0.85rem;
+  }
+}
 #header .wrap0 {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 700px) {
+  #header .wrap0 {
+    padding: 0;
+    width: 100%;
+  }
 }
 #header .wrap0 .connection {
   display: flex;
@@ -243,6 +261,22 @@ textarea {
   width: 144px;
   height: 90px;
   margin-top: -35px;
+}
+@media (max-width: 700px) {
+  #header .wrap0 .coimg {
+    background-size: 95%;
+    width: 115px;
+    height: 70px;
+    margin-top: -20px;
+  }
+}
+@media (max-width: 350px) {
+  #header .wrap0 .coimg {
+    background-size: 98%;
+    width: 100px;
+    height: 55px;
+    margin-top: -20px;
+  }
 }
 #header .wrap0 ul {
   display: flex;
@@ -305,15 +339,27 @@ textarea {
   background-color: white;
   color: black;
 }
-#vaccins .vrecher {
+@media (max-width: 350px) {
+  #vaccins .wrap1 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+#vaccins .wrap1 .vrecher {
   display: flex;
   flex-flow: column;
   align-items: center;
 }
-#vaccins .vrecher label {
+#vaccins .wrap1 .vrecher label {
   font-size: 2rem;
 }
-#vaccins .vrecher input {
+@media (max-width: 700px) {
+  #vaccins .wrap1 .vrecher label {
+    font-size: 1rem;
+  }
+}
+#vaccins .wrap1 .vrecher input {
   width: 30%;
   border-radius: 22px;
   border: 1px solid;
@@ -321,30 +367,53 @@ textarea {
   padding: 0.5rem;
   margin: 1rem;
 }
-#vaccins .vaccins {
+@media (max-width: 700px) {
+  #vaccins .wrap1 .vrecher input {
+    width: 65%;
+  }
+}
+#vaccins .wrap1 .vaccins {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-#vaccins .vaccin {
+@media (max-width: 700px) {
+  #vaccins .wrap1 .vaccins {
+    flex-flow: column;
+    align-items: center;
+  }
+}
+#vaccins .wrap1 .vaccin {
   display: flex;
   flex-flow: column;
   width: 46%;
   margin: 1rem 0.8rem;
   text-align: center;
-  background-color: #00aeef;
+  /*background-color: #00aeef;*/
+  padding: 1rem 1rem;
 }
-#vaccins .vaccin div {
+@media (max-width: 700px) {
+  #vaccins .wrap1 .vaccin {
+    width: 75%;
+  }
+}
+@media (max-width: 350px) {
+  #vaccins .wrap1 .vaccin {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+#vaccins .wrap1 .vaccin div {
   display: flex;
   justify-content: center;
 }
-#vaccins .vaccin h2 {
+#vaccins .wrap1 .vaccin h2 {
   font-size: 1.5rem;
 }
-#vaccins .vaccin p {
+#vaccins .wrap1 .vaccin p {
   font-size: 0.85rem;
 }
-#vaccins .vimg {
+#vaccins .wrap1 .vimg {
   display: flex;
   align-items: center;
   background: url("../../maquette/icons/seringue.svg") no-repeat;

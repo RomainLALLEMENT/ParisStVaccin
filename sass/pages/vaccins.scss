@@ -4,51 +4,85 @@
 #vaccins{
     background-color: white;
     color: black;
-      .vrecher{
-        display: flex;
+  .wrap1 {
+    @include breakpoints(phone) {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .vrecher {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+
+    .vrecher label {
+      font-size: $sizeH1;
+      @include breakpoints(tablette){
+        font-size: $sizeH3;
+      }
+    }
+
+    .vrecher input {
+      width: 30%;
+      border-radius: 22px;
+      border: 1px solid;
+      text-align: center;
+      padding: .5rem;
+      margin: 1rem;
+      @include breakpoints(tablette){
+        width: 65%;
+      }
+    }
+
+    .vaccins {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      @include breakpoints(tablette) {
         flex-flow: column;
         align-items: center;
       }
-      .vrecher label{
-        font-size: $sizeH1;
+    }
+
+    .vaccin {
+      display: flex;
+      flex-flow: column;
+      width: 46%;
+      margin: 1rem .8rem;
+      text-align: center;
+      /*background-color: #00aeef;*/
+      padding: 1rem 1rem;
+      @include breakpoints(tablette) {
+        width: 75%;
       }
-      .vrecher input{
-        width: 30%;
-        border-radius: 22px;
-        border: 1px solid;
-        text-align: center;
-        padding: .5rem;
-        margin: 1rem;
+      @include breakpoints(phone) {
+        width: 100%;
+        margin: .5rem 0;
       }
-      .vaccins {
+
+      div {
         display: flex;
-        flex-flow: row wrap;
         justify-content: center;
       }
-      .vaccin {
-        display: flex;
-        flex-flow: column;
-        width: 46%;
-        margin: 1rem .8rem;
-        text-align: center;
-        background-color: #00aeef;
-        div{
-          display: flex;
-          justify-content: center;
-        }
-      }
-      .vaccin h2{
-        font-size: $sizeH2;
-      }
-      .vaccin p{
-        font-size: $sizeParagraphe;
-      }
-      .vimg{
-        display: flex;
-        align-items: center;
-        background: url("../../maquette/icons/seringue.svg") no-repeat;
-        background-size: 100%;
-        width : 145px;
-        height : 135px;
-      }
+    }
+
+    .vaccin h2 {
+      font-size: $sizeH2;
+    }
+
+    .vaccin p {
+      font-size: $sizeParagraphe;
+    }
+
+    .vimg {
+      display: flex;
+      align-items: center;
+      background: url("../../maquette/icons/seringue.svg") no-repeat;
+      background-size: 100%;
+      width: 145px;
+      height: 135px;
+    }
+  }
 }
