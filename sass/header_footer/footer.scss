@@ -3,11 +3,13 @@
 
 #footer{
   font-family: $roboto;
-  background:#bebebe;
+  background: $grey;
   color: black;
 
   .wrap0{
     display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     justify-content: center;
     nav{
       padding: 2rem;
@@ -23,37 +25,48 @@
             padding: 1rem;
             font-size: 1rem;
             text-align: center;
+            transition-duration: .6s;
           }
-
+          a:hover {
+            text-decoration-line: underline;
+            transition-duration: .6s;
+          }
         }
       }
 
     }
-  }
 
-  .logo_footer{
-    img{
-      width: 100px;
+    .logo_footer{
+      img{
+        width: 100px;
+      }
     }
-  }
-  .separator {
-    width: 30rem;
-    height: 3px;
-    background-color: white;
-    margin: 1rem auto;
-  }
+
+    .separator {
+      width: 30rem;
+      height: 3px;
+      background-color: white;
+      margin: 1rem auto;
+    }
 
     .social{
-       ul{
-         display: flex;
-         justify-content: center;
-         padding: 1rem;
+      ul{
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
 
-         li{
-           padding: 1rem;
-         }
-       }
+        li{
+          padding: 1rem;
+        }
+      }
+    }
+
+    .copyright {
+      font-family: $poiret;
+      font-size: 1rem;
+      padding: 1rem;
     }
   }
+}
 
 

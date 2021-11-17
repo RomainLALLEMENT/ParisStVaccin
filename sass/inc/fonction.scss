@@ -18,11 +18,20 @@
 @mixin formulaire {
     .wrap3 {
 
-        padding: 5rem;
+        padding: 9rem 1rem;
         form {
             background-color: $grey;
             border-radius: 1rem;
             padding: 3rem;
+
+            .error {
+                background-color: rgba(220,20,60,.9);
+                color: white;
+                font-size: .8rem;
+                padding: .5rem .3rem;
+                margin: 0 1rem 2rem 1rem;
+                border-radius: 8px;
+            }
 
             .wrap4{
                 display: flex;
@@ -48,17 +57,24 @@
                     border: none;
                     font-family: $roboto;
                     font-weight: 700;
-                    background-color: $lightblue;
-                    color: #FFFFFF;
+                    background-color: white;
+                    color: $brown;
                     cursor: pointer;
                     text-transform: uppercase;
                     font-size: 1.3rem;
+                    transition-duration: .6s;
+                }
+                input[type='submit']:hover{
+                    transition-duration: .6s;
+                    background-color: $lightblue;
+                    color: #FFFFFF;
                 }
 
                 .input_group {
                     display: flex;
                     flex-flow: column nowrap;
                     align-items: center;
+                    justify-content: center;
                     label {
                         font-family: $roboto;
                         font-size: 1.2rem;
@@ -87,14 +103,14 @@
                     display: flex;
                     flex-flow: row nowrap;
                     justify-content: space-between;
+                    padding-bottom: 2rem;
 
-                    .input_nom {
+                    .input_nom, .input_prenom {
                         width: 45%;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        align-items: center;
                     }
-                    .input_prenom {
-                        width: 45%;
-                    }
-
                 }
             }
         }

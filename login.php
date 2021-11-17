@@ -66,7 +66,7 @@ include ('inc/header.php'); ?>
                 <div class="input_group">
                     <label for="login">Username or email</label>
                     <input type="login" name="login" id="login" placeholder="Username or email" value="<?= recupInputValue('login'); ?>">
-                    <span class="error"><?= viewError($errors,'login'); ?></span>
+                    <?php viewError($errors,'login')  ?>
                 </div>
 
                 <div class="input_group">

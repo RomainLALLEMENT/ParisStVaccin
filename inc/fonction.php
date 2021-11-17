@@ -67,7 +67,7 @@ function recupInputValue($key){
 function viewError($errors,$key)
 {
     if(!empty($errors[$key])) {
-        echo $errors[$key];
+        echo '<span class="error">'.$errors[$key];'</span>';
     }
 }
 

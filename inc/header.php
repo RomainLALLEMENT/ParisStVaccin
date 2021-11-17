@@ -15,19 +15,17 @@
     <div class="wrap0">
         <nav>
             <ul>
+                <li><a href="index.php"><img src="https://blog-fr.orson.io/wp-content/uploads/2020/07/logostarbuck.png" alt="" style="width: 50%"></a></li>
                 <li><a href="index.php">accueil</a></li>
-                <span>-</span>
                 <li><a href="vaccins.php">vaccins</a></li>
             </ul>
         </nav>
         <div class="connection">
-            <div class="coimg">
-            </div>
-                <ul>
-                    <li><a href="register.php">Inscription</a></li>
-                    <span>|</span>
-                    <li><a href="login.php">Connexion</a></li>
-                </ul>
+            <div class="coimg"></div>
+            <ul>
+                <li><a href="register.php">Inscription</a></li>
+                <li><a href="login.php">Connexion</a></li>
+            </ul>
         </div>
     </div>
 </header>

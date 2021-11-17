@@ -53,43 +53,44 @@ include ('inc/header.php'); ?>
                     <div class="input_prenom">
                         <label for="prenom">Prénom</label>
                         <input type="prenom" name="prenom" id="prenom" placeholder="John" value="">
-                        <span class="error"><?php viewError($errors,'prenom') ?></span>
+                        <?php viewError($errors,'prenom')  ?>
                     </div>
                     <div class="input_nom">
                         <label for="nom">Nom</label>
                         <input type="nom" name="nom" id="nom" placeholder="Doe" value="">
-                        <span class="error"><?php viewError($errors,'nom')  ?></span>
+                        <?php viewError($errors,'nom')  ?>
                     </div>
                 </div>
 
                 <div class="input_group">
                     <label for="email">Adresse mail</label>
                     <input type="email" name="email" id="email" placeholder="monemail@example.com" value="">
-                    <span class="error"><?php viewError($errors,'email')  ?></span>
+                    <?php viewError($errors,'email')  ?>
                 </div>
 
-								<div class="input_group">
-									<label for="nom">speudo</label>
-									<input type="text" name="pseudo" id="pseudo" placeholder="Doe" value="">
-									<span class="error"><?php viewError($errors,'pseudo')  ?></span>
-								</div>
+                <div class="input_group">
+                    <label for="nom">Pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Doe" value="">
+                    <?php viewError($errors,'pseudo')  ?>
+                </div>
 
-								<div class="input_group">
-									<label for="age">Date de naissance</label>
-									<input type="date" name="age" id="age" value="">
-								</div>
+                <div class="input_group">
+                    <label for="age">Date de naissance</label>
+                    <input type="date" name="age" id="age" value="">
+                    <?php viewError($errors,'age')  ?>
+                </div>
 
                 <div class="input_group">
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
-										<span class="error"><?php viewError($errors,'password')  ?></span>
+                    <?php viewError($errors,'password')  ?>
                 </div>
 
-								<div class="input_group">
-									<label for="passwordConfirmation">Confirmer votre mot de passe</label>
-									<input type="password" name="passwordConfirmation" id="password" placeholder="Mot de passe" value="">
-									<span class="error"><?php viewError($errors,'passwordConfirmation')  ?></span>
-								</div>
+                <div class="input_group">
+                    <label for="passwordConfirmation">Confirmer votre mot de passe</label>
+                    <input type="password" name="passwordConfirmation" id="password" placeholder="Mot de passe" value="">
+                    <?php viewError($errors,'password')  ?>
+                </div>
 
                 <input type="submit" name="submitted" id="submitted" value="Se connecter">
             </div>
@@ -97,4 +98,4 @@ include ('inc/header.php'); ?>
     </div>
 
 <?php
-//include ('inc/footer.php');
+include ('inc/footer.php');
