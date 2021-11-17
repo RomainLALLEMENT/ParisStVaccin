@@ -1,3 +1,4 @@
+@import "variable";
 @mixin centreAll{
     justify-content: center;
     text-align: center;
@@ -12,4 +13,90 @@
 @mixin imgCover{
     object-fit: cover;
     background-repeat: no-repeat;
+}
+
+@mixin formulaire {
+    .wrap3 {
+
+        padding: 5rem;
+        form {
+            background-color: $grey;
+            border-radius: 1rem;
+            padding: 3rem;
+
+            .wrap4{
+                display: flex;
+                flex-flow: column nowrap;
+                align-content: center;
+
+                textarea{
+                    border-radius: 2rem;
+                    padding: 2rem;
+                }
+                textarea::placeholder{
+                    color: black;
+                    opacity: 30%;
+                    font-family: $roboto;
+                    font-weight: 700;
+                }
+
+                input[type='submit']{
+                    padding: 1rem;
+                    margin: 1rem 0;
+                    width: 100%;
+                    border-radius: 3rem;
+                    border: none;
+                    font-family: $roboto;
+                    font-weight: 700;
+                    background-color: $lightblue;
+                    color: #FFFFFF;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    font-size: 1.3rem;
+                }
+
+                .input_group {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    label {
+                        font-family: $roboto;
+                        font-size: 1.2rem;
+                        color: black;
+                        padding: 0 1rem;
+                    }
+                    input {
+                        padding: 1rem;
+                        margin: 1rem 0;
+                        width: 100%;
+                        border-radius: 3rem;
+                        border: none;
+                        color: black;
+                        font-family: $roboto;
+                        font-weight: 700;
+                    }
+                    .input::placeholder {
+                        color: black;
+                        opacity: 30%;
+                        font-family: $roboto;
+                        font-weight: 700;
+                    }
+                }
+
+                .input_names {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+
+                    .input_nom {
+                        width: 45%;
+                    }
+                    .input_prenom {
+                        width: 45%;
+                    }
+
+                }
+            }
+        }
+    }
 }
