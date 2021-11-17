@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 16 nov. 2021 à 23:34
+-- Généré le : mer. 17 nov. 2021 à 11:12
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -59,18 +59,19 @@ CREATE TABLE `psv_user` (
   `created_at` datetime NOT NULL,
   `email` varchar(200) NOT NULL,
   `token` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `role` varchar(15) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `psv_user`
 --
 
-INSERT INTO `psv_user` (`id`, `nom`, `prenom`, `age`, `created_at`, `email`, `token`, `password`) VALUES
-(1, 'BOSSIN', 'Maxence', '2000-11-09', '2021-11-16 23:12:08', 'maxencebossin@gmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6'),
-(2, 'Lalement ', 'Romain', '2002-04-12', '2021-11-16 23:12:08', 'Romain76@gmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6'),
-(3, 'Durand', 'Emma', '1987-01-21', '2021-11-16 23:25:08', 'EmmaDu@gmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6'),
-(4, 'Bernard', 'Camille', '2003-06-06', '2021-11-16 23:25:08', 'camile@hotmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6');
+INSERT INTO `psv_user` (`id`, `nom`, `prenom`, `age`, `created_at`, `email`, `token`, `password`, `role`) VALUES
+(1, 'BOSSIN', 'Maxence', '2000-11-09', '2021-11-16 23:12:08', 'maxencebossin@gmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6', 'user'),
+(2, 'Lalement ', 'Romain', '2002-04-12', '2021-11-16 23:12:08', 'Romain76@gmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6', 'user'),
+(3, 'Durand', 'Emma', '1987-01-21', '2021-11-16 23:25:08', 'EmmaDu@gmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6', 'user'),
+(4, 'Bernard', 'Camille', '2003-06-06', '2021-11-16 23:25:08', 'camile@hotmail.com', 'token', '$2y$10$9mRCVFoj.smshouKWdmHXu53/0mk/Iv/6RjcbNDKlxkFUAxJhW.h6', 'user');
 
 -- --------------------------------------------------------
 
