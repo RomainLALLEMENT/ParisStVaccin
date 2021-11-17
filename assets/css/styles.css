@@ -536,10 +536,7 @@ textarea {
 #footer {
   font-family: "Roboto Condensed", sans-serif;
   background: #bebebe;
-  position: fixed;
-  bottom: 0;
   color: black;
-  width: 100%;
 }
 #footer .wrap0 {
   display: flex;
