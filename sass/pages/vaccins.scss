@@ -23,17 +23,32 @@
       .vaccins {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
       }
       .vaccin {
-        width: 48%;
-        margin-right: 1rem;
-        background-color: yellow;
+        display: flex;
+        flex-flow: column;
+        width: 46%;
+        margin: 1rem .8rem;
         text-align: center;
+        background-color: #00aeef;
+        div{
+          display: flex;
+          justify-content: center;
+        }
       }
       .vaccin h2{
         font-size: $sizeH2;
       }
       .vaccin p{
         font-size: $sizeParagraphe;
+      }
+      .vimg{
+        display: flex;
+        align-items: center;
+        background: url("../../maquette/icons/seringue.svg") no-repeat;
+        background-size: 100%;
+        width : 145px;
+        height : 135px;
       }
 }

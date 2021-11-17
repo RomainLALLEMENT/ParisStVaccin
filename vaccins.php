@@ -28,12 +28,13 @@ include ('inc/header.php'); ?>
     $vaccins=$query->fetchAll();
 
     ?><div class="vaccins"> <?php
-        foreach ($vaccins as $vaccin){  ?>
-            <div class="vaccin">
-                <h2><?= $vaccin['libelle'];?></h2>
-                <p><?= $vaccin['description'];?></p>
-            </div>
-            <?php } ?>
+            foreach ($vaccins as $vaccin){  ?>
+                <div class="vaccin">
+                    <div><div class="vimg"></div></div>
+                    <h2><?= $vaccin['libelle'];?></h2>
+                    <p><?= $vaccin['description'];?></p>
+                </div>
+                <?php } ?>
         </div>
     </div>
 </section>
