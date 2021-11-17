@@ -1,3 +1,4 @@
+@import "variable";
 @mixin centreAll{
     justify-content: center;
     text-align: center;
@@ -12,4 +13,37 @@
 @mixin imgCover{
     object-fit: cover;
     background-repeat: no-repeat;
+}
+
+@mixin formulaire {
+    form {
+        background-color: $grey;
+        border-radius: 1rem;
+
+        .wrap4{
+            display: flex;
+            flex-flow: column;
+            align-content: center;
+            input,textarea{
+                padding: 1rem;
+                margin: 1rem 0;
+                width: 100%;
+                border-radius: 3rem;
+                border: none;
+            }
+            textarea{
+                border-radius: 2rem;
+                padding: 2rem;
+            }
+            input::placeholder,textarea::placeholder{
+                color: black;
+                font-style: $roboto;
+            }
+            input[type='submit']{
+                background-color: $lightblue;
+                color: #FFFFFF;
+            }
+        }
+
+    }
 }

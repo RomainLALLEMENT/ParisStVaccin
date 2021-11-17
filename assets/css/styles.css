@@ -140,6 +140,35 @@ textarea {
   padding: 0 1rem;
 }
 
+form {
+  background-color: #A4B3BF;
+  border-radius: 1rem;
+}
+form .wrap4 {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+}
+form .wrap4 input, form .wrap4 textarea {
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 3rem;
+  border: none;
+}
+form .wrap4 textarea {
+  border-radius: 2rem;
+  padding: 2rem;
+}
+form .wrap4 input::placeholder, form .wrap4 textarea::placeholder {
+  color: black;
+  font-style: "Roboto Condensed", sans-serif;
+}
+form .wrap4 input[type=submit] {
+  background-color: #7EDBDB;
+  color: #FFFFFF;
+}
+
 #header {
   background-color: #A4B3BF;
   color: black;
