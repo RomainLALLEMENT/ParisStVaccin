@@ -534,19 +534,48 @@ textarea {
 }
 
 #footer {
+  font-family: "Roboto Condensed", sans-serif;
   background: #bebebe;
   position: fixed;
   bottom: 0;
+  color: black;
+  width: 100%;
 }
-#footer nav {
-  text-align: center;
+#footer .wrap0 {
+  display: flex;
+  justify-content: center;
 }
-#footer nav ul {
+#footer .wrap0 nav {
+  padding: 2rem;
+}
+#footer .wrap0 nav ul {
   display: flex;
   flex-direction: row;
 }
-#footer nav ul li {
-  gap: 1rem;
+#footer .wrap0 nav ul li {
+  padding: 5px;
+}
+#footer .wrap0 nav ul li a {
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+#footer .logo_footer img {
+  width: 100px;
+}
+#footer .separator {
+  width: 30rem;
+  height: 3px;
+  background-color: white;
+  margin: 1rem auto;
+}
+#footer .social ul {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+#footer .social ul li {
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
