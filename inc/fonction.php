@@ -79,3 +79,18 @@ function recupInputValueForUpdate($key,$data)
         echo $data;
     }
 }
+function passwordConfirmationValidation($errors,$value,$value2,$key){
+    if($value !== $value2){
+        $errors[$key] = 'Mots de passe différents !';
+    }return $errors;
+}
+
+function generateRandomString($length = 200) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
