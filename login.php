@@ -1,7 +1,51 @@
 <?php
+session_start();
 require ('inc/fonction.php');
+require ('inc/pdo.php');
 require ('inc/request.php');
 
+$errors = [];
+debug($errors);
+if (!empty($_POST['submitted'])) {
+    // Faille XSS
+    $login = cleanXss('login');
+    $password = cleanXss('password');
+
+    // Validation des champs
+    $errors = textValidation($errors,$login,'login',2,255);
+
+    // Request
+    $sql = "SELECT * FROM psv_user WHERE email = :login OR pseudo = :login";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':login',$login,PDO::PARAM_STR);
+    $query->execute();
+    $user = $query->fetch();
+
+    debug($user);
+    // Si User existe
+    if (!empty($user)) {
+        // Password verify
+        if (password_verify($password, $user['password'])) {
+            echo 'MDP OK';
+            // true =>
+            $_SESSION['user'] = array(
+                'id'      => $user['ID'],
+                'email'   => $user['email'],
+                'pseudo'   => $user['pseudo'],
+                'nom'  => $user['nom'],
+                'prenom'  => $user['prenom'],
+                'age'  => $user['age'],
+                'role'    => $user['role'],
+                'ip'      => $_SERVER['REMOTE_ADDR'] // ::1
+            );
+            debug($_SESSION);
+        } else {
+            $errors['login'] = 'Quelque chose a bug';
+        }
+    } else {
+        $errors['login'] = 'Problème';
+    }
+}
 
 include ('inc/header.php'); ?>
 
@@ -19,9 +63,9 @@ include ('inc/header.php'); ?>
             <div class="wrap4">
 
                 <div class="input_group">
-                    <label for="email">Adresse mail</label>
-                    <input type="email" name="email" id="email" placeholder="monemail@example.com" value="">
-                    <span class="error"></span>
+                    <label for="login">Username or email</label>
+                    <input type="login" name="login" id="login" placeholder="Username or email" value="<?= recupInputValue('login'); ?>">
+                    <span class="error"><?= viewError($errors,'login'); ?></span>
                 </div>
 
                 <div class="input_group">
@@ -36,4 +80,4 @@ include ('inc/header.php'); ?>
 
 
 <?php
-//include ('inc/footer.php');
+include ('inc/footer.php');
