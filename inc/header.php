@@ -16,19 +16,18 @@
         <nav>
             <ul>
                 <li><a href="#">accueil</a></li>
+                <p>-</p>
                 <li><a href="#">vaccins</a></li>
             </ul>
         </nav>
         <div class="connection">
             <div class="coimg">
-                <img src="./maquette/icons/user.svg" alt="img user">
             </div>
-            <nav>
                 <ul>
                     <li><a href="#">Inscription</a></li>
+                    <p>/</p>
                     <li><a href="#">Connexion</a></li>
                 </ul>
-            </nav>
         </div>
     </div>
 </header>
