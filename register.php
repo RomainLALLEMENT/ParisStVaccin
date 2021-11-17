@@ -2,7 +2,12 @@
 require ('inc/fonction.php');
 require ('inc/request.php');
 
+/*Vérificatiion si le */
+$errors = [];
+if(!empty($_POST['submitted'])) {
+	// Faille xss
 
+}
 include ('inc/header.php'); ?>
 
     <section id="home_register">
