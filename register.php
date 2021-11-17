@@ -21,8 +21,9 @@ if(!empty($_POST['submitted'])) {
 	$errors = textValidation($errors, $nom,'nom',2,150);
 	$errors = textValidation($errors, $password,'password',4);
 	$errors = emailValidation($errors,$email,'email');
+    // confirmation que le deux mpd sont les mêmes
 	$errors = passwordConfirmationValidation($errors,$passwordConfirmation,$password,'passwordConfirmation');
-	// confirmation que le deux mpd sont les mêmes
+
     debug($errors);
  if(count($errors) 	 == 0){
 	 echo '0 erreur <br>';

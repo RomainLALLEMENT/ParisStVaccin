@@ -1,5 +1,5 @@
 <?php
-
+require ('inc/pdo.php');
 /* Partie User */
 
 // SELCT
