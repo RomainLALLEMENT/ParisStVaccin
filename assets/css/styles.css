@@ -1,17 +1,468 @@
-/* Error: expected "{".
- *    ,
- * 11 | @import "pages/vaccins";
- *    |                        ^
- *    '
- *   sass\style.scss 11:24  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 11 \2502  @import "pages/vaccins";\d\a    \2502                         ^\a    \2575 \a   sass\\style.scss 11:24  root stylesheet';
+/*REPONSIVE*/
+/*REPONSIVE*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*GOOGLE FONT */
+  @import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto+Condensed:wght@300;400;700&display=swap");
 }
+
+.clear:before, .clear:after {
+  content: " ";
+  display: table;
+}
+
+.clear:after {
+  clear: both;
+}
+
+.clear {
+  *zoom: 1;
+}
+
+body {
+  color: red;
+  background-color: blue;
+  overflow-x: hidden;
+  font-size: 2vw;
+  font-family: "Roboto Condensed", sans-serif;
+}
+@media (max-width: 700px) {
+  body {
+    font-size: 4vw;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 6vw;
+  }
+}
+
+/*BALISE DE BASE*/
+ul, ol, li, nav {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+p {
+  font-family: "Poiret One", cursive;
+}
+
+a {
+  font-family: "Roboto Condensed", sans-serif;
+  color: var(--noir);
+  text-decoration: none;
+}
+
+em {
+  font-style: normal;
+}
+
+strong {
+  font-style: normal;
+  font-size: 3em;
+}
+
+textarea {
+  resize: none;
+}
+
+/*reset de toute les fonts, on augmente la taille avec des em*/
+/*CLASS*/
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.shadow {
+  -webkit-box-shadow: 1.25vw 1.25vw 1.25vw -0.625vw lightgray;
+  -moz-box-shadow: 1.25vw 1.25vw 0.625vw -0.625vw lightgray;
+  box-shadow: 1.25vw 1.25vw 0.625vw -0.625vw lightgray;
+}
+
+.shadow-image {
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem black);
+}
+
+.text-shadow {
+  text-shadow: 1px 2px 3px #666;
+}
+
+.cover {
+  background-size: cover;
+}
+
+/* WRAPS */
+.wrap0 {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrap1 {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap2 {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap3 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap4 {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrap3 {
+  padding: 5rem;
+}
+.wrap3 form {
+  background-color: #A4B3BF;
+  border-radius: 1rem;
+  padding: 3rem;
+}
+.wrap3 form .wrap4 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+}
+.wrap3 form .wrap4 textarea {
+  border-radius: 2rem;
+  padding: 2rem;
+}
+.wrap3 form .wrap4 textarea::placeholder {
+  color: black;
+  opacity: 30%;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+}
+.wrap3 form .wrap4 input[type=submit] {
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 3rem;
+  border: none;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  background-color: #7EDBDB;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+.wrap3 form .wrap4 .input_group {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.wrap3 form .wrap4 .input_group label {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.2rem;
+  color: black;
+  padding: 0 1rem;
+}
+.wrap3 form .wrap4 .input_group input {
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 3rem;
+  border: none;
+  color: black;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+}
+.wrap3 form .wrap4 .input_group .input::placeholder {
+  color: black;
+  opacity: 30%;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+}
+.wrap3 form .wrap4 .input_names {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.wrap3 form .wrap4 .input_names .input_nom {
+  width: 45%;
+}
+.wrap3 form .wrap4 .input_names .input_prenom {
+  width: 45%;
+}
+
+#header {
+  background-color: #A4B3BF;
+  color: black;
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+#header .wrap0 {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .wrap0 .connection {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#header .wrap0 .coimg {
+  background: url("../../maquette/icons/user.svg") no-repeat;
+  background-size: 100%;
+  width: 144px;
+  height: 90px;
+  margin-top: -35px;
+}
+#header .wrap0 ul {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1.2rem;
+}
+#header .wrap0 nav {
+  display: flex;
+  flex-flow: row;
+  margin: 0 0.4rem;
+  width: 25%;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#header .wrap0 nav li {
+  padding: 0 0.4rem;
+  transition: 0.7s;
+}
+#header .wrap0 nav li :hover {
+  color: white;
+  background-color: lightblue;
+}
+
+/*ajout des page ici*/
+#home {
+  background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat;
+  background-size: 100%;
+  height: 1000px;
+}
+#home .wrap0 {
+  position: relative;
+}
+#home .wrap0 .title_absolute {
+  position: absolute;
+  top: 250px;
+  right: 3%;
+  text-align: center;
+}
+#home .wrap0 .title_absolute h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 6rem;
+}
+#home .wrap0 .title_absolute h2:first-child {
+  color: #88BABF;
+}
+#home .wrap0 .title_absolute h2:nth-child(2) {
+  color: #60A6A6;
+  padding-bottom: 3rem;
+}
+#home .wrap0 .title_absolute a {
+  color: #73625C;
+  border: 2px #73625C solid;
+  border-radius: 20px;
+  padding: 0.8rem;
+  font-weight: 700;
+}
+
+#vaccins {
+  background-color: white;
+  color: black;
+}
+#vaccins .vrecher {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+#vaccins .vrecher label {
+  font-size: 2rem;
+}
+#vaccins .vrecher input {
+  width: 30%;
+  border-radius: 22px;
+  border: 1px solid;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+#vaccins .vaccins {
+  display: flex;
+  flex-flow: row wrap;
+}
+#vaccins .vaccin {
+  width: 48%;
+  margin-right: 1rem;
+  background-color: yellow;
+  text-align: center;
+}
+#vaccins .vaccin h2 {
+  font-size: 1.5rem;
+}
+#vaccins .vaccin p {
+  font-size: 0.85rem;
+}
+
+#home_login {
+  background: url("../../assets/img/backgrounds/connexion.jpg") no-repeat;
+  background-size: 100%;
+  height: 1000px;
+}
+#home_login .wrap0 {
+  position: relative;
+}
+#home_login .wrap0 .title_absolute {
+  position: absolute;
+  top: 250px;
+  right: 3%;
+  text-align: center;
+}
+#home_login .wrap0 .title_absolute h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 6rem;
+}
+#home_login .wrap0 .title_absolute h2:first-child {
+  color: #88BABF;
+}
+#home_login .wrap0 .title_absolute h2:nth-child(2) {
+  color: #60A6A6;
+  padding-bottom: 3rem;
+}
+
+#home_register {
+  background: url("../../assets/img/backgrounds/inscription.jpg") no-repeat;
+  background-size: 100%;
+  height: 1000px;
+}
+#home_register .wrap0 {
+  position: relative;
+}
+#home_register .wrap0 .title_absolute {
+  position: absolute;
+  top: 250px;
+  right: 3%;
+  text-align: center;
+}
+#home_register .wrap0 .title_absolute h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 6rem;
+}
+#home_register .wrap0 .title_absolute h2:first-child {
+  color: #88BABF;
+}
+#home_register .wrap0 .title_absolute h2:nth-child(2) {
+  color: #60A6A6;
+  padding-bottom: 3rem;
+}
+
+#panel_buttons {
+  padding: 3rem;
+  background-color: white;
+}
+#panel_buttons .wrap2 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#panel_buttons .wrap2 .container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#panel_buttons .wrap2 .container a {
+  color: #73625C;
+  border: 2px #73625C solid;
+  border-radius: 20px;
+  padding: 0.8rem;
+  font-weight: 700;
+}
+#panel_buttons .wrap2 .container .element1 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+#panel_buttons .wrap2 .container .element1 .img1 {
+  background: url("../../maquette/icons/seringue.svg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
+}
+#panel_buttons .wrap2 .container .element2 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+#panel_buttons .wrap2 .container .element2 .img2 {
+  background: url("../../maquette/icons/carnet.svg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
+}
+#panel_buttons .wrap2 .container .element3 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+#panel_buttons .wrap2 .container .element3 .img3 {
+  background: url("../../maquette/icons/vaccins.svg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
+}
+
+#footer {
+  background: #bebebe;
+  position: fixed;
+  bottom: 0;
+}
+#footer nav {
+  text-align: center;
+}
+#footer nav ul {
+  display: flex;
+  flex-direction: row;
+}
+#footer nav ul li {
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
