@@ -24,9 +24,9 @@
             <div class="coimg">
             </div>
                 <ul>
-                    <li><a href="#">Inscription</a></li>
-                    <span>/</span>
-                    <li><a href="#">Connexion</a></li>
+                    <li><a href="register.php">Inscription</a></li>
+                    <span>|</span>
+                    <li><a href="login.php">Connexion</a></li>
                 </ul>
         </div>
     </div>
