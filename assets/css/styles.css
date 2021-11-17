@@ -194,7 +194,7 @@ textarea {
 #home {
   background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat;
   background-size: 100%;
-  height: 1199px;
+  height: 1000px;
 }
 #home .wrap0 {
   position: relative;
@@ -223,6 +223,63 @@ textarea {
   border-radius: 20px;
   padding: 0.8rem;
   font-weight: 700;
+}
+
+#panel_buttons {
+  padding: 3rem;
+  background-color: white;
+}
+#panel_buttons .wrap2 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#panel_buttons .wrap2 .container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#panel_buttons .wrap2 .container a {
+  color: #73625C;
+  border: 2px #73625C solid;
+  border-radius: 20px;
+  padding: 0.8rem;
+  font-weight: 700;
+}
+#panel_buttons .wrap2 .container .element1 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+#panel_buttons .wrap2 .container .element1 .img1 {
+  background: url("../../maquette/icons/seringue.svg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
+}
+#panel_buttons .wrap2 .container .element2 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+#panel_buttons .wrap2 .container .element2 .img2 {
+  background: url("../../maquette/icons/carnet.svg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
+}
+#panel_buttons .wrap2 .container .element3 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+#panel_buttons .wrap2 .container .element3 .img3 {
+  background: url("../../maquette/icons/vaccins.svg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  width: 200px;
 }
 
 #footer {
