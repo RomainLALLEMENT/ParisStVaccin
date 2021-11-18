@@ -1,3 +1,6 @@
+<?php session_start();
+debug($_SESSION);
+?>
 <!doctype html>
 <html lang="fr">
 <head>
