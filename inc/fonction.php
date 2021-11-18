@@ -60,6 +60,23 @@ function numberValidation($errors,$value,$key,$min=3,$max=1000000)
     return $errors;
 }
 
+function dateValidation($errors,$value,$key){
+    if(strtotime($value) >= strtotime(date('Y-m-d'))){
+        $errors[$key] = 'Veuillez rentrez une date valide';
+    }
+    if(empty($value)){
+        $errors[$key] = 'Veuillez selectionez une date';
+    }
+    return $errors;
+}
+
+function selectValidation($errors,$value,$key){
+    if(empty($value)){
+        $errors[$key] = 'Veuillez selctionner un vaccin';
+    }
+    return $errors;
+}
+
 function recupInputValue($key){
     if(!empty($_POST[$key]))return $_POST[$key];
 }
@@ -85,7 +102,7 @@ function passwordConfirmationValidation($errors,$value,$value2,$key){
     }return $errors;
 }
 
-function generateRandomString($length = 200) {
+function generateRandomString(int $length = 200) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
