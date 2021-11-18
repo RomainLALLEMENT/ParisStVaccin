@@ -2,7 +2,7 @@
 $serveur  = 'localhost';
 $bdd      = 'psv';
 $username = 'root';
-$password = '';
+$password = 'root';
 try {
     $pdo = new PDO('mysql:host='.$serveur.';dbname='.$bdd.'', ''.$username.'', ''.$password.'', array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",

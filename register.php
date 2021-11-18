@@ -26,18 +26,11 @@ if(!empty($_POST['submitted'])) {
 
     debug($errors);
     /*requete*/
+/*FONCTION EMAIL ALLER VOIR DANS FONCTION.PHP*/
+    $email_validation = emailValidationBdd($email);
+    $pseudo_validation = pseudoValidationBdd($pseudo);
 
-    $sql = "SELECT * FROM psv_user WHERE email = :email";/*select= sectionne * = prend tous from= qui provient de la table choisi where= condition, si l'email correspond bien a l'email renseigne dans l'inscription*/
-    $query = $pdo->prepare($sql); /*ont prepare la requete*/
-    $query->bindValue(':email',$email,PDO::PARAM_STR); /*pour proteger avec les : pdo est la pour rerrifier si il n'a pas de parametre bizarre et que ca soit bien une chaine de caractere*/
-    $query->execute();
-    $email_validation = $query->fetch();
 
-    $sql2 = "SELECT * FROM psv_user WHERE pseudo = :pseudo";
-    $query =$pdo->prepare($sql2);
-    $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
-    $query->execute();
-    $pseudo_validation =$query->fetch();
 
     /*MESSAGE D'ERREUR SI EXISTE PAS */
     if ($email_validation){
