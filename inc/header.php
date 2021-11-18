@@ -1,6 +1,3 @@
-<?php session_start();
-debug($_SESSION);
-?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -28,6 +25,7 @@ debug($_SESSION);
             <ul>
                 <li><a href="register.php">Inscription</a></li>
                 <li><a href="login.php">Connexion</a></li>
+                <li><a href="logout.php">Déconnexion</a></li>
             </ul>
         </div>
     </div>
