@@ -1,6 +1,8 @@
 <?php
-//afficher la listes des carnets (extrait)
-include ('../inc/header_back.php');
+// ajouter un rôle
+//modifier un rôle
+//supprimer un rôle
+include('inc/header_back.php');
 ?>
 
     <div class="page-wrapper">
@@ -33,4 +35,4 @@ include ('../inc/header_back.php');
         </div>
 
 <?php
-include ('../inc/footer_back.php');
+include('inc/footer_back.php');

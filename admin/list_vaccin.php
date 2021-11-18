@@ -1,6 +1,6 @@
 <?php
-
-include ('../inc/header_back.php');
+//liste des vaccins
+include('inc/header_back.php');
 ?>
 
     <div class="page-wrapper">
@@ -33,4 +33,4 @@ include ('../inc/header_back.php');
         </div>
 
 <?php
-include ('../inc/footer_back.php');
+include('inc/footer_back.php');

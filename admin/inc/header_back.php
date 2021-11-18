@@ -107,17 +107,25 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                    <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Tableau de bord</span></a>
                     </li>
                     <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Tables</span></a>
                     </li>
                     <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="user" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">User</span></a>
+                    <li> <a class="waves-effect waves-dark" href="list_user.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Utilisateurs</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="vaccin" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Vaccin</span></a>
+                    <li> <a class="waves-effect waves-dark" href="role_user.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Rôles des utilisateurs</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="carnet" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Carnet</span></a>
+                    <li> <a class="waves-effect waves-dark" href="list_vaccin.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Vaccins</span></a>
+                    </li>
+                    <li> <a class="waves-effect waves-dark" href="add_vaccin.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Ajouter un vaccin</span></a>
+                    </li>
+                    <li> <a class="waves-effect waves-dark" href="edit_vaccin.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Modifier un vaccin</span></a>
+                    </li>
+                    <li> <a class="waves-effect waves-dark" href="list_carnet.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Carnets</span></a>
+                    </li>
+                    <li> <a class="waves-effect waves-dark" href="details_carnet.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Détails carnets</span></a>
                     </li>
                 </ul>
             </nav>
