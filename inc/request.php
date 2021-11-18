@@ -26,7 +26,8 @@ function putNewUser(string $nom,string $prenom,string $age,string $email, string
 /* Partie vaccins */
 
 // SELCT
-function getAllVaccinName(){
+function getAllVaccinName(): array
+{
     global $pdo;
     $sql = "SELECT `libelle` FROM `psv_vaccin`";
     $query = $pdo->prepare($sql);
@@ -38,6 +39,16 @@ function getAllVaccinName(){
     }
     return $vaccins;
 }
+
+function getMoisRappel(int $id):array
+{
+    global $pdo;
+    $sql = "SELECT `temps_rappel` FROM `psv_vaccin` WHERE `id` = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id',$id,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetch();
+}
 // INSERT
 
 // UPDATE
@@ -47,6 +58,54 @@ function getAllVaccinName(){
 
 // SELCT
 
+function getVaccinsUser(int $idUser):array
+{
+    global $pdo;
+    $vaccins=[];
+    $sql = "SELECT `id_vaccin` FROM `psv_carnet` WHERE `id_user` = :idUser;";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+    $query->execute();
+    $vaccinsSql = $query->fetchAll();
+    foreach ($vaccinsSql as $vaccin){
+        $vaccins[] .= $vaccin['id_vaccin'];
+    }
+    return $vaccins;
+}
+
 // INSERT
 
+function putNewVaccinOnCarnet( int $idVaccin,int $idUser, string $date, int $mois):void
+{
+    global $pdo;
+    $sql = "
+        INSERT INTO `psv_carnet`(`id_vaccin`, `id_user`, `premiere_date`, `date_prochain`) 
+        VALUES (:idVaccin,:idUser,:date,DATE_ADD(:date,INTERVAL +:mois MONTH))
+        ";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idVaccin',$idVaccin,PDO::PARAM_INT);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+    $query->bindValue(':date',$date);
+    $query->bindValue(':mois',$mois,PDO::PARAM_INT);
+    $query->execute();
+}
+
+
 // UPDATE
+
+/*Verif*/
+function verifOccurenceUserVaccin( int $idVaccin,int $idUser):bool
+{
+    $bool = true;
+    $vaccins = getVaccinsUser($idUser);
+    foreach ($vaccins as $v){
+        if($v = $idVaccin){
+            $bool = false;
+            break;
+        }
+    }
+    return $bool;
+}
+
+
+

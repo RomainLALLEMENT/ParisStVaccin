@@ -71,7 +71,7 @@ function dateValidation($errors,$value,$key){
 }
 
 function selectValidation($errors,$value,$key){
-    if(empty($value)){
+    if($value<=0){
         $errors[$key] = 'Veuillez selctionner un vaccin';
     }
     return $errors;
