@@ -2,9 +2,8 @@
 require ('inc/fonction.php');
 require ('inc/request.php');
 require ('inc/pdo.php');
-
-
-include ('inc/header.php'); ?>
+include ('inc/header.php');
+?>
 
     <section id="home">
         <div class="wrap0">

@@ -1,11 +1,12 @@
 <?php
-session_start();
 require ('inc/fonction.php');
 require ('inc/request.php');
 
-debug($_SESSION);
 
-include ('inc/header.php'); ?>
+
+include ('inc/header.php');
+debug($_SESSION);
+?>
 
 <section id="home">
     <div class="wrap0">
