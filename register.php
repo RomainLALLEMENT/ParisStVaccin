@@ -52,12 +52,12 @@ include ('inc/header.php'); ?>
                 <div class="input_group input_names">
                     <div class="input_prenom">
                         <label for="prenom">Prénom</label>
-                        <input type="prenom" name="prenom" id="prenom" placeholder="John" value="">
+                        <input type="text" name="prenom" id="prenom" placeholder="John" value="">
                         <?php viewError($errors,'prenom')  ?>
                     </div>
                     <div class="input_nom">
                         <label for="nom">Nom</label>
-                        <input type="nom" name="nom" id="nom" placeholder="Doe" value="">
+                        <input type="text" name="nom" id="nom" placeholder="Doe" value="">
                         <?php viewError($errors,'nom')  ?>
                     </div>
                 </div>
