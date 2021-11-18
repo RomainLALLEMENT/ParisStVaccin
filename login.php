@@ -14,11 +14,7 @@ if (!empty($_POST['submitted'])) {
     $errors = textValidation($errors,$login,'login',2,255);
 
     // Request
-    $sql = "SELECT * FROM psv_user WHERE email = :login OR pseudo = :login";
-    $query = $pdo->prepare($sql);
-    $query->bindValue(':login',$login,PDO::PARAM_STR);
-    $query->execute();
-    $user = $query->fetch();
+   $user = selectEmailOrPseudo($login);
 
 //    debug($user);
     // Si User existe
