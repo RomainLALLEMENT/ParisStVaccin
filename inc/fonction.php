@@ -94,3 +94,39 @@ function generateRandomString($length = 200) {
     }
     return $randomString;
 }
+
+function isLogged()
+{
+    if(!empty($_SESSION['user'])) {
+        if (!empty($_SESSION['user']['id'])) {
+            if (!empty($_SESSION['user']['email'])) {
+                if (!empty($_SESSION['user']['pseudo'])) {
+                    if (!empty($_SESSION['user']['nom'])) {
+                        if (!empty($_SESSION['user']['prenom'])) {
+                            if (!empty($_SESSION['user']['age'])) {
+                                if (!empty($_SESSION['user']['role'])) {
+                                    if (!empty($_SESSION['user']['ip'])) {
+                                        if ($_SESSION['user']['ip'] == $_SERVER['REMOTE_ADDR']) {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function isAdmin()
+{
+    if(isLogged()) {
+        if($_SESSION['user']['role'] == 'admin') {
+            return true;
+        }
+    }
+    return false;
+}

@@ -2,6 +2,8 @@
 require ('inc/fonction.php');
 require ('inc/request.php');
 
+session_start();
+debug($_SESSION);
 
 include ('inc/header.php'); ?>
 

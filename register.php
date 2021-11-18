@@ -25,6 +25,28 @@ if(!empty($_POST['submitted'])) {
 	$errors = passwordConfirmationValidation($errors,$passwordConfirmation,$password,'passwordConfirmation');
 
     debug($errors);
+    /*requete*/
+
+    $sql = "SELECT * FROM psv_user WHERE email = :email";/*select= sectionne * = prend tous from= qui provient de la table choisi where= condition, si l'email correspond bien a l'email renseigne dans l'inscription*/
+    $query = $pdo->prepare($sql); /*ont prepare la requete*/
+    $query->bindValue(':email',$email,PDO::PARAM_STR); /*pour proteger avec les : pdo est la pour rerrifier si il n'a pas de parametre bizarre et que ca soit bien une chaine de caractere*/
+    $query->execute();
+    $email_validation = $query->fetch();
+
+    $sql2 = "SELECT * FROM psv_user WHERE pseudo = :pseudo";
+    $query =$pdo->prepare($sql2);
+    $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
+    $query->execute();
+    $pseudo_validation =$query->fetch();
+
+    /*MESSAGE D'ERREUR SI EXISTE PAS */
+    if ($email_validation){
+        $errors['email'] = 'l\'adresse mail existe déja !';
+    }
+    if ($pseudo_validation){
+        $errors['pseudo'] = 'ce pseudo existe déja !';
+    }
+
  if(count($errors) 	 == 0){
 	 echo '0 erreur <br>';
      $token    = generateRandomString(255);
@@ -52,31 +74,31 @@ include ('inc/header.php'); ?>
                 <div class="input_group input_names">
                     <div class="input_prenom">
                         <label for="prenom">Prénom</label>
-                        <input type="prenom" name="prenom" id="prenom" placeholder="John" value="">
+                        <input type="prenom" name="prenom" id="prenom" placeholder="John" value="<?= recupInputValue('prenom');?>">
                         <?php viewError($errors,'prenom')  ?>
                     </div>
                     <div class="input_nom">
                         <label for="nom">Nom</label>
-                        <input type="nom" name="nom" id="nom" placeholder="Doe" value="">
+                        <input type="nom" name="nom" id="nom" placeholder="Doe" value="<?= recupInputValue('nom');?>">
                         <?php viewError($errors,'nom')  ?>
                     </div>
                 </div>
 
                 <div class="input_group">
                     <label for="email">Adresse mail</label>
-                    <input type="email" name="email" id="email" placeholder="monemail@example.com" value="">
+                    <input type="email" name="email" id="email" placeholder="monemail@example.com" value="<?= recupInputValue('email');?>">
                     <?php viewError($errors,'email')  ?>
                 </div>
 
                 <div class="input_group">
                     <label for="nom">Pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Doe" value="">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Doe" value="<?= recupInputValue('pseudo');?>">
                     <?php viewError($errors,'pseudo')  ?>
                 </div>
 
                 <div class="input_group">
                     <label for="age">Date de naissance</label>
-                    <input type="date" name="age" id="age" value="">
+                    <input type="date" name="age" id="age" value="<?= recupInputValue('age');?>">
                     <?php viewError($errors,'age')  ?>
                 </div>
 
@@ -92,7 +114,7 @@ include ('inc/header.php'); ?>
                     <?php viewError($errors,'password')  ?>
                 </div>
 
-                <input type="submit" name="submitted" id="submitted" value="Se connecter">
+                <input type="submit" name="submitted" id="submitted" value="S'inscrire">
             </div>
         </form>
     </div>
