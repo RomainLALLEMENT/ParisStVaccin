@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -23,9 +24,18 @@
         <div class="connection">
             <div class="coimg"></div>
             <ul>
-                <li><a href="register.php">Inscription</a></li>
-                <li><a href="login.php">Connexion</a></li>
-                <li><a href="logout.php">Déconnexion</a></li>
+
+                <li><a href="index.php">Accueil</a></li>
+                <?php if(isLogged()) { ?>
+                    <li><a href="logout.php">Logout</a></li>
+                    <?php if(isAdmin()) { ?>
+                        <li><a href="admin/index.php">Admin</a></li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li><a href="register.php">Inscription</a></li>
+                    <li><a href="login.php">Connexion</a></li>
+                <?php } ?>
+
             </ul>
         </div>
     </div>
