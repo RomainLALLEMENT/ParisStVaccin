@@ -49,8 +49,6 @@ if(!empty($_POST['submitted'])) {
 				}else{
             $occurence = false;
 				}
-
-
 				if($occurence === false){
 					putNewVaccinOnCarnet($idVaccin,$idUser,$date,$nombreMoisrappel);
         	echo 'vaccin non renseigné !';
