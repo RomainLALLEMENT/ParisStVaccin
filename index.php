@@ -1,11 +1,9 @@
 <?php
 require ('inc/fonction.php');
 require ('inc/request.php');
-
 include ('inc/header.php');
-session_start();
-debug($_SESSION);?>
-
+debug($_SESSION);
+?>
 <section id="home">
     <div class="wrap0">
         <div class="title_absolute uppercase">

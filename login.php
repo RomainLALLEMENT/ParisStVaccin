@@ -2,7 +2,7 @@
 require ('inc/fonction.php');
 require ('inc/pdo.php');
 require ('inc/request.php');
-
+include ('inc/header.php');
 $errors = [];
 //debug($errors);
 if (!empty($_POST['submitted'])) {
@@ -37,8 +37,9 @@ if (!empty($_POST['submitted'])) {
                 'role'    => $user['role'],
                 'ip'      => $_SERVER['REMOTE_ADDR'] // ::1
             );
+            debug($_SESSION);
             header('Location: index.php');
-//            debug($_SESSION);
+//
         } else {
             $errors['login'] = 'Quelque chose a bug';
         }
@@ -47,7 +48,7 @@ if (!empty($_POST['submitted'])) {
     }
 }
 
-include ('inc/header.php'); ?>
+ ?>
 
     <section id="home_login">
         <div class="wrap0">
