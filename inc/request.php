@@ -26,7 +26,18 @@ function putNewUser(string $nom,string $prenom,string $age,string $email, string
 /* Partie vaccins */
 
 // SELCT
-
+function getAllVaccinName(){
+    global $pdo;
+    $sql = "SELECT `libelle` FROM `psv_vaccin`";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $vaccinsSql = $query->fetchAll();
+    $vaccins=[];
+    foreach ($vaccinsSql as $vaccin){
+        $vaccins[] .= $vaccin['libelle'];
+    }
+    return $vaccins;
+}
 // INSERT
 
 // UPDATE
