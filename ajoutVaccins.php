@@ -6,16 +6,11 @@ $errors=[];
 $occurence ='';
 // sql recup tous les vaccins pour la liste déroulante
 $vaccins = getAllVaccinName();
-debug($vaccins);
-echo '<br>';
-debug($_SESSION);
-
 // verif id USER
 /*a réaliser*/
 
 // Soumission du formulaire
 if(!empty($_POST['submitted'])) {
-    debug($_POST);
     echo 'formulaire soumis <br>';
     // Faille xss
     $date   = cleanXss('date');
@@ -24,9 +19,7 @@ if(!empty($_POST['submitted'])) {
    $errors  =  dateValidation($errors, $date,'date');
 	 $errors  = selectValidation($errors,$vaccin,'vaccin');
 	 $idVaccin = $vaccin;
-	debug($errors);
     if(count($errors)== 0){
-        echo 'pas derreur <br>';
 			/*On recupêrer les donnés pour l'insert*/
         $idVaccin         = intval($vaccin);
         $idUser           = $_SESSION['user']['id'];
@@ -34,21 +27,19 @@ if(!empty($_POST['submitted'])) {
 				/*faire une vérife qu'il n'existe déjà pas une occurence entre id vaccin et id user si oui rediriger le user dans la liste de vaccins pourqu'il puisse si besoin modifier les information quand a sa vaccination sinon on envoie les données*/
 			//	$succes = verifOccurenceUserVaccin($idVaccin,$idUser);
 				$verifVaccinsUser = getVaccinsUser($idUser);
-				echo '<br> debut id vaccins user';
-				debug($verifVaccinsUser);
-        echo '<br> fin id vaccins user';
-				if(!empty($verifVaccinsUser)){
-            for ($i=0 ; $i <= (count($verifVaccinsUser)-1);$i++){
-                if($verifVaccinsUser[$i] === $idVaccin){
-                    $occurence = true;
-                    break;
-                }else{
-                    $occurence = false;
-                }
-            }
+				if(!empty($verifVaccinsUser) === true){
+					for ($i=0 ; $i <= (count($verifVaccinsUser)-1);$i++){
+						if(intval($verifVaccinsUser[$i]) === $idVaccin){
+							$occurence = true;
+							break;
+						}else{
+							$occurence = false;
+						}
+					}
 				}else{
             $occurence = false;
 				}
+				/*si il n'y a pas d'occurence dans la bdd on applique la requette*/
 				if($occurence === false){
 					putNewVaccinOnCarnet($idVaccin,$idUser,$date,$nombreMoisrappel);
         	echo 'vaccin non renseigné !';
@@ -57,7 +48,6 @@ if(!empty($_POST['submitted'])) {
          echo 'vaccin déja renseigné !';
 						/*faire une rediction ou proposé au user de modif le vaccin renseingé*/
 				}
-
 		}
 }
 
@@ -91,7 +81,5 @@ if(!empty($_POST['submitted'])) {
         </div>
     </form>
 </div>
-
-
 <?php
 include ('inc/footer.php');
