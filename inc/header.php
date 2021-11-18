@@ -19,6 +19,7 @@
                 <li><a href="index.php"><img src="https://blog-fr.orson.io/wp-content/uploads/2020/07/logostarbuck.png" alt="" style="width: 50%"></a></li>
                 <li><a href="index.php">accueil</a></li>
                 <li><a href="vaccins.php">vaccins</a></li>
+                <li><a href="ajoutVaccins.php">ajoutVaccins (à moddif)</a></li>
             </ul>
         </nav>
         <div class="connection">
