@@ -1,3 +1,4 @@
-#SQL
-#maquette
-#.idea
+SQL
+maquette
+.idea
+inc/pdo.php
