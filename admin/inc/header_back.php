@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
@@ -131,21 +132,21 @@
                     <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false" target="_blank"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                     </li>
                     <li class="separator_menu"><span>Utilisateurs</span></li>
-                    <li> <a class="waves-effect waves-dark" href="list_user.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Liste</span></a>
+                    <li> <a class="waves-effect waves-dark" href="list_user.php" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Liste</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="role_user.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Rôles</span></a>
+                    <li> <a class="waves-effect waves-dark" href="role_user.php" aria-expanded="false"><i class="fas fa-users-cog"></i><span class="hide-menu">Rôles</span></a>
                     </li>
                     <li class="separator_menu"><span>Vaccins</span></li>
-                    <li> <a class="waves-effect waves-dark" href="list_vaccin.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Liste</span></a>
+                    <li> <a class="waves-effect waves-dark" href="list_vaccin.php" aria-expanded="false"><i class="fas fa-syringe"></i><span class="hide-menu">Liste</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="add_vaccin.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Ajouter</span></a>
+                    <li> <a class="waves-effect waves-dark" href="add_vaccin.php" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i><span class="hide-menu">Ajouter</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="edit_vaccin.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Modifier</span></a>
+                    <li> <a class="waves-effect waves-dark" href="edit_vaccin.php" aria-expanded="false"><i class="fas fa-edit"></i><span class="hide-menu">Modifier</span></a>
                     </li>
                     <li class="separator_menu"><span>Carnets</span></li>
-                    <li> <a class="waves-effect waves-dark" href="list_carnet.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Liste</span></a>
+                    <li> <a class="waves-effect waves-dark" href="list_carnet.php" aria-expanded="false"><i class="fas fa-book-medical"></i><span class="hide-menu">Liste</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="details_carnet.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Détails</span></a>
+                    <li> <a class="waves-effect waves-dark" href="details_carnet.php" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Détails</span></a>
                     </li>
                 </ul>
             </nav>
