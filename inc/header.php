@@ -24,6 +24,7 @@
         <div class="connection">
             <div class="coimg"></div>
             <ul>
+
                 <li><a href="index.php">Accueil</a></li>
                 <?php if(isLogged()) { ?>
                     <li><a href="logout.php">Logout</a></li>
@@ -34,6 +35,7 @@
                     <li><a href="register.php">Inscription</a></li>
                     <li><a href="login.php">Connexion</a></li>
                 <?php } ?>
+
             </ul>
         </div>
     </div>

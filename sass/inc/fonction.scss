@@ -70,6 +70,22 @@
                     color: #FFFFFF;
                 }
 
+                select {
+
+                    padding: 1rem;
+                    margin: 1rem 0;
+                    width: 100%;
+                    border-radius: 3rem;
+                    border: none;
+                    color: black;
+                    font-family: $roboto;
+                    font-weight: 700;
+                    option {
+                        font-family: $roboto;
+                        font-weight: 700;
+                    }
+                }
+
                 .input_group {
                     display: flex;
                     flex-flow: column nowrap;
