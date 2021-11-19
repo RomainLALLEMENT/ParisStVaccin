@@ -2,6 +2,23 @@
 /* Partie User */
 // SELECT
 
+function getUser($id){
+    global $pdo;
+    $sql = "SELECT * FROM psv_user WHERE id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id',$id);
+    $query->execute();
+    return $query->fetch();
+}
+
+function getAllIdUsers(){
+    global $pdo;
+    $sql = "SELECT id FROM psv_user";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function emailValidationBdd($email)
 {
     global $pdo;
@@ -76,6 +93,16 @@ function getMoisRappel(int $id):array
     $query->execute();
     return $query->fetch();
 }
+
+function getVaccin($idVaccin){
+    global $pdo;
+    $sql = "SELECT `libelle`,`obligatoire`,`description` FROM `psv_vaccin` WHERE id = :idVaccin";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idVaccin',$idVaccin,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 // INSERT
 
 // UPDATE
@@ -98,6 +125,15 @@ function getVaccinsUser(int $idUser):array
         $vaccins[] .= $vaccin['id_vaccin'];
     }
     return $vaccins;
+}
+
+function getInfoVaccinUser($idUser){
+    global $pdo;
+    $sql = "SELECT id_vaccin, premiere_date, date_prochain FROM `psv_carnet` WHERE id_user = :idUser";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetchAll();
 }
 
 // INSERT
