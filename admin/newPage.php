@@ -1,12 +1,12 @@
 <?php
-//afficher la listes des carnets (extrait)
+session_start();
 require ('../inc/pdo.php');
-require ('../inc/request.php');
 require ('../inc/fonction.php');
+require ('../inc/request.php');
+
 include('inc/header_back.php');
-// veriifer l'id corespnd à un user présent en base
-$idUssers = '';
 ?>
+
     <div class="page-wrapper">
         <!-- ============================================================== -->
         <!-- Container fluid  -->
@@ -33,12 +33,14 @@ $idUssers = '';
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <!-- Tab panes -->
                         <div class="card-body">
-
+                            Veuillez écrire votre contenu à partir de cette ligne --> blank_line
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 <?php
 include('inc/footer_back.php');

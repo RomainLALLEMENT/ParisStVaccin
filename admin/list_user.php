@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ('../inc/pdo.php');
 require ('../inc/request.php');
 require ('../inc/fonction.php');
