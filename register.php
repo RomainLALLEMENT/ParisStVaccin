@@ -3,7 +3,7 @@ require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
 
-/*Vérificatiion si le */
+/*Vérification si le */
 $errors = [];
 if(!empty($_POST['submitted'])) {
 	debug($_POST);
@@ -27,7 +27,7 @@ if(!empty($_POST['submitted'])) {
 
     debug($errors);
     /*requete*/
-/*FONCTION EMAIL ALLER VOIR DANS FONCTION.PHP*/
+    /*FONCTION EMAIL ALLER VOIR DANS FONCTION.PHP*/
     $email_validation = emailValidationBdd($email);
     $pseudo_validation = pseudoValidationBdd($pseudo);
 
