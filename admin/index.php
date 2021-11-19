@@ -3,10 +3,13 @@ require ('../inc/pdo.php');
 require ('../inc/fonction.php');
 require ('../inc/request.php');
 session_start();
+error403();
+
 include ('inc/header_back.php');
 ?>
 
     <div class="page-wrapper">
+        <?php debug($_SESSION); ?>
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->

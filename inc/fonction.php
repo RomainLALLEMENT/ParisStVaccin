@@ -147,3 +147,11 @@ function isAdmin()
     }
     return false;
 }
+
+function error403()
+{
+    if ($_SESSION['user']['role'] != 'admin') {/*Si l'utilisateur n'a pas le role admin ont le rediriger vers une erreur 403*/
+        header('HTTP/1.0 403 Forbidden');
+        header('Location:../error403.php');
+    }
+}
