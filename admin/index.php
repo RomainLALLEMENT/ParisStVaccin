@@ -1,5 +1,8 @@
 <?php
-
+require ('../inc/pdo.php');
+require ('../inc/fonction.php');
+require ('../inc/request.php');
+session_start();
 include ('inc/header_back.php');
 ?>
 
