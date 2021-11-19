@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ('../inc/pdo.php');
 require ('../inc/request.php');
 require ('../inc/fonction.php');
@@ -60,11 +61,11 @@ include('inc/header_back.php');
                                         <td><?=$user['nom']?></td>
                                         <td><?=$user['age']?></td>
                                         <td><?=$user['email']?></td>
-                                        <td><?php
-																						if (!empty(getVaccinsUser($user['id']))){?>
-																							<a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>">ok</a><?php
-																						}else{echo 'ko';}?>
-																				</td>
+                                        <td><?php //vérification si carnet de vacination existant ou non
+                                            if (!empty(getVaccinsUser($user['id']))){?>
+                                            <a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>">ok</a><?php
+                                            }else{echo 'ko';}?>
+                                        </td>
                                     </tr> <?php
                                     }
                                     ?>
