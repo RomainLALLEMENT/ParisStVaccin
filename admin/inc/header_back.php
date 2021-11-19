@@ -93,7 +93,7 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="../"><span class="hidden-md-down" style="font-weight: 700; color: white">Retour sur la version publique</span> </a>
                     </li>
                     <li class="nav-item dropdown u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a>
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="profil.php" aria-haspopup="true"><img src="assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down"><?= $_SESSION['user']['pseudo']; ?>&nbsp;</span> </a>
                     </li>
                 </ul>
             </div>

@@ -1,8 +1,9 @@
 <?php
-//afficher la listes des carnets (extrait)
+session_start();
 require ('../inc/pdo.php');
-require ('../inc/request.php');
 require ('../inc/fonction.php');
+require ('../inc/request.php');
+
 include('inc/header_back.php');
 // verifier l'id corespnd à un user présent en base
 $idUsers = getAllIdUsers();
@@ -83,6 +84,34 @@ if (!empty($_GET['id'])){
                                     <p><?php echo ($infoUser['prenom'].' '.$infoUser['nom'].' n\'a pas de carnet de santé.'); ?></p><?php
                                 } ?>
                             </div>
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Blank Page</h3>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Blank Page</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- Tab panes -->
+                        <div class="card-body">
                         </div>
                     </div>
                 </div>
@@ -99,5 +128,6 @@ if (!empty($_GET['id'])){
     die('404');
 }
 ?>
+        </div>
 <?php
 include('inc/footer_back.php');

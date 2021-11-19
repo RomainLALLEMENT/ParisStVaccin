@@ -16,28 +16,24 @@
     <div class="wrap0">
         <nav>
             <ul>
-                <li><a href="index.php"><img src="https://blog-fr.orson.io/wp-content/uploads/2020/07/logostarbuck.png" alt="" style="width: 50%"></a></li>
+                <li class="logo"><a href="#"><img src="https://blog-fr.orson.io/wp-content/uploads/2020/07/logostarbuck.png" alt=""></a></li>
                 <li><a href="index.php">accueil</a></li>
-                <li><a href="vaccins.php">vaccins</a></li>
-                <li><a href="ajoutVaccins.php">ajoutVaccins (à moddif)</a></li>
+                <li><a href="vaccins.php">Vaccins</a></li>
             </ul>
         </nav>
-        <div class="connection">
-            <div class="coimg"></div>
-            <ul>
-
-                <li><a href="index.php">Accueil</a></li>
-                <?php if(isLogged()) { ?>
-                    <li><a href="logout.php">Logout</a></li>
-                    <?php if(isAdmin()) { ?>
-                        <li><a href="admin/index.php">Admin</a></li>
-                    <?php } ?>
-                <?php } else { ?>
-                    <li><a href="register.php">Inscription</a></li>
-                    <li><a href="login.php">Connexion</a></li>
-                <?php } ?>
-
-            </ul>
-        </div>
+        <ul class="login">
+            <?php if(isAdmin()) { ?>
+                <li><a href="admin/index.php"><div class="icon_menu icon_admin"></div></a></li>
+            <?php } ?>
+            <?php if(isLogged()) { ?>
+                <li><a href="add_vaccin_user.php"><div class="icon_menu icon_seringue"></div></a></li>
+                <li><a href="#"><div class="icon_menu icon_carnet"></div></a></li>
+                <li><a href="#"><div class="icon_menu icon_user"></div></a></li>
+                <li><a href="logout.php"><div class="icon_menu icon_logout"></div></a></li>
+            <?php } else { ?>
+                <li><a href="register.php">Inscription</a></li>
+                <li><a href="login.php">Connexion</a></li>
+            <?php } ?>
+        </ul>
     </div>
 </header>

@@ -1,5 +1,9 @@
 <?php
-//afficher les details du carnet d'un utilisateur (voir avec Antoine)
+session_start();
+require ('../inc/pdo.php');
+require ('../inc/fonction.php');
+require ('../inc/request.php');
+
 include('inc/header_back.php');
 ?>
 
@@ -28,6 +32,12 @@ include('inc/header_back.php');
             <!-- ============================================================== -->
             <div class="row">
                 <div class="col-12">
+                    <div class="card">
+                        <!-- Tab panes -->
+                        <div class="card-body">
+                            Veuillez écrire votre contenu à partir de cette ligne --> blank_line
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
