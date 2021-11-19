@@ -1,4 +1,10 @@
 <?php
+session_start();
+require ('../inc/pdo.php');
+require ('../inc/fonction.php');
+require ('../inc/request.php');
+error403();
+
 //afficher la listes des carnets (extrait)
 include('inc/header_back.php');
 ?>

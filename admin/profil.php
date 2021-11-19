@@ -3,6 +3,7 @@ session_start();
 require ('../inc/pdo.php');
 require ('../inc/fonction.php');
 require ('../inc/request.php');
+error403();
 $errors = [];
 
 if (!empty($_GET['success']) && $_GET['success'] == 1 ) {

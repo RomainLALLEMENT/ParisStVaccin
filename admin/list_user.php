@@ -3,12 +3,14 @@ session_start();
 require ('../inc/pdo.php');
 require ('../inc/request.php');
 require ('../inc/fonction.php');
+error403();
 global $pdo;
 $sql = "SELECT id,nom,prenom,age,email,pseudo FROM psv_user";
 $query = $pdo->prepare($sql);
 $query->execute();
 $users = $query->fetchAll();
 $carnet = getVaccinsUser(2);
+
 include('inc/header_back.php');
 ?>
 
