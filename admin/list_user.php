@@ -1,6 +1,6 @@
 <?php
 require ('../inc/pdo.php');
-require ('inc/request.php');
+require ('../inc/request.php');
 require ('../inc/fonction.php');
 global $pdo;
 $sql = "SELECT id,nom,prenom,age,email,pseudo FROM psv_user";
@@ -60,11 +60,11 @@ include('inc/header_back.php');
                                         <td><?=$user['nom']?></td>
                                         <td><?=$user['age']?></td>
                                         <td><?=$user['email']?></td>
-                                        <td><?php if (empty($carnet['id_vaccin'])){
-                                            echo 'ok';
-                                            }else{
-                                            echo 'ko';
-                                            }?></td>
+                                        <td><?php
+																						if (!empty(getVaccinsUser($user['id']))){?>
+																							<a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>">ok</a><?php
+																						}else{echo 'ko';}?>
+																				</td>
                                     </tr> <?php
                                     }
                                     ?>
