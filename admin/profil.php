@@ -41,7 +41,7 @@ if (!empty($_SESSION['user']['id'])) {
                     $query->bindValue(':id',$id, PDO::PARAM_INT);
                     $query->execute();
 
-                    header('Location: profil.php');
+                    header('Location: profil.php?success=1');
                     $success = true;
                 } elseif (!empty($_POST['prenom'])) {
                     $sql_prenom = "UPDATE psv_user SET prenom=:prenom WHERE id = :id";
@@ -69,7 +69,7 @@ if (!empty($_SESSION['user']['id'])) {
                     $query->bindValue(':id',$id, PDO::PARAM_INT);
                     $query->execute();
 
-//                    header('Location: profil.php');
+                    header('Location: profil.php?success=1');
                     $success = true;
                 }
             } else {
