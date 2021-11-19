@@ -28,6 +28,7 @@ include('inc/header_back.php');
             <!-- ============================================================== -->
             <div class="row">
                 <div class="col-12">
+<<<<<<< HEAD
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -82,6 +83,9 @@ include('inc/header_back.php');
                             </div>
                         </div>
                     </div>
+=======
+
+>>>>>>> e6feb3e2367d352dabad586ade86d4503fce55a1
                 </div>
             </div>
         </div>
