@@ -135,6 +135,16 @@ function getInfoVaccinUser($idUser){
     $query->execute();
     return $query->fetchAll();
 }
+function getVaccinsUserByCarnet(int $idUser){
+    global $pdo;
+    $sql = "SELECT psv_carnet.premiere_date,psv_carnet.date_prochain, psv_vaccin.libelle, psv_vaccin.pays, psv_vaccin.obligatoire, psv_vaccin.description,psv_vaccin.Laboratoire
+    FROM psv_carnet INNER JOIN psv_vaccin ON psv_carnet.id_vaccin = psv_vaccin.id WHERE psv_carnet.id_user = :idUser";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 
 // INSERT
 
@@ -155,20 +165,6 @@ function putNewVaccinOnCarnet( int $idVaccin,int $idUser, string $date, int $moi
 
 
 // UPDATE
-
-/*Verif*/
-function verifOccurenceUserVaccin( int $idVaccin,int $idUser):bool
-{
-    $bool = true;
-    $vaccins = getVaccinsUser($idUser);
-    foreach ($vaccins as $v){
-        if($v = $idVaccin){
-            $bool = false;
-            break;
-        }
-    }
-    return $bool;
-}
 
 
 
