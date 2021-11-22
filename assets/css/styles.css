@@ -1170,6 +1170,72 @@ textarea {
   animation: jello-horizontal 0.9s infinite both;
 }
 
+#list_vaccins_user .wrap2 a {
+  padding: 1rem;
+  background-color: lightgray;
+  border-radius: 100rem;
+  margin: 2rem;
+}
+#list_vaccins_user .wrap2 .block {
+  margin: 3rem 0;
+  color: black;
+  padding: 2rem 0;
+  border-bottom: solid;
+}
+#list_vaccins_user .wrap2 .block .info_vaccin {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+}
+#list_vaccins_user .wrap2 .block .info_vaccin .vaccin {
+  width: 90%;
+  display: flex;
+  flex-flow: row;
+}
+#list_vaccins_user .wrap2 .block .info_vaccin .vaccin .php {
+  padding: 0 1rem;
+}
+#list_vaccins_user .wrap2 .block .info_vaccin .boutton {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+#list_vaccins_user .wrap2 .block .info_vaccin .boutton a {
+  padding: 1rem;
+  border-radius: 12rem;
+  background-color: #cce5ff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+#list_vaccins_user .wrap2 .block .rappel_vaccin {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+#list_vaccins_user .wrap2 .block .rouge {
+  background: #f8d7da;
+}
+#list_vaccins_user .wrap2 .block .orange {
+  background: #fff3cd;
+}
+#list_vaccins_user .wrap2 .block .vert {
+  background: #d4edda;
+}
+#list_vaccins_user .wrap2 .block .bleu {
+  background: #cce5ff;
+}
+#list_vaccins_user .wrap2 .block:last-child {
+  border-bottom: none;
+}
+
 #legals .wrap2 {
   color: black;
   font-size: 1.6rem;
