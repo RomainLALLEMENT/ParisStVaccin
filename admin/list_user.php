@@ -5,7 +5,7 @@ require ('../inc/request.php');
 require ('../inc/fonction.php');
 error403();
 global $pdo;
-$sql = "SELECT id,nom,prenom,age,email,pseudo FROM psv_user";
+$sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user";
 $query = $pdo->prepare($sql);
 $query->execute();
 $users = $query->fetchAll();
@@ -24,10 +24,10 @@ include('inc/header_back.php');
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Blank Page</h3>
+                    <h3 class="text-themecolor">Liste des utilisateurs <i class="fas fa-users"></i></h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
+                        <li class="breadcrumb-item active">Liste des utilisateurs</li>
                     </ol>
                 </div>
             </div>
@@ -37,6 +37,11 @@ include('inc/header_back.php');
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
+            <?php if (!empty($_GET['error'])) {  ?>
+            <div class="alert alert-danger" role="alert">
+                <i class="fas fa-info-circle"></i> Attention ! Vous devez cliquer directement sur le rôle d'un utilisateur parmi cette liste pour le modifier.
+            </div>
+            <?php } ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -51,22 +56,30 @@ include('inc/header_back.php');
                                         <th>Nom</th>
                                         <th>Age</th>
                                         <th>Email</th>
+                                        <th>Rôle(s)</th>
                                         <th>Vaccin</th>
                                     </tr>
                                     </thead>
                                     <tbody><?php
                                     foreach ($users as $user){ ?>
                                     <tr>
+                                        <?php
+//                                      // Calcul l'age par rapport à la date de naissance
+                                        $dateNaissance = $user['age'];
+                                        $aujourdhui = date("Y-m-d");
+                                        $diff = date_diff(date_create($dateNaissance), date_create($aujourdhui));
+                                        ?>
                                         <td><?=$user['id']?></td>
                                         <td><?=$user['pseudo']?></td>
                                         <td><?=$user['prenom']?></td>
                                         <td><?=$user['nom']?></td>
-                                        <td><?=$user['age']?></td>
+                                        <td><?=$diff->format('%y')?></td>
                                         <td><?=$user['email']?></td>
+                                        <td><?= '<a href="role_user.php?id='.$user['id'].'">'.$user['role'].'</a>'?></td>
                                         <td><?php //vérification si carnet de vacination existant ou non
                                             if (!empty(getVaccinsUser($user['id']))){?>
-                                            <a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>">ok</a><?php
-                                            }else{echo 'ko';}?>
+                                            <a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>"><i class="fas fa-info-circle"></i></a><?php
+                                            }else{echo '<i class="fas fa-times-circle"></i>';}?>
                                         </td>
                                     </tr> <?php
                                     }
