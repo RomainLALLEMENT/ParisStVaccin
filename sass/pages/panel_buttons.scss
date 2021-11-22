@@ -1,58 +1,63 @@
 @import "../inc/variable";
 @import "../inc/fonction";
 #panel_buttons {
-  padding: 3rem;
+  padding: 8rem;
   background-color: white;
   .wrap2 {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
 
     .container {
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
 
-      a {
+      .link {
         color: $brown;
         border: 2px $brown solid;
-        border-radius: 20px;
-        padding: .8rem;
+        border-radius: .3rem;
+        padding: .4rem;
+        font-size: 1.3rem;
         font-weight: 700;
+        transition-duration: .5s;
+      }
+      .link:hover {
+        opacity: 70%;
+        transition-duration: .5s;
       }
       .element1 {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         align-items: center;
-        text-align: center;
         .img1 {
           background: url("../../maquette/icons/seringue.png") no-repeat;
           background-size: 100%;
-          height: 200px;
-          width: 200px;
+          height: 150px;
+          width: 150px;
+          animation: heartbeat 1.5s ease-in-out infinite both;
         }
       }
       .element2 {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         align-items: center;
-        text-align: center;
         .img2 {
           background: url("../../maquette/icons/carnet.png") no-repeat;
           background-size: 100%;
-          height: 200px;
-          width: 200px;
+          height: 150px;
+          width: 150px;
+          animation: jello-horizontal 0.9s infinite both;
         }
       }
       .element3 {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         align-items: center;
-        text-align: center;
         .img3 {
           background: url("../../maquette/icons/vaccins.png") no-repeat;
           background-size: 100%;
-          height: 200px;
-          width: 200px;
+          height: 150px;
+          width: 150px;
+          animation: jello-horizontal 0.9s infinite both;
         }
       }
     }

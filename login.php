@@ -48,33 +48,27 @@ if (!empty($_POST['submitted'])) {
  ?>
 
     <section id="home_login">
-        <div class="wrap0">
-            <div class="title_absolute uppercase">
-                <h2 class="text-shadow">Connectez</h2>
-                <h2 class="text-shadow">Vous !</h2>
-            </div>
+        <div class="wrap3">
+            <form action="" method="post" novalidate>
+                <div class="wrap4">
+
+                    <div class="input_group">
+                        <label for="login">Username or email</label>
+                        <input type="login" name="login" id="login" placeholder="Username or email" value="<?= recupInputValue('login'); ?>">
+                        <?php viewError($errors,'login')  ?>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
+                    </div>
+
+                    <input type="submit" name="submitted" id="submitted" value="Se connecter">
+                </div>
+            </form>
         </div>
     </section>
 
-    <div class="wrap3">
-        <form action="" method="post" novalidate>
-            <div class="wrap4">
-
-                <div class="input_group">
-                    <label for="login">Username or email</label>
-                    <input type="login" name="login" id="login" placeholder="Username or email" value="<?= recupInputValue('login'); ?>">
-                    <?php viewError($errors,'login')  ?>
-                </div>
-
-                <div class="input_group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
-                </div>
-
-                <input type="submit" name="submitted" id="submitted" value="Se connecter">
-            </div>
-        </form>
-    </div>
 
 
 <?php
