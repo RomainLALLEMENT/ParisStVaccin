@@ -14,13 +14,13 @@ if(!empty($_POST['modifier'])) {echo 'soumis modif';}
 if(!empty($_POST['actualiser'])) {echo 'soumis actu';}
 echo '<br>';
 echo 'session';
-debug($_SESSION);
+//debug($_SESSION);
 echo 'post';
-debug($_POST);
+//debug($_POST);
 echo 'carnet';
-debug($carnet);
+//debug($carnet);
 if($carnet) $vaccinsUser = getVaccinsUserByCarnet($idUser);
-debug($vaccinsUser);
+//debug($vaccinsUser);
 
 $dateDuJour = strtotime(date('Y-m-d'));
 echo $dateDuJour;

@@ -3,7 +3,7 @@
     <div class="wrap2">
         <div class="logo_footer">
             <a href="index.php">
-                <img src="assets/img/footer/logo_footer.png">
+                <img src="assets/img/logo.png">
             </a>
         </div>
         <nav class="navigation">

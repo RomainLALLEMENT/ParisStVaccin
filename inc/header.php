@@ -18,7 +18,7 @@
 	<div class="wrap0">
 		<nav>
 			<ul>
-				<li class="logo"><a href="#"><img src="https://blog-fr.orson.io/wp-content/uploads/2020/07/logostarbuck.png" alt=""></a></li>
+				<li class="logo"><a href="#"><img src="assets/img/logo.png" alt="Logo Paris St Vaccin"></a></li>
 				<li><a href="index.php">accueil</a></li>
 				<li><a href="vaccins.php">Vaccins</a></li>
 			</ul>
@@ -29,7 +29,7 @@
         <?php } ?>
         <?php if(isLogged()) { ?>
 					<li><a href="add_vaccin_user.php"><div class="icon_menu icon_seringue"></div></a></li>
-					<li><a href="#"><div class="icon_menu icon_carnet"></div></a></li>
+					<li><a href="listVaccinsUser.php"><div class="icon_menu icon_carnet"></div></a></li>
 					<li><a href="profil.php"><div class="icon_menu icon_user"></div></a></li>
 					<li><a href="logout.php"><div class="icon_menu icon_logout"></div></a></li>
         <?php } else { ?>
