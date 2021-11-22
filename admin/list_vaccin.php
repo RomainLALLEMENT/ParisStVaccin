@@ -5,6 +5,11 @@ require ('../inc/fonction.php');
 require ('../inc/request.php');
 error403();
 include('inc/header_back.php');
+global $pdo;
+$sql = "SELECT * FROM `psv_vaccin` WHERE 1";
+$query = $pdo->prepare($sql);
+$query->execute();
+$listVaccin = $query->fetchAll();
 ?>
 
     <div class="page-wrapper">
@@ -35,12 +40,35 @@ include('inc/header_back.php');
                     <div class="card">
                         <!-- Tab panes -->
                         <div class="card-body">
-                            Veuillez écrire votre contenu à partir de cette ligne --> blank_line
+                            <table class="table">
+                                <tr>
+                                    <th>Libelle</th>
+                                    <th>Temps de rappel</th>
+                                    <th>Obligatoire</th>
+                                    <th>Pays</th>
+                                    <th>Description</th>
+                                    <th>Laboratoire</th>
+                                </tr>
+                                <div class="listvaccins"><?php
+                                    foreach ($listVaccin as $vaccin){?>
+                                        <div class="vaccin">
+                                            <tr>
+                                                <th><?=$vaccin['libelle']?></th>
+                                                <th><?=$vaccin['temps_rappel']?></th>
+                                                <th><?=$vaccin['obligatoire']?></th>
+                                                <th><?=$vaccin['pays']?></th>
+                                                <th><?=$vaccin['description']?></th>
+                                                <th><?=$vaccin['Laboratoire']?></th>
+                                            </tr>
+                                        </div>
+                                    <?php } ?>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 <?php
 include('inc/footer_back.php');
