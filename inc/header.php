@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -7,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Accueil - ParisStVaccin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- STYLE.CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -28,7 +28,7 @@
             <?php if(isLogged()) { ?>
                 <li><a href="add_vaccin_user.php"><div class="icon_menu icon_seringue"></div></a></li>
                 <li><a href="#"><div class="icon_menu icon_carnet"></div></a></li>
-                <li><a href="#"><div class="icon_menu icon_user"></div></a></li>
+                <li><a href="profil.php"><div class="icon_menu icon_user"></div></a></li>
                 <li><a href="logout.php"><div class="icon_menu icon_logout"></div></a></li>
             <?php } else { ?>
                 <li><a href="register.php">Inscription</a></li>
