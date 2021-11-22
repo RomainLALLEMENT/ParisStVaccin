@@ -41,7 +41,7 @@ if (!empty($_SESSION['user']['id'])) {
                     $query->bindValue(':id',$id, PDO::PARAM_INT);
                     $query->execute();
 
-                    header('Location: profil.php');
+                    header('Location: profil.php?success=1');
                     $success = true;
                 } elseif (!empty($_POST['prenom'])) {
                     $sql_prenom = "UPDATE psv_user SET prenom=:prenom WHERE id = :id";
@@ -69,7 +69,7 @@ if (!empty($_SESSION['user']['id'])) {
                     $query->bindValue(':id',$id, PDO::PARAM_INT);
                     $query->execute();
 
-//                    header('Location: profil.php');
+                    header('Location: profil.php?success=1');
                     $success = true;
                 }
             } else {
@@ -97,7 +97,7 @@ include ('inc/header_back.php'); ?>
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Modifier votre profil</h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
                         <li class="breadcrumb-item active">Profil</li>
                     </ol>
                 </div>
@@ -111,7 +111,7 @@ include ('inc/header_back.php'); ?>
             <!-- Row -->
             <?php if (!$success) { ?>
             <div class="alert alert-info" role="alert">
-                <i class="fas fa-info-circle"></i> Bienvenue <?= $user['prenom']?> sur votre page d'édition de profil. Vous pouvez éditer seulement un champ si nécessaire mais veuillez confirmer votre mot de passe pour valider vos modifications.
+                <i class="fas fa-info-circle"></i> <strong>Bienvenue <?= $user['prenom']?></strong> sur votre page d'édition de profil. Vous pouvez éditer seulement un champ si nécessaire mais veuillez confirmer votre mot de passe pour valider vos modifications.
             </div>
             <?php } else { ?>
                 <div class="alert alert-success" role="alert">
@@ -126,7 +126,7 @@ include ('inc/header_back.php'); ?>
                         <div class="card-body">
                             <center class="m-t-30"> <img src="assets/images/users/5.jpg" class="img-circle" width="150" />
                                 <h4 class="card-title m-t-10"><?= $user['prenom'].' '.$user['nom'] ?></h4>
-                                <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                <h6 class="card-subtitle"><?= $user['role'];?></h6>
                                 <div class="row text-center justify-content-md-center">
                                     <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
                                     <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
