@@ -155,3 +155,25 @@ function error403()
         header('Location:../error403.php');
     }
 }
+
+function verifyIdBdd($idUser,$idUsers){
+    if(!empty($idUser)){
+        if(is_numeric($idUser)){
+            foreach ($idUsers as $user){
+                if ($idUser == $user['id']) {
+                    $idValide = true;
+                    break;
+                } else {
+                    $idValide = false;
+                }
+            }
+        }else{
+            echo 'ko nombre non numéric';
+            $idValide = false;
+        }
+    }else{
+        echo 'Ko id vide';
+        $idValide = false;
+    }
+    return $idValide;
+}

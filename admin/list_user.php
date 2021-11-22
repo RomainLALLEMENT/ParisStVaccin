@@ -73,8 +73,6 @@ include('inc/header_back.php');
                                     ?>
                                     </tbody>
                                 </table>
-                                <?=debug($users);?>
-                                <?=debug($carnet);?>
                             </div>
                         </div>
                     </div>

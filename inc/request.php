@@ -54,13 +54,13 @@ function putNewUser(string $nom,string $prenom,string $age,string $email, string
     $sql = "INSERT INTO `psv_user`(nom, prenom, age ,email, created_at, token, password, role, pseudo) 
             VALUES (:nom,:prenom,:age,:email,NOW(),:token,:password,'user',:pseudo)";
     $query = $pdo->prepare($sql);
-    $query->bindValue(':nom',$nom,PDO::PARAM_STR);
-    $query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
-    $query->bindValue(':age',$age,PDO::PARAM_STR);
-    $query->bindValue(':email',$email,PDO::PARAM_STR);
-    $query->bindValue(':token',$token,PDO::PARAM_STR);
-    $query->bindValue(':password',$password,PDO::PARAM_STR);
-    $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
+    $query->bindValue(':nom',$nom);
+    $query->bindValue(':prenom',$prenom);
+    $query->bindValue(':age',$age);
+    $query->bindValue(':email',$email);
+    $query->bindValue(':token',$token);
+    $query->bindValue(':password',$password);
+    $query->bindValue(':pseudo',$pseudo);
     $query->execute();
     header('location: login.php');
 }
@@ -76,12 +76,7 @@ function getAllVaccinName(): array
     $sql = "SELECT `libelle` FROM `psv_vaccin`";
     $query = $pdo->prepare($sql);
     $query->execute();
-    $vaccinsSql = $query->fetchAll();
-    $vaccins=[];
-    foreach ($vaccinsSql as $vaccin){
-        $vaccins[] .= $vaccin['libelle'];
-    }
-    return $vaccins;
+    return $query->fetchAll(PDO::FETCH_COLUMN);
 }
 
 function getMoisRappel(int $id):array
@@ -115,16 +110,12 @@ function getVaccin($idVaccin){
 function getVaccinsUser(int $idUser):array
 {
     global $pdo;
-    $vaccins=[];
+
     $sql = "SELECT `id_vaccin` FROM `psv_carnet` WHERE `id_user` = :idUser;";
     $query = $pdo->prepare($sql);
     $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
     $query->execute();
-    $vaccinsSql = $query->fetchAll();
-    foreach ($vaccinsSql as $vaccin){
-        $vaccins[] .= $vaccin['id_vaccin'];
-    }
-    return $vaccins;
+    return $query->fetchAll(PDO::FETCH_COLUMN);
 }
 
 function getInfoVaccinUser($idUser){
@@ -135,10 +126,10 @@ function getInfoVaccinUser($idUser){
     $query->execute();
     return $query->fetchAll();
 }
-function getVaccinsUserByCarnet(int $idUser){
+function getVaccinsUserByCarnet($idUser){
     global $pdo;
-    $sql = "SELECT psv_carnet.premiere_date,psv_carnet.date_prochain, psv_vaccin.libelle, psv_vaccin.pays, psv_vaccin.obligatoire, psv_vaccin.description,psv_vaccin.Laboratoire
-    FROM psv_carnet INNER JOIN psv_vaccin ON psv_carnet.id_vaccin = psv_vaccin.id WHERE psv_carnet.id_user = :idUser";
+    $sql = "SELECT psv_carnet.id,psv_carnet.premiere_date,psv_carnet.date_prochain, psv_vaccin.libelle, psv_vaccin.pays, psv_vaccin.obligatoire, psv_vaccin.description,psv_vaccin.Laboratoire,psv_vaccin.temps_rappel as mois,psv_vaccin.id as idVaccin
+    FROM psv_carnet INNER JOIN psv_vaccin ON psv_carnet.id_vaccin = psv_vaccin.id WHERE psv_carnet.id_user = :idUser"  ;
     $query = $pdo->prepare($sql);
     $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
     $query->execute();
@@ -165,6 +156,17 @@ function putNewVaccinOnCarnet( int $idVaccin,int $idUser, string $date, int $moi
 
 
 // UPDATE
-
+function carnetAccutualizeByUser(int $idCarnet, int $mois):void
+{
+    global $pdo;
+    $sql = "UPDATE `psv_carnet`
+            SET `premiere_date`= NOW(), `date_prochain` = DATE_ADD(`premiere_date`,INTERVAL +:mois MONTH)
+            WHERE id = :idCarnet
+        ";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idCarnet',$idCarnet,PDO::PARAM_INT);
+    $query->bindValue(':mois',$mois,PDO::PARAM_INT);
+    $query->execute();
+}
 
 

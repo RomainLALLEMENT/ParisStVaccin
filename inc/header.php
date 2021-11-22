@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php //session_start();?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -27,7 +27,7 @@
             <?php } ?>
             <?php if(isLogged()) { ?>
                 <li><a href="add_vaccin_user.php"><div class="icon_menu icon_seringue"></div></a></li>
-                <li><a href="#"><div class="icon_menu icon_carnet"></div></a></li>
+                <li><a href="listVaccinsUser.php?id=<?php echo $_SESSION['user']['id']; ?>"><div class="icon_menu icon_carnet"></div></a></li>
                 <li><a href="#"><div class="icon_menu icon_user"></div></a></li>
                 <li><a href="logout.php"><div class="icon_menu icon_logout"></div></a></li>
             <?php } else { ?>

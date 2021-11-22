@@ -1,0 +1,62 @@
+@import "../inc/variable";
+@import "../inc/fonction";
+#list_vaccins_user{
+    .wrap2{
+        a{
+            padding: 1rem;
+            background-color: lightgray;
+            border-radius: 100rem;
+            margin: 2rem;
+        }
+        .block{
+            margin: 3rem 0;
+            color: black;
+            padding: 2rem 0;
+            border-bottom: solid;
+            .info_vaccin{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 2rem;
+                margin-bottom: 1rem;
+                .vaccin{
+                    width: 90%;
+
+                    display: flex;
+                    flex-flow: row;
+                    .php{
+                        padding: 0 1rem;
+                    }
+                }
+                .boutton{
+                    width: 10%;
+                    display: flex;
+                    justify-content: center;
+
+                    a{
+                        padding: 1rem;
+                        border-radius: 12rem;
+                        background-color: #cce5ff;
+                        display: flex;
+                        @include centreAll;
+                    }
+                }
+            }
+            .rappel_vaccin{
+                display: flex;
+                flex-flow: row;
+                justify-content: space-between;
+                align-items: center;
+                color: white;
+                padding: 2rem;
+                border-radius: 2rem;
+            }
+            .rouge{background: #f8d7da;}
+            .orange{background: #fff3cd;}
+            .vert{background: #d4edda;}
+            .bleu{background: #cce5ff;}
+        }
+        .block:last-child{
+            border-bottom: none;
+        }
+    }
+}
