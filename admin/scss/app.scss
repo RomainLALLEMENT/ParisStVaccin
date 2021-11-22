@@ -873,3 +873,10 @@ Layouts
     max-width: 1170px;
     margin: 0 auto;
 }
+
+.center_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

@@ -22,7 +22,8 @@
                     width: 90%;
 
                     display: flex;
-                    flex-flow: row;
+                    flex-flow: row nowrap;
+
                     .php{
                         padding: 0 1rem;
                     }

@@ -1191,7 +1191,7 @@ textarea {
 #list_vaccins_user .wrap2 .block .info_vaccin .vaccin {
   width: 90%;
   display: flex;
-  flex-flow: row;
+  flex-flow: row nowrap;
 }
 #list_vaccins_user .wrap2 .block .info_vaccin .vaccin .php {
   padding: 0 1rem;

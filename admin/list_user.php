@@ -57,7 +57,7 @@ include('inc/header_back.php');
                                         <th>Age</th>
                                         <th>Email</th>
                                         <th>Rôle(s)</th>
-                                        <th>Vaccin</th>
+                                        <th>Carnet</th>
                                     </tr>
                                     </thead>
                                     <tbody><?php
@@ -79,7 +79,7 @@ include('inc/header_back.php');
                                         <td><?php //vérification si carnet de vacination existant ou non
                                             if (!empty(getVaccinsUser($user['id']))){?>
                                             <a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>"><i class="fas fa-info-circle"></i></a><?php
-                                            }else{echo '<i class="fas fa-times-circle"></i>';}?>
+                                            }else{echo '<i class="fas fa-times-circle" style="color: red"></i>';}?>
                                         </td>
                                     </tr> <?php
                                     }

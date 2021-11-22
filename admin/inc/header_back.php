@@ -49,7 +49,7 @@
             <!-- Logo -->
             <!-- ============================================================== -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <!-- Logo icon --><b>
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
@@ -142,11 +142,6 @@
                     <li> <a class="waves-effect waves-dark" href="add_vaccin.php" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i><span class="hide-menu">Ajouter</span></a>
                     </li>
                     <li> <a class="waves-effect waves-dark" href="edit_vaccin.php" aria-expanded="false"><i class="fas fa-edit"></i><span class="hide-menu">Modifier</span></a>
-                    </li>
-                    <li class="separator_menu"><span>Carnets</span></li>
-                    <li> <a class="waves-effect waves-dark" href="list_carnet.php" aria-expanded="false"><i class="fas fa-book-medical"></i><span class="hide-menu">Liste</span></a>
-                    </li>
-                    <li> <a class="waves-effect waves-dark" href="details_carnet.php" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Détails</span></a>
                     </li>
                 </ul>
             </nav>

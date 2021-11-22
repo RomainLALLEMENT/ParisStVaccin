@@ -10,6 +10,7 @@ $sql = "SELECT * FROM `psv_vaccin` WHERE 1";
 $query = $pdo->prepare($sql);
 $query->execute();
 $listVaccin = $query->fetchAll();
+
 ?>
 
     <div class="page-wrapper">
@@ -22,10 +23,10 @@ $listVaccin = $query->fetchAll();
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Blank Page</h3>
+                    <h3 class="text-themecolor">Liste des vaccins</h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
+                        <li class="breadcrumb-item active">Liste des vaccins</li>
                     </ol>
                 </div>
             </div>
@@ -38,37 +39,42 @@ $listVaccin = $query->fetchAll();
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <!-- Tab panes -->
                         <div class="card-body">
-                            <table class="table">
-                                <tr>
-                                    <th>Libelle</th>
-                                    <th>Temps de rappel</th>
-                                    <th>Obligatoire</th>
-                                    <th>Pays</th>
-                                    <th>Description</th>
-                                    <th>Laboratoire</th>
-                                </tr>
-                                <div class="listvaccins"><?php
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Libelle</th>
+                                        <th>Temps de rappel</th>
+                                        <th>Obligatoire</th>
+                                        <th>Pays</th>
+                                        <th>Description</th>
+                                        <th>Laboratoire</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div class="listvaccins"><?php
                                     foreach ($listVaccin as $vaccin){?>
-                                        <div class="vaccin">
+                                        <div>
                                             <tr>
                                                 <th><?=$vaccin['libelle']?></th>
                                                 <th><?=$vaccin['temps_rappel']?></th>
-                                                <th><?=$vaccin['obligatoire']?></th>
+                                                <th><?php if ($vaccin['obligatoire'] == 1) { echo '<i class="fas fa-check-circle" style="color: green;"></i>'; } else { echo '<i class="fas fa-times-circle" style="color: red;"></i>'; }?></th>
                                                 <th><?=$vaccin['pays']?></th>
-                                                <th><?=$vaccin['description']?></th>
+                                                <th><?=substr($vaccin['description'], 0, 30).'...'?></th>
                                                 <th><?=$vaccin['Laboratoire']?></th>
                                             </tr>
                                         </div>
                                     <?php } ?>
-                            </table>
+                                        </div>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 <?php
 include('inc/footer_back.php');
