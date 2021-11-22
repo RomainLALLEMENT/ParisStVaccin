@@ -53,69 +53,62 @@ if(!empty($_POST['submitted'])) {
 include ('inc/header.php'); ?>
 
     <section id="home_register">
-        <div class="wrap0">
-            <div class="title_absolute uppercase">
-                <h2 class="text-shadow">Inscrivez</h2>
-                <h2 class="text-shadow">Vous !</h2>
-            </div>
+        <div class="wrap3">
+            <form action="" method="post" novalidate>
+                <div class="wrap4">
+
+                    <div class="input_group input_names">
+                        <div class="input_prenom">
+                            <label for="prenom">Prénom</label>
+
+                            <input type="text" name="prenom" id="prenom" placeholder="John" value="<?= recupInputValue('prenom');?>">
+
+                            <?php viewError($errors,'prenom')  ?>
+                        </div>
+                        <div class="input_nom">
+                            <label for="nom">Nom</label>
+
+                            <input type="text" name="nom" id="nom" placeholder="Doe" value="<?= recupInputValue('nom');?>">
+
+                            <?php viewError($errors,'nom')  ?>
+                        </div>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="email">Adresse mail</label>
+                        <input type="email" name="email" id="email" placeholder="monemail@example.com" value="<?= recupInputValue('email');?>">
+                        <?php viewError($errors,'email')  ?>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="nom">Pseudo</label>
+                        <input type="text" name="pseudo" id="pseudo" placeholder="Doe" value="<?= recupInputValue('pseudo');?>">
+                        <?php viewError($errors,'pseudo')  ?>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="age">Date de naissance</label>
+                        <input type="date" name="age" id="age" value="<?= recupInputValue('age');?>">
+                        <?php viewError($errors,'age')  ?>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
+                        <?php viewError($errors,'password')  ?>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="passwordConfirmation">Confirmer votre mot de passe</label>
+                        <input type="password" name="passwordConfirmation" id="password" placeholder="Mot de passe" value="">
+                        <?php viewError($errors,'password')  ?>
+                    </div>
+
+                    <input type="submit" name="submitted" id="submitted" value="S'inscrire">
+                </div>
+            </form>
         </div>
     </section>
-
-    <div class="wrap3">
-        <form action="" method="post" novalidate>
-            <div class="wrap4">
-
-                <div class="input_group input_names">
-                    <div class="input_prenom">
-                        <label for="prenom">Prénom</label>
-
-                        <input type="text" name="prenom" id="prenom" placeholder="John" value="<?= recupInputValue('prenom');?>">
-
-                        <?php viewError($errors,'prenom')  ?>
-                    </div>
-                    <div class="input_nom">
-                        <label for="nom">Nom</label>
-
-                        <input type="text" name="nom" id="nom" placeholder="Doe" value="<?= recupInputValue('nom');?>">
-
-                        <?php viewError($errors,'nom')  ?>
-                    </div>
-                </div>
-
-                <div class="input_group">
-                    <label for="email">Adresse mail</label>
-                    <input type="email" name="email" id="email" placeholder="monemail@example.com" value="<?= recupInputValue('email');?>">
-                    <?php viewError($errors,'email')  ?>
-                </div>
-
-                <div class="input_group">
-                    <label for="nom">Pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Doe" value="<?= recupInputValue('pseudo');?>">
-                    <?php viewError($errors,'pseudo')  ?>
-                </div>
-
-                <div class="input_group">
-                    <label for="age">Date de naissance</label>
-                    <input type="date" name="age" id="age" value="<?= recupInputValue('age');?>">
-                    <?php viewError($errors,'age')  ?>
-                </div>
-
-                <div class="input_group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
-                    <?php viewError($errors,'password')  ?>
-                </div>
-
-                <div class="input_group">
-                    <label for="passwordConfirmation">Confirmer votre mot de passe</label>
-                    <input type="password" name="passwordConfirmation" id="password" placeholder="Mot de passe" value="">
-                    <?php viewError($errors,'password')  ?>
-                </div>
-
-                <input type="submit" name="submitted" id="submitted" value="S'inscrire">
-            </div>
-        </form>
-    </div>
 
 <?php
 include ('inc/footer.php');

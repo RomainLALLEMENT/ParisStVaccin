@@ -18,7 +18,7 @@
 @mixin formulaire {
     .wrap3 {
 
-        padding: 9rem 1rem;
+        padding: 5rem 1rem;
 
         .success {
             background-color: #d4edda;
@@ -27,6 +27,7 @@
             padding: 1rem;
             margin: 0 1rem 2rem 1rem;
             border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
         }
         .info {
             background-color: #d1ecf1;
@@ -35,10 +36,12 @@
             padding: 1rem;
             margin: 0 1rem 2rem 1rem;
             border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
         }
         form {
-            background-color: white;
+            background-color: rgba(255,255,255,.8);
             padding: 3rem;
+            border-radius: .3rem;
             box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.05);
             -webkit-box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.05);
             -moz-box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.05);
@@ -82,12 +85,12 @@
                     cursor: pointer;
                     text-transform: uppercase;
                     font-size: 1.3rem;
-                    transition-duration: .6s;
+                    transition-duration: 1s;
                 }
                 input[type='submit']:hover{
-                    transition-duration: .6s;
-                    background-color: $kaki;
-                    color: $brown;
+                    transition-duration: 1s;
+                    -webkit-animation: color-change-2x 1s linear both;
+                    animation: color-change-2x 1s linear both;
                 }
 
                 select {
@@ -98,6 +101,8 @@
                     border-radius: 3rem;
                     border: none;
                     color: black;
+                    background-color: $lightgrey;
+                    border: 1px $brown solid;
                     font-family: $roboto;
                     font-weight: 700;
                     option {
@@ -123,11 +128,13 @@
                         margin: 1rem 0;
                         width: 100%;
                         border-radius: .3rem;
-                        border: none;
+                        border: 1px $brown solid;
                         color: black;
                         background-color: $lightgrey;
                         font-family: $roboto;
                         font-weight: 700;
+
+                        box-shadow: 2px 2px rgba(0,0,0,0.05);
                     }
                     .input::placeholder {
                         color: black;

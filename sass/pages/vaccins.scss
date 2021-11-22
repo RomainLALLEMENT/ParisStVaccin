@@ -4,6 +4,7 @@
 #vaccins{
     background-color: white;
     color: black;
+    padding: 1rem;
   .wrap1 {
     @include breakpoints(phone) {
       width: 100%;
@@ -79,7 +80,7 @@
     .vimg {
       display: flex;
       align-items: center;
-      background: url("../../maquette/icons/seringue.svg") no-repeat;
+      background: url("../../maquette/icons/seringue.png") no-repeat;
       background-size: 100%;
       width: 145px;
       height: 135px;

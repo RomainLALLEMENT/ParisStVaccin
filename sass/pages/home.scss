@@ -1,37 +1,45 @@
 @import "../inc/variable";
 @import "../inc/fonction";
 #home {
-  background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat;
+  background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat center;
   background-size: 100%;
-  height: 1000px;
+  height: 600px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
   .wrap0 {
-    position: relative;
-    .title_absolute {
-      position: absolute;
-      top: 250px;
-      right: 3%;
-      text-align: center;
-      h2 {
-        font-family: $roboto;
-        font-weight: 700;
-        font-size: 6rem;
-      }
+    //background-color: red;
+    padding: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    h2 {
+      font-family: $roboto;
+      font-weight: 700;
+      font-size: 6rem;
+    }
 
-      h2:first-child {
-        color: $kaki;
-      }
-      h2:nth-child(2) {
-        color: #60A6A6;
-        padding-bottom: 3rem;
-      }
+    h2:first-child {
+      color: $kaki;
+    }
+    h2:nth-child(2) {
+      color: #60A6A6;
+      padding-bottom: 2rem;
+    }
 
-      a {
-        color: $brown;
-        border: 2px $brown solid;
-        border-radius: 20px;
-        padding: .8rem;
-        font-weight: 700;
-      }
+    a {
+      color: $brown;
+      border: 2px $brown solid;
+      border-radius: .3rem;
+      padding: .4rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      transition-duration: .5s;
+    }
+    a:hover {
+      opacity: 70%;
+      transition-duration: .5s;
     }
   }
 }

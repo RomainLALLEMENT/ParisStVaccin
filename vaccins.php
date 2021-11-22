@@ -11,7 +11,7 @@ include ('inc/header.php');
             <div class="title_absolute uppercase">
                 <h2 class="text-shadow">Vaccinez</h2>
                 <h2 class="text-shadow">Vous !</h2>
-                <a href="#">Connexion</a>
+                <a href="login.php">Connexion</a>
             </div>
         </div>
     </section>

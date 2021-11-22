@@ -83,56 +83,49 @@ if (!empty($_SESSION['user']['id'])) {
 
 include ('inc/header.php'); ?>
 
-    <section id="home_login">
-        <div class="wrap0">
-            <div class="title_absolute uppercase">
-                <h2 class="text-shadow">Modifier</h2>
-                <h2 class="text-shadow">mon profil</h2>
-            </div>
+    <section id="home_profil">
+        <div class="wrap3">
+            <?php if (!$success) { ?>
+                <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez modifier le contenu de votre profil mais vous devrez confirmer vos modifications en entrant votre mot de passe.</div>
+            <?php } else { ?>
+                <div class="success">
+                    <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
+                    <u>Nous vous invitons à rafraichir la page pour voir vos modifications</u>
+                </div>
+            <?php } ?>
+            <form action="" method="post" novalidate>
+                <div class="wrap4">
+
+                    <div class="input_group input_names">
+                        <div class="input_prenom">
+                            <label for="prenom">Prénom</label>
+
+                            <input type="prenom" name="prenom" id="prenom" placeholder="<?= $user['prenom']; ?>" value="<?= recupInputValue('prenom'); ?>">
+                            <?php viewError($errors,'prenom')  ?>
+                        </div>
+                        <div class="input_nom">
+                            <label for="nom">Nom</label>
+
+                            <input type="nom" name="nom" id="nom" placeholder="<?= $user['nom']; ?>" value="<?= recupInputValue('nom'); ?>">
+                            <?php viewError($errors,'nom')  ?>
+                        </div>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="email">Adresse mail</label>
+                        <input type="email" name="email" id="email" placeholder="<?= $user['email']; ?>" value="<?= recupInputValue('email'); ?>">
+                        <?php viewError($errors,'email')  ?>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
+                    </div>
+
+                    <input type="submit" name="submitted" id="submitted" value="Modifier">
+                </div>
+            </form>
         </div>
     </section>
-
-    <div class="wrap3">
-        <?php if (!$success) { ?>
-            <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez modifier le contenu de votre profil mais vous devrez confirmer vos modifications en entrant votre mot de passe.</div>
-        <?php } else { ?>
-            <div class="success">
-                <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
-                <u>Nous vous invitons à rafraichir la page pour voir vos modifications</u>
-            </div>
-        <?php } ?>
-        <form action="" method="post" novalidate>
-            <div class="wrap4">
-
-                <div class="input_group input_names">
-                    <div class="input_prenom">
-                        <label for="prenom">Prénom</label>
-
-                        <input type="prenom" name="prenom" id="prenom" placeholder="<?= $user['prenom']; ?>" value="<?= recupInputValue('prenom'); ?>">
-                        <?php viewError($errors,'prenom')  ?>
-                    </div>
-                    <div class="input_nom">
-                        <label for="nom">Nom</label>
-
-                        <input type="nom" name="nom" id="nom" placeholder="<?= $user['nom']; ?>" value="<?= recupInputValue('nom'); ?>">
-                        <?php viewError($errors,'nom')  ?>
-                    </div>
-                </div>
-
-                <div class="input_group">
-                    <label for="email">Adresse mail</label>
-                    <input type="email" name="email" id="email" placeholder="<?= $user['email']; ?>" value="<?= recupInputValue('email'); ?>">
-                    <?php viewError($errors,'email')  ?>
-                </div>
-
-                <div class="input_group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" value="">
-                </div>
-
-                <input type="submit" name="submitted" id="submitted" value="Modifier">
-            </div>
-        </form>
-    </div>
 <?php
 include ('inc/footer.php');

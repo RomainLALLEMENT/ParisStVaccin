@@ -55,33 +55,34 @@ if(!empty($_POST['submitted'])) {
 
 
 ?>
+    <section id="home_add_vaccin">
+        <div class="wrap3">
+            <form action="" method="post" novalidate>
+                <div class="wrap4">
+                    <div class="input_group">
+                        <label for="date">Date d'injection</label>
+                        <input type="date" name="date" id="date" value="<?php echo recupInputValue('date')  ?>">
+                        <?php viewError($errors,'date')  ?>
+                    </div>
+                    <div class="input_group">
+                        <label for="vaccin">Choisir le vaccin</label>
+                        <select name="vaccin" id="vaccin">
+                            <option value="">Sélectionnez un vaccin</option>
+                            <?php foreach ($vaccins as $key => $vaccin) { ?>
+                                <?php if(!empty($_POST['vaccin']) && $_POST['vaccin'] == $key ) { ?>
+                                    <option value="<?php echo $key+1 ?>"><?php echo $vaccin; ?></option>
+                                <?php } else { ?>
+                                    <option value="<?php echo $key+1 ?>"><?php echo $vaccin; ?></option>
+                                <?php } ?>
+                            <?php } ?>
+                        </select>
+                        <?php viewError($errors,'vaccin')  ?>
+                    </div>
 
-<div class="wrap3">
-    <form action="" method="post" novalidate>
-        <div class="wrap4">
-            <div class="input_group">
-                <label for="date">Date d'injection</label>
-                <input type="date" name="date" id="date" value="<?php echo recupInputValue('date')  ?>">
-                <?php viewError($errors,'date')  ?>
-            </div>
-            <div class="input_group">
-                <label for="vaccin">Choisir le vaccin</label>
-                <select name="vaccin" id="vaccin">
-                    <option value="">Sélectionnez un vaccin</option>
-                    <?php foreach ($vaccins as $key => $vaccin) { ?>
-                        <?php if(!empty($_POST['vaccin']) && $_POST['vaccin'] == $key ) { ?>
-                            <option value="<?php echo $key+1 ?>"><?php echo $vaccin; ?></option>
-                        <?php } else { ?>
-                            <option value="<?php echo $key+1 ?>"><?php echo $vaccin; ?></option>
-                        <?php } ?>
-                    <?php } ?>
-                </select>
-                <?php viewError($errors,'vaccin')  ?>
-            </div>
-
-            <input type="submit" name="submitted" id="submitted" value="Enregistrer">
+                    <input type="submit" name="submitted" id="submitted" value="Enregistrer">
+                </div>
+            </form>
         </div>
-    </form>
-</div>
+    </section>
 <?php
 include ('inc/footer.php');
