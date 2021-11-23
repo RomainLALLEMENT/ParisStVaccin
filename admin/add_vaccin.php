@@ -36,6 +36,8 @@ if (!empty($_POST['submitted'])) {
         $query->bindValue(':description',$description, PDO::PARAM_STR);
         $query->bindValue(':laboratoire',$laboratoire,PDO::PARAM_STR);
         $query->execute();
+
+        header('Location: list_vaccin.php?success=1');
     }
 }
 

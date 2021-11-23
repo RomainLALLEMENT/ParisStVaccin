@@ -5,7 +5,15 @@ require ('../inc/fonction.php');
 require ('../inc/request.php');
 error403();
 include('inc/header_back.php');
+
+if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
+    $success = true;
+} else {
+    $success = false;
+}
+
 $listVaccin = getAllVaccin();
+
 
 ?>
 
@@ -32,6 +40,16 @@ $listVaccin = getAllVaccin();
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
+            <?php if (!$success) { ?>
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle"></i> <span style="font-weight: 700;">Bienvenue <?= $_SESSION['user']['prenom']?></span> sur la liste des vaccins
+                </div>
+            <?php } else { ?>
+                <div class="alert alert-success" role="alert">
+                    <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
+                    <u>Nous vous invitons à rafraichir la page pour voir vos modifications</u>
+                </div>
+            <?php } ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
