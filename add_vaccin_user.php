@@ -13,16 +13,16 @@ $vaccins = getAllVaccinName();
 
 // Soumission du formulaire
 if(!empty($_POST['submitted'])) {
-    echo 'formulaire soumis <br>';
     // Faille xss
     $date   = cleanXss('date');
     $vaccin = cleanXss('vaccin');
-		// validation
-   $errors  =  dateValidation($errors, $date,'date');
-	 $errors  = selectValidation($errors,$vaccin,'vaccin');
-	 $idVaccin = $vaccin;
+    // validation
+    $errors  =  dateValidation($errors, $date,'date');
+    $errors  = selectValidation($errors,$vaccin,'vaccin');
+    $idVaccin = $vaccin;
+
     if(count($errors)== 0){
-			/*On recupêrer les donnés pour l'insert*/
+        /*On recupêrer les donnés pour l'insert*/
         $idVaccin         = intval($vaccin);
         $idUser           = $_SESSION['user']['id'];
 				$nombreMoisrappel = getMoisRappel($idVaccin)['temps_rappel'];
@@ -44,11 +44,12 @@ if(!empty($_POST['submitted'])) {
 				/*si il n'y a pas d'occurence dans la bdd on applique la requette*/
 				if($occurence === false){
 					putNewVaccinOnCarnet($idVaccin,$idUser,$date,$nombreMoisrappel);
-        	echo 'vaccin non renseigné !';
+        	        header('Location: listVaccinsUser.php');
 				}else{
 					/*redirection vers la page modif info vaccins*/
-         echo 'vaccin déja renseigné !';
-						/*faire une rediction ou proposé au user de modif le vaccin renseingé*/
+				    $errors['vaccin'] = 'Ce vaccin est déjà renseigné';
+                    header('Location: modificationVaccinUser.php?id='.$idVaccin);
+                    /*faire une rediction ou proposé au user de modif le vaccin renseingé*/
 				}
 		}
 }
