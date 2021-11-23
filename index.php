@@ -27,7 +27,7 @@ include ('inc/header.php');
             </div>
             <div class="element2">
                 <div class="img2"></div>
-                <a class="link" href="#">Carnet de vaccination</a>
+                <a class="link" href="listVaccinsUser.php">Carnet de vaccination</a>
             </div>
             <div class="element3">
                 <div class="img3"></div>
