@@ -4,9 +4,10 @@ require ('../inc/pdo.php');
 require ('../inc/fonction.php');
 require ('../inc/request.php');
 error403();
-include('inc/header_back.php');
+$nombreUsers = getNombreUsers();
+$nombreCarnets = getNombreUserCarnet();
 $listVaccin = getAllVaccin();
-
+include('inc/header_back.php');
 ?>
 
     <div class="page-wrapper">
@@ -19,10 +20,10 @@ $listVaccin = getAllVaccin();
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Liste des vaccins</h3>
+                    <h3 class="text-themecolor">Taux Vaccination</h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Vaccins</a></li>
-                        <li class="breadcrumb-item active">Liste des vaccins</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Statistiques</a></li>
+                        <li class="breadcrumb-item active">Taux Vaccination</li>
                     </ol>
                 </div>
             </div>
@@ -35,37 +36,33 @@ $listVaccin = getAllVaccin();
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <!-- Tab panes -->
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Libelle</th>
-                                        <th>Temps de rappel</th>
-                                        <th>Obligatoire</th>
-                                        <th>Pays</th>
-                                        <th>Description</th>
-                                        <th>Laboratoire</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <div class="listvaccins"><?php
-                                    foreach ($listVaccin as $vaccin){?>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Libelle</th>
+                                    <th>Taux de vaccination</th>
+                                    <th>Taux de vaccination utilisateur du site</th>
+                                    <th>Mail</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <div class="listvaccins"><?php
+                                    foreach ($listVaccin as $vaccin){
+                                        $taux = getNumberUsersVacinateByVaccin($vaccin['id']);?>
                                         <div>
                                             <tr>
                                                 <th><?=$vaccin['libelle']?></th>
-                                                <th><?=$vaccin['temps_rappel']?></th>
-                                                <th><?php if ($vaccin['obligatoire'] == 1) { echo '<i class="fas fa-check-circle" style="color: green;"></i>'; } else { echo '<i class="fas fa-times-circle" style="color: red;"></i>'; }?></th>
-                                                <th><?=$vaccin['pays']?></th>
-                                                <th><?=substr($vaccin['description'], 0, 30).'...'?></th>
-                                                <th><?=$vaccin['Laboratoire']?></th>
+                                                <th><?=getPourcentage($taux['nombrePersonneVaccin'], $nombreCarnets['UserCarnet']);?></th>
+                                                <th><?=getPourcentage($taux['nombrePersonneVaccin'], $nombreUsers['userTotal']);?></th>
+                                                <th><form action=""><input type="submit" name="envoyeMail" value="rappel mail"></form></th>
                                             </tr>
                                         </div>
                                     <?php } ?>
-                                        </div>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

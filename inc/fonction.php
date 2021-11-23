@@ -177,3 +177,8 @@ function verifyIdBdd($idUser,$idUsers){
     }
     return $idValide;
 }
+
+function getPourcentage($numérateur, $diviseur){
+    $resultat = round(($numérateur / $diviseur * 100),2);
+    return $resultat;
+}

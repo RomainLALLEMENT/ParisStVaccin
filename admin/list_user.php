@@ -26,7 +26,7 @@ include('inc/header_back.php');
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor">Liste des utilisateurs <i class="fas fa-users"></i></h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Utilisateurs</a></li>
                         <li class="breadcrumb-item active">Liste des utilisateurs</li>
                     </ol>
                 </div>

@@ -143,6 +143,12 @@
                     </li>
                     <li> <a class="waves-effect waves-dark" href="edit_vaccin.php" aria-expanded="false"><i class="fas fa-edit"></i><span class="hide-menu">Modifier</span></a>
                     </li>
+                    <li class="separator_menu"><span>Statistiques</span></li>
+                    <li> <a class="waves-effect waves-dark" href="pourcentage_carnet.php" aria-expanded="false"><i class="fas fa-edit"></i><span class="hide-menu">Pourcentage Carnet</span></a>
+                    </li>
+                    <li> <a class="waves-effect waves-dark" href="taux_vaccination.php" aria-expanded="false"><i class="fas fa-edit"></i><span class="hide-menu">Taux Vaccination</span></a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
