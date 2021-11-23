@@ -11,6 +11,14 @@ function getUser($id){
     return $query->fetch();
 }
 
+function getNombreUsers(){
+    global $pdo;
+    $sql = "SELECT COUNT(psv_user.id) as userTotal FROM psv_user; ";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetch();
+}
+
 function getAllIdUsers(){
     global $pdo;
     $sql = "SELECT id FROM psv_user";
@@ -79,6 +87,13 @@ function getAllVaccinName(): array
     return $query->fetchAll(PDO::FETCH_COLUMN);
 }
 
+function getAllVaccin(){
+    global $pdo;
+    $sql = "SELECT * FROM `psv_vaccin` WHERE 1";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
 function getMoisRappel(int $id):array
 {
     global $pdo;
@@ -116,6 +131,23 @@ function getVaccinsUser(int $idUser):array
     $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
     $query->execute();
     return $query->fetchAll(PDO::FETCH_COLUMN);
+}
+
+function getNombreUserCarnet(){
+    global $pdo;
+    $sql = "SELECT COUNT(DISTINCT psv_carnet.id_user) as UserCarnet FROM psv_carnet;";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetch();
+}
+
+function getNumberUsersVacinateByVaccin($idVaccin){
+    global $pdo;
+    $sql = "SELECT COUNT(id_vaccin) AS nombrePersonneVaccin FROM `psv_carnet` WHERE id_vaccin = :idVaccin";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idVaccin',$idVaccin,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetch();
 }
 
 function getInfoVaccinUser($idUser){
