@@ -906,6 +906,16 @@ textarea {
   font-size: 6rem;
   animation: text-shadow-pop-bottom 0.6s both;
 }
+@media (max-width: 900px) {
+  #home .wrap0 h2 {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 350px) {
+  #home .wrap0 h2 {
+    font-size: 2rem;
+  }
+}
 #home .wrap0 h2:first-child {
   color: #88BABF;
 }
@@ -921,6 +931,11 @@ textarea {
   font-size: 1.3rem;
   font-weight: 700;
   transition-duration: 0.5s;
+}
+@media (max-width: 350px) {
+  #home .wrap0 a {
+    font-size: 0.8rem;
+  }
 }
 #home .wrap0 a:hover {
   opacity: 70%;
