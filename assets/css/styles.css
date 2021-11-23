@@ -1144,9 +1144,14 @@ textarea {
 }
 #panel_buttons .wrap2 .container {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 900px) {
+  #panel_buttons .wrap2 .container {
+    justify-content: center;
+  }
 }
 #panel_buttons .wrap2 .container .link {
   color: #73625C;
