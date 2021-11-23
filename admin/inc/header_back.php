@@ -119,6 +119,7 @@
             </style>
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
+                    <li><a class="waves-effect waves-dark" href="profil.php"><i class="fas fa-id-badge"></i> Accéder à mon profil</a></li>
                     <li> <a class="waves-effect waves-dark" href="index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Tableau de bord</span></a>
                     </li>
                     <li class="separator_menu"><span>Utilisateurs</span></li>
