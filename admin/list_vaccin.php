@@ -64,6 +64,7 @@ $listVaccin = getAllVaccin();
                                         <th>Pays</th>
                                         <th>Description</th>
                                         <th>Laboratoire</th>
+                                        <th>modifier</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -77,6 +78,7 @@ $listVaccin = getAllVaccin();
                                                 <th><?=$vaccin['pays']?></th>
                                                 <th><?=substr($vaccin['description'], 0, 30).'...'?></th>
                                                 <th><?=$vaccin['Laboratoire']?></th>
+                                                <th><?= '<a href="edit_vaccin.php?id='.$vaccin['id'] . '">Modifier</a>'?></th>
                                             </tr>
                                         </div>
                                     <?php } ?>

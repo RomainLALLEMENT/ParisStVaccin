@@ -6,38 +6,52 @@ require ('../inc/request.php');
 error403();
 $errors = array(); // soit array(); soit ca [] pour qua c'est un tableau
 
-if (!empty($_POST['submitted'])) {
-    //faille xss
-    $libelle = cleanXss('libelle');
-    $temps_rappel = cleanXss('temps_rappel');
-    $country = cleanXss('country');
-    $obligatoire = cleanXss('obligatoire');
-    $description = cleanXss('description');
-    $laboratoire = cleanXss('laboratoire');
+if (!empty($_GET['id'])){
+    $id = $_GET['id'];
 
-    //validation
-    $errors = textValidation($errors,$libelle,'libelle', 2,255);
-    $errors = textValidation($errors,$temps_rappel,'temps_rappel', 1,3);
-    $errors = textValidation($errors,$country,'country', 1,255);
-    $errors = textValidation($errors,$description,'description', 5,500);
-    $errors = textValidation($errors,$laboratoire,'laboratoire', 2,150);
+    $sql_select ="SELECT * FROM psv_vaccin WHERE id= :id";
+    $query= $pdo->prepare($sql_select);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+    $vaccin =$query->fetch();
+
+    if (!empty($_POST['submitted'])) {
+        //faille xss
+        $libelle = cleanXss('libelle');
+        $temps_rappel = cleanXss('temps_rappel');
+        $country = cleanXss('country');
+        $obligatoire = cleanXss('obligatoire');
+        $description = cleanXss('description');
+        $laboratoire = cleanXss('laboratoire');
+
+        //validation
+        $errors = textValidation($errors,$libelle,'libelle', 2,255);
+        $errors = textValidation($errors,$temps_rappel,'temps_rappel', 1,3);
+        $errors = textValidation($errors,$country,'country', 1,255);
+        $errors = textValidation($errors,$description,'description', 5,500);
+        $errors = textValidation($errors,$laboratoire,'laboratoire', 2,150);
 
 
-    if (count($errors) == 0 ) {
-        //requete sql
+        if (count($errors) == 0 ) {
+            //requete sql
 
-        $sql= "INSERT INTO  psv_vaccin ( libelle, temps_rappel, pays, obligatoire, description, Laboratoire) 
-            VALUES (:libelle, :temps_rappel, :pays, :obligatoire, :description, :laboratoire)";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':libelle',$libelle, PDO::PARAM_STR);
-        $query->bindValue(':temps_rappel',$temps_rappel, PDO::PARAM_INT);
-        $query->bindValue(':pays',$country, PDO::PARAM_STR);
-        $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
-        $query->bindValue(':description',$description, PDO::PARAM_STR);
-        $query->bindValue(':laboratoire',$laboratoire,PDO::PARAM_STR);
-        $query->execute();
+            $sql= "UPDATE psv_vaccin 
+        SET libelle=:libelle,temps_rappel=:temps_rappel,pays=:pays,obligatoire=:obligatoire,description=:description,Laboratoire=:laboratoire
+        WHERE id=:id ";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':id',$id, PDO::PARAM_INT);
+            $query->bindValue(':libelle',$libelle, PDO::PARAM_STR);
+            $query->bindValue(':temps_rappel',$temps_rappel, PDO::PARAM_INT);
+            $query->bindValue(':pays',$country, PDO::PARAM_STR);
+            $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
+            $query->bindValue(':description',$description, PDO::PARAM_STR);
+            $query->bindValue(':laboratoire',$laboratoire,PDO::PARAM_STR);
+            $query->execute();
+        }
     }
-}
+    }
+
+
 
 
 include('inc/header_back.php');
@@ -76,14 +90,14 @@ include('inc/header_back.php');
                             <div class="form-group">
                                 <label for="libelle" class="col-md-12">libéllé</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="libelle" id="libelle" placeholder="" value="<?= recupInputValue('libelle') ?>" class="form-control form-control-line">
+                                    <input type="text" name="libelle" id="libelle" placeholder="<?=$vaccin['libelle'] ?>" value="<?= recupInputValue('libelle') ?>" class="form-control form-control-line">
                                     <?= viewError($errors,'libelle') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="temps_rappel" class="col-md-12">Temps rappel</label>
                                 <div class="col-md-12">
-                                    <input type="number" name="temps_rappel" id="temps_rappel" placeholder="Nombre de mois" min="3" max="100" value="<?= recupInputValue('temps_rappel') ?>" class="form-control form-control-line">
+                                    <input type="number" name="temps_rappel" id="temps_rappel" placeholder=" <?php if (!empty($vaccin)){ echo $vaccin['temps_rappel'];} else { echo 'Nombre de mois'; } ?>" min="3" max="100" value="<?= recupInputValue('temps_rappel') ?>" class="form-control form-control-line">
                                     <?= viewError($errors,'temps_rappel') ?>
                                 </div>
                             </div>
@@ -333,14 +347,13 @@ include('inc/header_back.php');
                             ];
 
                             ?>
-
                             <label class="col-sm-12">Sélectionnez un pays</label>
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <select class="form-control form-control-line" name="country" id="v">
                                         <option value="">__sélectionnez__</option>
                                         <?php foreach ($countrys as $key => $country) { ?>
-                                            <?php if (!empty($_POST['country']) && $_POST['country'] == $key ) { ?>
+                                            <?php if (!empty($_POST['country']) && $_POST['country'] == $key || !empty($vaccin['country'])) { ?>
                                                 <option value="<?= $key ?>" selected><?= $country ?></option>
                                             <?php } else { ?>
                                                 <option value="<?= $key ?>"><?= $country ?></option>
@@ -367,14 +380,14 @@ include('inc/header_back.php');
                             <div class="form-group">
                                 <label for="description" class="col-md-12">Description</label>
                                 <div class="col-sm-12">
-                                    <textarea name="description" id="description" class="form-control form-control-line" style="height: 200px; padding: 1rem"><?= recupInputValue('description')?></textarea>
+                                    <textarea name="description" id="description" placeholder="<?= $vaccin['description'] ?>" class="form-control form-control-line" style="height: 200px; padding: 1rem"><?= recupInputValue('description')?></textarea>
                                     <?= viewError($errors,'description') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="laboratoire" class="col-md-12">Laboratoire</label>
                                 <div class="col-sm-12">
-                                    <input type="text" name="laboratoire" id="laboratoire" value="<?= recupInputValue('laboratoire')?>" class="form-control form-control-line">
+                                    <input type="text" name="laboratoire" id="laboratoire" placeholder="<?= $vaccin['laboratoire'] ?>" value="<?= recupInputValue('laboratoire')?>" class="form-control form-control-line">
                                     <?= viewError($errors,'laboratoire') ?>
                                 </div>
                             </div>
