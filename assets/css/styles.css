@@ -1442,15 +1442,20 @@ textarea {
 }
 #footer .wrap2 {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
+@media (max-width: 700px) {
+  #footer .wrap2 {
+    justify-content: center;
+  }
+}
 #footer .wrap2 nav ul {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 1rem;
 }
 #footer .wrap2 nav ul li a {
@@ -1482,6 +1487,11 @@ textarea {
   font-family: "Poiret One", cursive;
   font-size: 1rem;
   padding: 0.5rem 0;
+}
+@media (max-width: 700px) {
+  #footer .wrap2 .copyright {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
