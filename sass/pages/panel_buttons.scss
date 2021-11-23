@@ -7,9 +7,13 @@
 
     .container {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       justify-content: space-between;
       align-items: center;
+
+      @include breakpoints(petitlaptop) {
+        justify-content: center;
+      }
 
       .link {
         color: $brown;

@@ -85,7 +85,6 @@ if (!empty($_SESSION['user']['id'])) {
 include ('inc/header_back.php'); ?>
 
     <div class="page-wrapper">
-    <?php debug($user); ?>
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
@@ -128,8 +127,6 @@ include ('inc/header_back.php'); ?>
                                 <h4 class="card-title m-t-10"><?= $user['prenom'].' '.$user['nom'] ?></h4>
                                 <h6 class="card-subtitle"><?= $user['role'];?></h6>
                                 <div class="row text-center justify-content-md-center">
-                                    <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                    <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
                                 </div>
                             </center>
                         </div>

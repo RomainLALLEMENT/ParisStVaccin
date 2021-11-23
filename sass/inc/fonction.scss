@@ -157,15 +157,23 @@
 
                 .input_names {
                     display: flex;
-                    flex-flow: row nowrap;
+                    flex-flow: row wrap;
                     justify-content: space-between;
                     padding-bottom: 2rem;
+
+                    @include breakpoints(tablette) {
+                        flex-flow: column wrap;
+                    }
 
                     .input_nom, .input_prenom {
                         width: 45%;
                         display: flex;
                         flex-flow: column nowrap;
                         align-items: center;
+
+                        @include breakpoints(tablette) {
+                            width: 100%;
+                        }
                     }
                 }
             }

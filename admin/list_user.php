@@ -4,6 +4,13 @@ require ('../inc/pdo.php');
 require ('../inc/request.php');
 require ('../inc/fonction.php');
 error403();
+
+if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
+    $success = true;
+} else {
+    $success = false;
+}
+
 global $pdo;
 $sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user";
 $query = $pdo->prepare($sql);
@@ -37,6 +44,16 @@ include('inc/header_back.php');
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
+            <?php if (!$success) { ?>
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle"></i> <span style="font-weight: 700;">Bienvenue <?= $_SESSION['user']['prenom']?></span> sur la liste des utilisateurs.
+                </div>
+            <?php } else { ?>
+                <div class="alert alert-success" role="alert">
+                    <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
+                    <u>Nous vous invitons à rafraichir la page pour voir vos modifications</u>
+                </div>
+            <?php } ?>
             <?php if (!empty($_GET['error'])) {  ?>
             <div class="alert alert-danger" role="alert">
                 <i class="fas fa-info-circle"></i> Attention ! Vous devez cliquer directement sur le rôle d'un utilisateur parmi cette liste pour le modifier.

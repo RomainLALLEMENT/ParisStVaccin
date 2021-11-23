@@ -271,15 +271,25 @@ textarea {
 }
 .wrap3 form .wrap4 .input_names {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   padding-bottom: 2rem;
+}
+@media (max-width: 700px) {
+  .wrap3 form .wrap4 .input_names {
+    flex-flow: column wrap;
+  }
 }
 .wrap3 form .wrap4 .input_names .input_nom, .wrap3 form .wrap4 .input_names .input_prenom {
   width: 45%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+@media (max-width: 700px) {
+  .wrap3 form .wrap4 .input_names .input_nom, .wrap3 form .wrap4 .input_names .input_prenom {
+    width: 100%;
+  }
 }
 
 /* ----------------------------------------------
@@ -754,9 +764,8 @@ textarea {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0 1rem;
   font-size: 1rem;
-  height: 81px;
 }
 @media (max-width: 700px) {
   #header {
@@ -789,6 +798,7 @@ textarea {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: center;
   gap: 1.2rem;
 }
 #header ul li {
@@ -802,8 +812,7 @@ textarea {
 }
 @media (max-width: 700px) {
   #header .wrap0 {
-    padding: 0;
-    width: 100%;
+    flex-flow: column;
   }
 }
 #header .wrap0 nav {
@@ -811,18 +820,33 @@ textarea {
   width: 25%;
   text-transform: capitalize;
 }
+@media (max-width: 700px) {
+  #header .wrap0 nav {
+    padding: 1rem;
+  }
+}
 #header .wrap0 nav .logo {
   width: 35%;
+}
+@media (max-width: 700px) {
+  #header .wrap0 nav .logo {
+    display: none;
+  }
 }
 #header .wrap0 nav .logo img {
   width: 100%;
 }
 #header .wrap0 .login {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  align-items: center;
   justify-content: flex-end;
   gap: 0;
-  align-items: center;
+}
+@media (max-width: 700px) {
+  #header .wrap0 .login {
+    justify-content: center;
+  }
 }
 #header .wrap0 .login .icon_menu {
   background-repeat: no-repeat;
@@ -876,7 +900,6 @@ textarea {
 #home {
   background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat center;
   background-size: 100%;
-  height: 600px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -893,6 +916,16 @@ textarea {
   font-size: 6rem;
   animation: text-shadow-pop-bottom 0.6s both;
 }
+@media (max-width: 900px) {
+  #home .wrap0 h2 {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 350px) {
+  #home .wrap0 h2 {
+    font-size: 2rem;
+  }
+}
 #home .wrap0 h2:first-child {
   color: #88BABF;
 }
@@ -908,6 +941,11 @@ textarea {
   font-size: 1.3rem;
   font-weight: 700;
   transition-duration: 0.5s;
+}
+@media (max-width: 350px) {
+  #home .wrap0 a {
+    font-size: 0.8rem;
+  }
 }
 #home .wrap0 a:hover {
   opacity: 70%;
@@ -1032,7 +1070,6 @@ textarea {
 #home_register {
   background: url("../../assets/img/backgrounds/inscription.jpg") no-repeat;
   background-size: 100%;
-  height: 980px;
 }
 #home_register .wrap0 {
   position: relative;
@@ -1060,6 +1097,11 @@ textarea {
   background: url("../../assets/img/backgrounds/stethoscope.jpg") no-repeat;
   background-size: 100%;
   height: 800px;
+}
+@media (max-width: 700px) {
+  #home_profil {
+    margin-bottom: 20rem;
+  }
 }
 #home_profil .wrap0 {
   position: relative;
@@ -1116,9 +1158,14 @@ textarea {
 }
 #panel_buttons .wrap2 .container {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 900px) {
+  #panel_buttons .wrap2 .container {
+    justify-content: center;
+  }
 }
 #panel_buttons .wrap2 .container .link {
   color: #73625C;
@@ -1170,17 +1217,89 @@ textarea {
   animation: jello-horizontal 0.9s infinite both;
 }
 
-#list_vaccins_user .wrap2 a {
+#list_vaccins_user .wrap2 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#list_vaccins_user .wrap2 .success {
+  background-color: #d4edda;
+  color: black;
+  font-size: 0.8rem;
   padding: 1rem;
-  background-color: lightgray;
-  border-radius: 100rem;
-  margin: 2rem;
+  margin: 0 1rem 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+}
+#list_vaccins_user .wrap2 .warning {
+  background-color: #fff3cd;
+  color: black;
+  font-size: 0.8rem;
+  padding: 1rem;
+  margin: 0 1rem 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+}
+#list_vaccins_user .wrap2 .danger {
+  background-color: #f8d7da;
+  color: black;
+  font-size: 0.8rem;
+  padding: 1rem;
+  margin: 0 1rem 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+}
+#list_vaccins_user .wrap2 .info {
+  background-color: #d1ecf1;
+  color: black;
+  font-size: 0.8rem;
+  padding: 1rem;
+  margin: 0 1rem 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+}
+#list_vaccins_user .wrap2 h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+#list_vaccins_user .wrap2 p {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1rem;
+  padding: 0.3rem 0;
+}
+#list_vaccins_user .wrap2 a {
+  color: #73625C;
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition-duration: 0.5s;
+}
+#list_vaccins_user .wrap2 a:hover {
+  opacity: 70%;
+  transition-duration: 0.5s;
+}
+#list_vaccins_user .wrap2 form {
+  padding: 1rem 0;
+}
+#list_vaccins_user .wrap2 form input[type=submit] {
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem;
+  background-color: #A4B3BF;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  border-radius: 20px;
+}
+#list_vaccins_user .wrap2 form input[type=submit]:hover {
+  background-color: #7EDBDB;
 }
 #list_vaccins_user .wrap2 .block {
   margin: 3rem 0;
   color: black;
   padding: 2rem 0;
   border-bottom: solid;
+  width: 100%;
 }
 #list_vaccins_user .wrap2 .block .info_vaccin {
   display: flex;
@@ -1188,28 +1307,10 @@ textarea {
   padding: 0 2rem;
   margin-bottom: 1rem;
 }
-#list_vaccins_user .wrap2 .block .info_vaccin .vaccin {
-  width: 90%;
-  display: flex;
-  flex-flow: row nowrap;
-}
-#list_vaccins_user .wrap2 .block .info_vaccin .vaccin .php {
-  padding: 0 1rem;
-}
 #list_vaccins_user .wrap2 .block .info_vaccin .boutton {
   width: 10%;
   display: flex;
   justify-content: center;
-}
-#list_vaccins_user .wrap2 .block .info_vaccin .boutton a {
-  padding: 1rem;
-  border-radius: 12rem;
-  background-color: #cce5ff;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-content: center;
-  align-items: center;
 }
 #list_vaccins_user .wrap2 .block .rappel_vaccin {
   display: flex;
@@ -1232,8 +1333,11 @@ textarea {
 #list_vaccins_user .wrap2 .block .bleu {
   background: #cce5ff;
 }
-#list_vaccins_user .wrap2 .block:last-child {
-  border-bottom: none;
+#list_vaccins_user .wrap2 .block:last-of-type {
+  border: none;
+}
+#list_vaccins_user .wrap2 a:last-of-type {
+  margin-bottom: 3rem;
 }
 
 #legals .wrap2 {
@@ -1352,15 +1456,20 @@ textarea {
 }
 #footer .wrap2 {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
+@media (max-width: 700px) {
+  #footer .wrap2 {
+    justify-content: center;
+  }
+}
 #footer .wrap2 nav ul {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 1rem;
 }
 #footer .wrap2 nav ul li a {
@@ -1392,6 +1501,11 @@ textarea {
   font-family: "Poiret One", cursive;
   font-size: 1rem;
   padding: 0.5rem 0;
+}
+@media (max-width: 700px) {
+  #footer .wrap2 .copyright {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

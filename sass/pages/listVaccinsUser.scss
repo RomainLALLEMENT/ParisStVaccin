@@ -2,44 +2,106 @@
 @import "../inc/fonction";
 #list_vaccins_user{
     .wrap2{
-        a{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        .success {
+            background-color: #d4edda;
+            color: black;
+            font-size: .8rem;
             padding: 1rem;
-            background-color: lightgray;
-            border-radius: 100rem;
-            margin: 2rem;
+            margin: 0 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
         }
+        .warning {
+            background-color: #fff3cd;
+            color: black;
+            font-size: .8rem;
+            padding: 1rem;
+            margin: 0 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
+        }
+        .danger {
+            background-color: #f8d7da;
+            color: black;
+            font-size: .8rem;
+            padding: 1rem;
+            margin: 0 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: black;
+            font-size: .8rem;
+            padding: 1rem;
+            margin: 0 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+        p {
+            font-family: $roboto;
+            font-size: 1rem;
+            padding: .3rem 0;
+        }
+        a {
+            color: $brown;
+            //border: 2px $brown solid;
+            border-radius: .3rem;
+            padding: .4rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            transition-duration: .5s;
+        }
+        a:hover {
+            opacity: 70%;
+            transition-duration: .5s;
+        }
+
+        form {
+            padding: 1rem 0;
+            input[type="submit"] {
+                cursor: pointer;
+                border: none;
+                padding: .5rem;
+                background-color: $grey;
+                color: white;
+                font-family: $roboto;
+                border-radius: 20px;
+            }
+            input[type="submit"]:hover {
+                background-color: $lightblue;
+            }
+        }
+
         .block{
             margin: 3rem 0;
             color: black;
             padding: 2rem 0;
             border-bottom: solid;
+            width: 100%;
             .info_vaccin{
                 display: flex;
                 justify-content: space-between;
                 padding: 0 2rem;
                 margin-bottom: 1rem;
                 .vaccin{
-                    width: 90%;
 
-                    display: flex;
-                    flex-flow: row nowrap;
 
-                    .php{
-                        padding: 0 1rem;
-                    }
                 }
                 .boutton{
                     width: 10%;
                     display: flex;
                     justify-content: center;
 
-                    a{
-                        padding: 1rem;
-                        border-radius: 12rem;
-                        background-color: #cce5ff;
-                        display: flex;
-                        @include centreAll;
-                    }
                 }
             }
             .rappel_vaccin{
@@ -55,9 +117,17 @@
             .orange{background: #fff3cd;}
             .vert{background: #d4edda;}
             .bleu{background: #cce5ff;}
+
         }
-        .block:last-child{
-            border-bottom: none;
-        }
+
+    }
+
+    .wrap2 .block:last-of-type {
+        border: none;
+
+    }
+
+    .wrap2 a:last-of-type {
+        margin-bottom: 3rem;
     }
 }

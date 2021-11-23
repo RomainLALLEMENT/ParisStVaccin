@@ -3,7 +3,6 @@
 #home {
   background: url("../../assets/img/backgrounds/vaccin.jpg") no-repeat center;
   background-size: 100%;
-  height: 600px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -19,6 +18,14 @@
       font-weight: 700;
       font-size: 6rem;
       animation: text-shadow-pop-bottom 0.6s both;
+
+      @include breakpoints(petitlaptop) {
+        font-size: 4rem;
+      }
+
+      @include breakpoints(phone) {
+        font-size: 2rem;
+      }
     }
 
     h2:first-child {
@@ -37,6 +44,10 @@
       font-size: 1.3rem;
       font-weight: 700;
       transition-duration: .5s;
+
+      @include breakpoints(phone) {
+        font-size: .8rem;
+      }
     }
     a:hover {
       opacity: 70%;
