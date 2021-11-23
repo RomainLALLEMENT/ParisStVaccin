@@ -53,16 +53,10 @@
                     <!-- Logo icon --><b>
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
-                        <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                        <!-- Light Logo icon -->
-                        <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        <img src="../assets/img/logo.png" width="20%" alt="homepage" />
                     </b>
                     <!--End Logo icon -->
-                    <!-- Logo text --><span>
-                         <!-- dark Logo text -->
-                         <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                        <!-- Light Logo text -->
-                         <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                    <!-- Logo text --><span>Paris St Vaccin - Espace administrateur</span> </a>
             </div>
             <!-- ============================================================== -->
             <!-- End Logo -->
@@ -77,10 +71,10 @@
                     <!-- ============================================================== -->
                     <!-- Search -->
                     <!-- ============================================================== -->
-                    <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>
-                        <form class="app-search">
-                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a> </form>
-                    </li>
+<!--                    <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>-->
+<!--                        <form class="app-search">-->
+<!--                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a> </form>-->
+<!--                    </li>-->
                 </ul>
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
@@ -93,7 +87,7 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="../"><span class="hidden-md-down" style="font-weight: 700; color: white">Retour sur la version publique</span> </a>
                     </li>
                     <li class="nav-item dropdown u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="profil.php" aria-haspopup="true"><img src="assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down"><?= $_SESSION['user']['pseudo']; ?>&nbsp;</span> </a>
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="profil.php" aria-haspopup="true"><!--<img src="assets/images/users/1.jpg" alt="user" class="" />--> <span class="hidden-md-down"><?= $_SESSION['user']['pseudo']; ?>&nbsp;</span> </a>
                     </li>
                 </ul>
             </div>
@@ -126,10 +120,6 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li> <a class="waves-effect waves-dark" href="index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Tableau de bord</span></a>
-                    </li>
-                    <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false" target="_blank"><i class="fa fa-table"></i><span class="hide-menu">Tables</span></a>
-                    </li>
-                    <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false" target="_blank"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                     </li>
                     <li class="separator_menu"><span>Utilisateurs</span></li>
                     <li> <a class="waves-effect waves-dark" href="list_user.php" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Liste</span></a>

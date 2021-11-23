@@ -68,8 +68,6 @@ if (!empty($_GET['id'] && is_numeric($_GET['id']))) {
 include ('inc/header_back.php'); ?>
 
     <div class="page-wrapper">
-<?php debug($user); ?>
-<?php debug($_SESSION); ?>
     <!-- ============================================================== -->
     <!-- Container fluid  -->
     <!-- ============================================================== -->
@@ -79,7 +77,7 @@ include ('inc/header_back.php'); ?>
     <!-- ============================================================== -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Rôle(s) de <?= $user['pseudo']; ?></h3>
+            <h3 class="text-themecolor">Rôle(s) de <?= $user['pseudo']; ?> <i class="fas fa-users-cog"></i></h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Utilisateurs</a></li>
                 <li class="breadcrumb-item active">Rôle(s)</li>

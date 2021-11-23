@@ -49,7 +49,9 @@ if (!empty($_GET['id'])){
             $query->execute();
         }
     }
-    }
+} else {
+    header('Location: list_vaccin.php?error=ID');
+}
 
 
 
@@ -58,7 +60,6 @@ include('inc/header_back.php');
 ?>
 
     <div class="page-wrapper">
-<?=debug($_POST) ?>
     <!-- ============================================================== -->
     <!-- Container fluid  -->
     <!-- ============================================================== -->
@@ -68,10 +69,10 @@ include('inc/header_back.php');
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">Ajouter un vaccin</h3>
+                <h3 class="text-themecolor">Modifier un vaccin <i class="fas fa-syringe"></i></h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
-                    <li class="breadcrumb-item active">Ajouter un vaccin</li>
+                    <li class="breadcrumb-item active">Modifier un vaccin</li>
                 </ol>
             </div>
         </div>
