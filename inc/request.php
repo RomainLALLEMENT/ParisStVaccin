@@ -150,6 +150,23 @@ function getVaccin($idVaccin){
     return $query->fetchAll();
 }
 
+function getRechercheVaccin($recherche){
+    global $pdo;
+    $sql = "SELECT * FROM psv_vaccin WHERE libelle LIKE :recherche OR laboratoire LIKE :recherche OR description LIKE :recherche";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':recherche','%'.$recherche.'%',PDO::PARAM_STR);
+    $query->execute();
+    return $query->fetchAll();
+}
+
+function getAfficherVaccin(){
+    global $pdo;
+    $sql = "SELECT * FROM psv_vaccin ORDER BY RAND() LIMIT 4";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 // INSERT
 function putNewVaccin($libelle,$temps_rappel,$country,$obligatoire,$description,$laboratoire)
 {
