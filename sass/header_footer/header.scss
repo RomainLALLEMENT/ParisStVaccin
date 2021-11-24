@@ -69,12 +69,8 @@
             }
 
             .logo {
-                @include breakpoints(tablette){
-                    display: none;
-                }
-                width: 35%;
                 img {
-                    width: 100%;
+                    width: 6rem;
                 }
             }
         }

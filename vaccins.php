@@ -4,17 +4,12 @@ require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
 include ('inc/header.php');
-
-// faire un formulaire
-//Quand il est soumis vérifier faille xss
-// Si pas de faille appeller la fonction
-//afficher les résultats
 $vaccins = getAfficherVaccin();
 if (!empty($_POST['submitted'])) {
     $recherche = cleanXss('submitted');
     $recherche = getRechercheVaccin($_POST['submitted']);
    }
-if (!empty($recherche)){$vaccins = $recherche;}
+if (!empty($recherche))$vaccins = $recherche;
 ?>
 
 <section id="home">
@@ -55,3 +50,4 @@ if (!empty($recherche)){$vaccins = $recherche;}
 </section>
 <?php
 include ('inc/footer.php');
+

@@ -66,7 +66,7 @@ include('inc/footer_back.php');?>
               }]
           },
           options: {
-          }
+          },
       });
 </script>
 
