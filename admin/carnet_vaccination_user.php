@@ -4,7 +4,7 @@ require ('../inc/pdo.php');
 require ('../inc/fonction.php');
 require ('../inc/request.php');
 error403();
-// verifier l'id corespnd à un user présent en base
+// verifier l'id corespond à un user présent en base
 $idUsers = getAllIdUsers();
 $idUser = $_GET['id'];
 if (!empty($_GET['id']) && is_numeric($_GET['id'])){

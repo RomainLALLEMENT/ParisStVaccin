@@ -122,6 +122,20 @@ function getVaccin($idVaccin){
 
 // SELCT
 
+function getLibelleMoisByCarnet($id_carnet){
+    global $pdo;
+
+    $sql = "SELECT libelle,temps_rappel as mois
+            FROM psv_carnet 
+            LEFT JOIN psv_vaccin
+            ON psv_carnet.id_vaccin = psv_vaccin.id
+            WHERE psv_carnet.id = :id_carnet";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id_carnet',$id_carnet,PDO::PARAM_STR);
+    $query->execute();
+    return $query->fetch();
+}
+
 function getVaccinsUser(int $idUser):array
 {
     global $pdo;
@@ -168,6 +182,14 @@ function getVaccinsUserByCarnet($idUser){
     return $query->fetchAll();
 }
 
+function getCarnetById($idCarnet){
+    global $pdo;
+    $sql = "SELECT * FROM `psv_carnet` WHERE id = :idCarnet";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idCarnet',$idCarnet,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetch();
+}
 
 // INSERT
 
@@ -188,6 +210,21 @@ function putNewVaccinOnCarnet( int $idVaccin,int $idUser, string $date, int $moi
 
 
 // UPDATE
+function carnetModifDateByUser($idCarnet,$mois,$date){
+    global $pdo;
+    $sql = "UPDATE `psv_carnet` 
+            SET `premiere_date`= NOW(), `date_prochain` = DATE_ADD(`premiere_date`,INTERVAL +4 MONTH) 
+            WHERE id =:idCarnet";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idcarnet',$idCarnet,PDO::PARAM_INT);
+    $query->bindValue(':mois',$mois,PDO::PARAM_INT);
+    $query->bindValue(':date',$date,PDO::PARAM_STR);
+    $query->execute();
+
+}
+
+
+
 function carnetAccutualizeByUser(int $idCarnet, int $mois):void
 {
     global $pdo;

@@ -22,16 +22,20 @@
 
   .wrap2 {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+
+    @include breakpoints(tablette) {
+      justify-content: center;
+    }
 
     nav {
       ul {
         display: flex;
         justify-content: center;
-        flex-direction: row;
+        flex-flow: row wrap;
         gap: 1rem;
         li {
 
@@ -70,6 +74,10 @@
       font-family: $poiret;
       font-size: 1rem;
       padding: .5rem 0;
+
+      @include breakpoints(tablette) {
+        text-align: center;
+      }
     }
   }
 }

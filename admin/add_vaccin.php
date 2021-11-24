@@ -75,7 +75,7 @@ include('inc/header_back.php');
                         <div class="card-body">
                             <form class="form-horizontal form-material" method="post" novalidate>
                                 <div class="form-group">
-                                    <label for="libelle" class="col-md-12">libéllé</label>
+                                    <label for="libelle" class="col-md-12">Libéllé</label>
                                     <div class="col-md-12">
                                         <input type="text" name="libelle" id="libelle" placeholder="" value="<?= recupInputValue('libelle') ?>" class="form-control form-control-line">
                                         <?= viewError($errors,'libelle') ?>
@@ -84,7 +84,7 @@ include('inc/header_back.php');
                                 <div class="form-group">
                                     <label for="temps_rappel" class="col-md-12">Temps rappel</label>
                                     <div class="col-md-12">
-                                        <input type="number" name="temps_rappel" id="temps_rappel" placeholder="Nombre de mois" min="3" max="100" value="<?= recupInputValue('temps_rappel') ?>" class="form-control form-control-line">
+                                        <input type="number" name="temps_rappel" id="temps_rappel" placeholder="Nombre de mois (3 minimum)" min="3" max="100" value="<?= recupInputValue('temps_rappel') ?>" class="form-control form-control-line">
                                         <?= viewError($errors,'temps_rappel') ?>
                                     </div>
                                 </div>

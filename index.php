@@ -10,7 +10,11 @@ include ('inc/header.php');
     <div class="wrap0">
         <h2 class="text-shadow">Vaccinez</h2>
         <h2 class="text-shadow">Vous !</h2>
-        <a href="login.php">Connexion</a>
+        <?php if (empty($_SESSION)) { ?>
+            <a href="login.php">Connexion</a>
+        <?php } else { ?>
+            <a href="listVaccinsUser.php">Mon carnet</a>
+        <?php } ?>
     </div>
 </section>
 
@@ -23,7 +27,7 @@ include ('inc/header.php');
             </div>
             <div class="element2">
                 <div class="img2"></div>
-                <a class="link" href="#">Carnet de vaccination</a>
+                <a class="link" href="listVaccinsUser.php">Carnet de vaccination</a>
             </div>
             <div class="element3">
                 <div class="img3"></div>

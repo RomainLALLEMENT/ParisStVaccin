@@ -3,47 +3,51 @@ session_start();
 require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
-include ('inc/header.php');
 $errors = [];
 //debug($errors);
-if (!empty($_POST['submitted'])) {
-    // Faille XSS
-    $login = cleanXss('login');
-    $password = cleanXss('password');
+if (empty($_SESSION['user'])) {
+    if (!empty($_POST['submitted'])) {
+        // Faille XSS
+        $login = cleanXss('login');
+        $password = cleanXss('password');
 
-    // Validation des champs
-    $errors = textValidation($errors,$login,'login',2,255);
+        // Validation des champs
+        $errors = textValidation($errors,$login,'login',2,255);
 
-    // Request
-   $user = selectEmailOrPseudo($login);
+        // Request
+        $user = selectEmailOrPseudo($login);
 
 //    debug($user);
-    // Si User existe
-    if (!empty($user)) {
-        // Password verify
-        if (password_verify($password, $user['password'])) {
-            echo 'MDP OK';
-            // true =>
-            $_SESSION['user'] = array(
-                'id'      => $user['id'],
-                'email'   => $user['email'],
-                'pseudo'   => $user['pseudo'],
-                'nom'  => $user['nom'],
-                'prenom'  => $user['prenom'],
-                'age'  => $user['age'],
-                'role'    => $user['role'],
-                'ip'      => $_SERVER['REMOTE_ADDR'] // ::1
-            );
-            debug($_SESSION);
-            header('Location: index.php');
+        // Si User existe
+        if (!empty($user)) {
+            // Password verify
+            if (password_verify($password, $user['password'])) {
+                echo 'MDP OK';
+                // true =>
+                $_SESSION['user'] = array(
+                    'id'      => $user['id'],
+                    'email'   => $user['email'],
+                    'pseudo'   => $user['pseudo'],
+                    'nom'  => $user['nom'],
+                    'prenom'  => $user['prenom'],
+                    'age'  => $user['age'],
+                    'role'    => $user['role'],
+                    'ip'      => $_SERVER['REMOTE_ADDR'] // ::1
+                );
+                debug($_SESSION);
+                header('Location: index.php');
 //
+            } else {
+                $errors['login'] = 'Quelque chose a bug';
+            }
         } else {
-            $errors['login'] = 'Quelque chose a bug';
+            $errors['login'] = 'Problèmes';
         }
-    } else {
-        $errors['login'] = 'Problèmes';
     }
+} else {
+    header('Location: index.php');
 }
+include ('inc/header.php');
 
  ?>
 

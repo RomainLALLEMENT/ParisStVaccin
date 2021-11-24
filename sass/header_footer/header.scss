@@ -8,9 +8,8 @@
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0 1rem;
     font-size: 1rem;
-    height: 81px;
 
     @include breakpoints(tablette){
         font-size: $sizeH3;
@@ -44,6 +43,7 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
+        justify-content: center;
         gap: 1.2rem;
 
         li {
@@ -58,16 +58,20 @@
         justify-content: space-between;
         align-items: center;
         @include breakpoints(tablette){
-            padding: 0;
-            width: 100%;
+            flex-flow: column;
         }
         nav {
             margin: 0 0.4rem;
             width: 25%;
             text-transform: capitalize;
+            @include breakpoints(tablette) {
+                padding: 1rem;
+            }
 
             .logo {
-
+                @include breakpoints(tablette){
+                    display: none;
+                }
                 width: 35%;
                 img {
                     width: 100%;
@@ -78,10 +82,13 @@
         .login {
             //background-color: red;
             display: flex;
-            flex-flow: row nowrap;
+            flex-flow: row wrap;
+            align-items: center;
             justify-content: flex-end;
             gap: 0;
-            align-items: center;
+            @include breakpoints(tablette) {
+                justify-content: center;
+            }
 
             .icon_menu {
                 background-repeat: no-repeat;

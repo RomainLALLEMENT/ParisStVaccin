@@ -11,7 +11,11 @@ include ('inc/header.php');
             <div class="title_absolute uppercase">
                 <h2 class="text-shadow">Vaccinez</h2>
                 <h2 class="text-shadow">Vous !</h2>
-                <a href="login.php">Connexion</a>
+                <?php if (empty($_SESSION)) { ?>
+                    <a href="login.php">Connexion</a>
+                <?php } else { ?>
+                    <a href="listVaccinsUser.php">Mon carnet</a>
+                <?php } ?>
             </div>
         </div>
     </section>
