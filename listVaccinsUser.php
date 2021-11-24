@@ -7,31 +7,39 @@ require ('inc/request.php');
 /*On vérifie que l'id existe bien*/
 
 if (isLogged()){
-$idUser = $_SESSION['user']['id'];
-$idsUserBdd = getAllIdUsers();
-$idValide = verifyIdBdd($idUser,$idsUserBdd);
-// récupérer le carnet de vaccin de l'user si on il n'existe pas on le redige pour qu'il puisse en créer un
-$vaccinsUser = getVaccinsUser($idUser);
-$carnet = (bool)$vaccinsUser; // indique si le user à un carnet ou non
-if(!empty($_POST['modifier'])) {echo 'soumis modif';}
-if(!empty($_POST['actualiser'])) {echo 'soumis actu';}
-echo '<br>';
-//echo 'session';
-//debug($_SESSION);
-//echo 'post';
-//debug($_POST);
-//echo 'carnet';
-//debug($carnet);
-if($carnet) $vaccinsUser = getVaccinsUserByCarnet($idUser);
-//debug($vaccinsUser);
+    if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
+        $success = true;
+    } else {
+        $success = false;
+    }
+    $idUser = $_SESSION['user']['id'];
+    $idsUserBdd = getAllIdUsers();
+    $idValide = verifyIdBdd($idUser,$idsUserBdd);
+    // récupérer le carnet de vaccin de l'user si on il n'existe pas on le redige pour qu'il puisse en créer un
+    $vaccinsUser = getVaccinsUser($idUser);
+    $carnet = (bool)$vaccinsUser; // indique si le user à un carnet ou non
 
-$dateDuJour = strtotime(date('Y-m-d'));
-$troisMois  = 7884000;
-setlocale (LC_TIME, 'fr_FR.utf8','fra');
+    if($carnet) {
+        $vaccinsUser = getVaccinsUserByCarnet($idUser);
+    }
+
+    $dateDuJour = strtotime(date('Y-m-d'));
+    $troisMois  = 7884000;
+    setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
 include ('inc/header.php');
 if($idValide === true){?>
 <section id="list_vaccins_user">
+    <div class="wrap3">
+        <?php if (!$success) { ?>
+            <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez modifier le contenu de votre profil mais vous devrez confirmer vos modifications en entrant votre mot de passe.</div>
+        <?php } else { ?>
+            <div class="success">
+                <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
+                <u>Nous vous invitons à rafraichir la page pour voir vos modifications</u>
+            </div>
+        <?php } ?>
+    </div>
 	<div class="wrap2">
 <?php
 		if($carnet){	?>
@@ -57,7 +65,7 @@ if($idValide === true){?>
               <div class="info_vaccin">
                   <div class="vaccin">
                       <h2>Nom du vaccin : <?= '<span class="bold">'.$vU['libelle'].'</span>' ?></h2>
-                      <h2>Date de <u>dernière injection</u> : <?= '<span class="bold">'.$vU['premiere_date'].'</span>' ?></h2>
+                      <h2>Date de <u>dernière injection</u> : <?= '<span class="bold">'.dateFormat($vU['premiere_date']).'</span>' ?></h2>
                   </div>
                   <div class="boutton"><a href="modificationVaccinUser.php?id=<?= $vU['id'] ?>" title="Modifier ce vaccin"><i class="fas fa-edit"></i></a></div>
               </div>

@@ -21,20 +21,19 @@ if (isLogged()) {
 //    debug($carnet);
 
     if (!empty ($_POST['submitted'])){
-        echo ('boutton soumis');
         //faille xss
         $date = cleanXss('date');
         //validation
         $errors = dateValidation($errors,$date, 'date');
 //        var_dump($date);
         if ($date ==$carnet['premiere_date']){
-            $errors['date'] = 'veuillez changer la date';
+            $errors['date'] = 'Vous n\'avez pas modifier la date';
 //            debug($errors);
         }
 
         if (count($errors) == 0 ) {
             carnetModifDateByUser($id_carnet,$vaccin['mois'],$date);
-            header('Location: listVaccinsUser.php');
+            header('Location: listVaccinsUser.php?success=1');
         }
     }
 

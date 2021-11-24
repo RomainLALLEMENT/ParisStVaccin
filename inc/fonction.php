@@ -62,17 +62,17 @@ function numberValidation($errors,$value,$key,$min=3,$max=1000000)
 
 function dateValidation($errors,$value,$key){
     if(strtotime($value) >= strtotime(date('Y-m-d'))){
-        $errors[$key] = 'Veuillez rentrez une date valide';
+        $errors[$key] = 'Veuillez rentrer une date valide';
     }
     if(empty($value)){
-        $errors[$key] = 'Veuillez selectionez une date';
+        $errors[$key] = 'Veuillez selectioner une date';
     }
     return $errors;
 }
 
 function selectValidation($errors,$value,$key){
     if($value<=0){
-        $errors[$key] = 'Veuillez selctionner un vaccin';
+        $errors[$key] = 'Veuillez selectionner un vaccin';
     }
     return $errors;
 }

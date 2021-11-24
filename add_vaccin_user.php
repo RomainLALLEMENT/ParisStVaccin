@@ -3,7 +3,6 @@ session_start();
 require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
-include ('inc/header.php');
 if (isLogged()){
 	$errors=[];
 	$occurence ='';
@@ -40,21 +39,20 @@ if (isLogged()){
 							}
 						}
 					}else{
-	            $occurence = false;
+	                    $occurence = false;
 					}
 					/*si il n'y a pas d'occurence dans la bdd on applique la requette*/
 					if($occurence === false){
 						putNewVaccinOnCarnet($idVaccin,$idUser,$date,$nombreMoisrappel);
-	        	        header('Location: listVaccinsUser.php');
+	        	        header('Location: listVaccinsUser.php?success=1');
 					}else{
 						/*redirection vers la page modif info vaccins*/
 					    $errors['vaccin'] = 'Ce vaccin est déjà renseigné';
-	                    header('Location: modificationVaccinUser.php?id='.$idVaccin);
 	                    /*faire une rediction ou proposé au user de modif le vaccin renseingé*/
 					}
 			}
 	}
-
+    include ('inc/header.php');
 
 	?>
 	    <section id="home_add_vaccin">
