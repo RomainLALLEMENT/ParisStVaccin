@@ -182,3 +182,8 @@ function getPourcentage($numérateur, $diviseur){
     $resultat = round(($numérateur / $diviseur * 100),2);
     return $resultat;
 }
+
+function dateFormat($date)
+{
+    return strftime('%A %e %B %Y',strtotime($date));
+}
