@@ -5,20 +5,20 @@ require ('inc/fonction.php');
 require ('inc/request.php');
 if (isLogged()) {
     $errors = [];
-    debug($_SESSION);
-    debug($_GET);
+//    debug($_SESSION);
+//    debug($_GET);
 
     $id_user = $_SESSION['user']['id'];
-    var_dump($id_user);
+//    var_dump($id_user);
 
-    $id_carnet = $_GET['vaccin'];
-    var_dump($id_carnet);
+    $id_carnet = $_GET['id'];
+//    var_dump($id_carnet);
 
     $vaccin = getLibelleMoisByCarnet($id_carnet);
-    debug($vaccin);
+//    debug($vaccin);
 
     $carnet = getCarnetById($id_carnet);
-    debug($carnet);
+//    debug($carnet);
 
     if (!empty ($_POST['submitted'])){
         echo ('boutton soumis');
@@ -26,10 +26,15 @@ if (isLogged()) {
         $date = cleanXss('date');
         //validation
         $errors = dateValidation($errors,$date, 'date');
-        var_dump($date);
+//        var_dump($date);
         if ($date ==$carnet['premiere_date']){
             $errors['date'] = 'veuillez changer la date';
-            debug($errors);
+//            debug($errors);
+        }
+
+        if (count($errors) == 0 ) {
+            carnetModifDateByUser($id_carnet,$vaccin['mois'],$date);
+            header('Location: listVaccinsUser.php');
         }
     }
 
