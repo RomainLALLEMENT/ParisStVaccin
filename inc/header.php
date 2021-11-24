@@ -5,7 +5,7 @@
 	<meta name="viewport"
 				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Accueil - ParisStVaccin</title>
+	<title>Vaccinez-nous avec ParisStVaccin ! Soyez toujours protégé grâce à nous !</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
 	<div class="wrap0">
 		<nav>
 			<ul>
-				<li class="logo"><a href="#"><img src="assets/img/logo.png" alt="Logo Paris St Vaccin"></a></li>
+				<li class="logo"><a href="index.php"><img src="assets/img/logo.png" alt="Logo Paris St Vaccin"></a></li>
 				<li><a href="index.php">accueil</a></li>
 				<li><a href="vaccins.php">Vaccins</a></li>
 			</ul>
