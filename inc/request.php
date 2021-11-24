@@ -73,7 +73,44 @@ function putNewUser(string $nom,string $prenom,string $age,string $email, string
     header('location: login.php');
 }
 // UPDATE
-
+function updateNom($nom,$id)
+{
+    global $pdo;
+    $sql = "UPDATE psv_user SET nom=:nom WHERE id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':nom',$nom, PDO::PARAM_STR);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+}
+function updatePrenom($prenom,$id)
+{
+    global $pdo;
+    $sql = "UPDATE psv_user SET prenom=:prenom WHERE id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+}
+function updateMail($email,$id)
+{
+    global $pdo;
+    $sql = "UPDATE psv_user SET email=:email WHERE id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':email',$email, PDO::PARAM_STR);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+}
+function updateAllInput($nom,$prenom,$email,$id)
+{
+    global $pdo;
+    $sql = "UPDATE psv_user SET nom=:nom, prenom=:prenom, email=:email WHERE id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':nom',$nom, PDO::PARAM_STR);
+    $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
+    $query->bindValue(':email',$email, PDO::PARAM_STR);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+}
 
 /* Partie vaccins */
 

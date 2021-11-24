@@ -17,11 +17,7 @@ if (isLogged()) {
 
         $id = $_SESSION['user']['id'];
 
-        $sql = "SELECT * FROM psv_user WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':id',$id,PDO::PARAM_INT);
-        $query->execute();
-        $user = $query->fetch();
+        $user = getUser($id);
 
         if (!empty($user)) {
 
@@ -36,39 +32,21 @@ if (isLogged()) {
     //            $errors = emailValidation($errors,$email,'email');
                 if (password_verify($password, $user['password'])) {
                     if (!empty($_POST['nom'])) {
-                        $sql_nom = "UPDATE psv_user SET nom=:nom WHERE id = :id";
-                        $query = $pdo->prepare($sql_nom);
-                        $query->bindValue(':nom',$nom, PDO::PARAM_STR);
-                        $query->bindValue(':id',$id, PDO::PARAM_INT);
-                        $query->execute();
+                        updateNom($nom,$id);
 
                         header('Location: profil.php?success=1');
                         $success = true;
                     } elseif (!empty($_POST['prenom'])) {
-                        $sql_prenom = "UPDATE psv_user SET prenom=:prenom WHERE id = :id";
-                        $query = $pdo->prepare($sql_prenom);
-                        $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
-                        $query->bindValue(':id',$id, PDO::PARAM_INT);
-                        $query->execute();
+                        updatePrenom($prenom,$id);
 
                         header('Location: profil.php?success=1');
                     } elseif (!empty($_POST['email'])) {
-                        $sql_email = "UPDATE psv_user SET email=:email WHERE id = :id";
-                        $query = $pdo->prepare($sql_email);
-                        $query->bindValue(':email',$email, PDO::PARAM_STR);
-                        $query->bindValue(':id',$id, PDO::PARAM_INT);
-                        $query->execute();
+                        updateMail($email,$id);
 
                         header('Location: profil.php?success=1');
                         // Si on veut tout changer en renseignant forcément tous les champs
                     } elseif (count($errors) == 0) {
-                        $sql2 = "UPDATE psv_user SET nom=:nom, prenom=:prenom, email=:email WHERE id = :id";
-                        $query = $pdo->prepare($sql2);
-                        $query->bindValue(':nom',$nom, PDO::PARAM_STR);
-                        $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
-                        $query->bindValue(':email',$email, PDO::PARAM_STR);
-                        $query->bindValue(':id',$id, PDO::PARAM_INT);
-                        $query->execute();
+                        updateAllInput($nom,$prenom,$email,$id);
 
                         header('Location: profil.php?success=1');
                         $success = true;
