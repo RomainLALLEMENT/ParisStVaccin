@@ -156,6 +156,12 @@ function error403()
     }
 }
 
+function error404()
+{
+        header('HTTP/1.0 404 Not Found');
+        header('Location:../error404.php');
+}
+
 function verifyIdBdd($idUser,$idUsers){
     if(!empty($idUser)){
         if(is_numeric($idUser)){
@@ -187,3 +193,4 @@ function dateFormat($date)
 {
     return strftime('%A %e %B %Y',strtotime($date));
 }
+
