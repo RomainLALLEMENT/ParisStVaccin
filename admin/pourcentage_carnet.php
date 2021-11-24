@@ -38,7 +38,10 @@ include('inc/header_back.php');
             <div class="row">
                 <div class="col-12">
                     <h2>Il y a <?= $pourcentage?>% de personnes possédant un carnet de vaccination sur Paris Saint Vaccin !</h2>
-									<canvas id="grapPourcentageCarnet"></canvas>
+                    <div style="width: 300px">
+                        <canvas id="grapPourcentageCarnet"></canvas>
+
+                    </div>
                 </div>
             </div>
         </div>
