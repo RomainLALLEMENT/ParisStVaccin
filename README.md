@@ -29,6 +29,8 @@ Ce qu'il est requis pour commencer avec votre projet...
 
 2 - Exécuter cette commande : ``git clone https://BRIETGAME@bitbucket.org/brietgame/parisstvaccin.git ``
 
+3 - Veuillez installer Paginator grâce à Composer : ``composer require "jasongrimes/paginator:~1.0"``
+> [Documentation pour Paginator](https://packagist.org/packages/jasongrimes/paginator)
 
 Ensuite, vous obtiendrez tout le projet réalisé en *localhost*.
 
@@ -36,7 +38,6 @@ Ensuite, vous obtiendrez tout le projet réalisé en *localhost*.
 ## Démarrage
 
 **Attention, nous utilisons la technologie Sass pour compiler notre CSS. Afin de l'utiliser convenablement, il faut exécuter la commande suivante dans un nouveau terminal distinct de vos commandes GIT** : ``sass sass/style.scss assets/css/styles.css --watch``
-
 
 ## Fabriqué avec
 
@@ -54,6 +55,6 @@ _Outils utilisés :_
 
 ## Auteurs
 * **Maxence BOSSIN** _alias_ [@Maxfab](#)
-* **Alexis BRIET** _alias_ [@BRIETGAME](https://twitter.com/BRIETGAME)
+* **Alexis BRIET** _alias_ [@BΓΙΣΤGΛΠΣ](https://twitter.com/BRIETGAME)
 * **Anais CRENIER** _alias_ [@AnaisCrenier](#)
 * **Romain LALLEMENT** _alias_ [@𝑻𝒘_𝒀𝒂𝑩](#)
