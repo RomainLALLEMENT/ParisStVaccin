@@ -1,6 +1,14 @@
 <?php
 /* Partie User */
 // SELECT
+function getUserNotAll()
+{
+    global $pdo;
+    $sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
 
 function getUser($id){
     global $pdo;
@@ -111,10 +119,26 @@ function updateAllInput($nom,$prenom,$email,$id)
     $query->bindValue(':id',$id, PDO::PARAM_INT);
     $query->execute();
 }
-
+function updateRole($role,$id)
+{
+    global $pdo;
+    $sql = "UPDATE psv_user SET role=:role WHERE id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':role',$role, PDO::PARAM_STR);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+}
 /* Partie vaccins */
 
 // SELCT
+function getIdVaccin($id)
+{
+    global $pdo;
+    $sql ="SELECT * FROM psv_vaccin WHERE id= :id";
+    $query= $pdo->prepare($sql);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+}
 function getAllVaccinName(): array
 {
     global $pdo;
@@ -184,7 +208,22 @@ function putNewVaccin($libelle,$temps_rappel,$country,$obligatoire,$description,
 }
 
 // UPDATE
-
+function updateVaccin($id,$libelle,$temps_rappel,$country,$obligatoire,$description,$laboratoire)
+{
+    global $pdo;
+    $sql= "UPDATE psv_vaccin 
+        SET libelle=:libelle,temps_rappel=:temps_rappel,pays=:pays,obligatoire=:obligatoire,description=:description,Laboratoire=:laboratoire
+        WHERE id=:id ";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id',$id, PDO::PARAM_INT);
+    $query->bindValue(':libelle',$libelle, PDO::PARAM_STR);
+    $query->bindValue(':temps_rappel',$temps_rappel, PDO::PARAM_INT);
+    $query->bindValue(':pays',$country, PDO::PARAM_STR);
+    $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
+    $query->bindValue(':description',$description, PDO::PARAM_STR);
+    $query->bindValue(':laboratoire',$laboratoire,PDO::PARAM_STR);
+    $query->execute();
+}
 
 /* Partie carnet */
 

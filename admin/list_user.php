@@ -11,11 +11,7 @@ if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
     $success = false;
 }
 
-global $pdo;
-$sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user";
-$query = $pdo->prepare($sql);
-$query->execute();
-$users = $query->fetchAll();
+$users = getUserNotAll();
 $carnet = getVaccinsUser(2);
 
 include('inc/header_back.php');

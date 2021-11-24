@@ -18,18 +18,10 @@ if (!empty($_GET['id'] && is_numeric($_GET['id']))) {
     $myid = $_SESSION['user']['id'];
 
 //    Récupère les infos de la personne qu'on souhaite modifier son profil (add role)
-    $sql = "SELECT * FROM psv_user WHERE id = :id";
-    $query = $pdo->prepare($sql);
-    $query->bindValue(':id',$id,PDO::PARAM_INT);
-    $query->execute();
-    $user = $query->fetch();
+    $user = getUser($id);
 
 //    Récupère les infos de la personne qui souhaite modifier un profil
-    $sqlsession = "SELECT * FROM psv_user WHERE id=:id";
-    $query = $pdo->prepare($sqlsession);
-    $query->bindValue(':id',$myid,PDO::PARAM_INT);
-    $query->execute();
-    $myuser = $query->fetch();
+    $myuser = getUser($myid);
 
 //     Récupère tous les rôles
     $roles = ['admin','user'];
@@ -46,11 +38,7 @@ if (!empty($_GET['id'] && is_numeric($_GET['id']))) {
 
                     // Si on veut tout changer en renseignant forcément tous les champs
                 if (count($errors) == 0) {
-                    $sql2 = "UPDATE psv_user SET role=:role WHERE id = :id";
-                    $query = $pdo->prepare($sql2);
-                    $query->bindValue(':role',$role, PDO::PARAM_STR);
-                    $query->bindValue(':id',$id, PDO::PARAM_INT);
-                    $query->execute();
+                    updateRole($role,$id);
 
                     header('Location: role_user.php?id='.$id.'&success=1');
                     $success = true;

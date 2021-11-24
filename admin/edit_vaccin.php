@@ -9,11 +9,7 @@ $errors = array(); // soit array(); soit ca [] pour qua c'est un tableau
 if (!empty($_GET['id'])){
     $id = $_GET['id'];
 
-    $sql_select ="SELECT * FROM psv_vaccin WHERE id= :id";
-    $query= $pdo->prepare($sql_select);
-    $query->bindValue(':id',$id, PDO::PARAM_INT);
-    $query->execute();
-    $vaccin =$query->fetch();
+    $vaccin = getIdVaccin($id);
 
     if (!empty($_POST['submitted'])) {
         //faille xss
@@ -35,18 +31,7 @@ if (!empty($_GET['id'])){
         if (count($errors) == 0 ) {
             //requete sql
 
-            $sql= "UPDATE psv_vaccin 
-        SET libelle=:libelle,temps_rappel=:temps_rappel,pays=:pays,obligatoire=:obligatoire,description=:description,Laboratoire=:laboratoire
-        WHERE id=:id ";
-            $query = $pdo->prepare($sql);
-            $query->bindValue(':id',$id, PDO::PARAM_INT);
-            $query->bindValue(':libelle',$libelle, PDO::PARAM_STR);
-            $query->bindValue(':temps_rappel',$temps_rappel, PDO::PARAM_INT);
-            $query->bindValue(':pays',$country, PDO::PARAM_STR);
-            $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
-            $query->bindValue(':description',$description, PDO::PARAM_STR);
-            $query->bindValue(':laboratoire',$laboratoire,PDO::PARAM_STR);
-            $query->execute();
+            updateVaccin($id,$libelle,$temps_rappel,$country,$obligatoire,$description,$laboratoire);
         }
     }
 } else {
