@@ -239,3 +239,17 @@ function carnetAccutualizeByUser(int $idCarnet, int $mois):void
 }
 
 
+// statistique
+
+function statNombreUserVaccine(int $idVaccin):array
+{
+    global $pdo;
+    $sql="SELECT COUNT(id_vaccin)as nombre, libelle as vaccin
+          FROM psv_carnet 
+          INNER JOIN psv_vaccin ON psv_carnet.id_vaccin = psv_vaccin.id 
+          WHERE psv_carnet.id_vaccin =:idVaccin";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idVaccin',$idVaccin,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetchAll()[0];
+}
