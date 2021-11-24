@@ -372,7 +372,7 @@ include('inc/header_back.php');
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input class="btn btn-success" type="submit" name="submitted" id="submitted" value="Update">
+                                        <input class="btn btn-success" type="submit" name="submitted" id="submitted" value="Ajouter">
                                     </div>
                                 </div>
                             </form>
