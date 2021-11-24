@@ -11,77 +11,79 @@ if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
     $success = false;
 }
 
-if (!empty($_SESSION['user']['id'])) {
+if (isLogged()) {
 
-    $id = $_SESSION['user']['id'];
+    if (!empty($_SESSION['user']['id'])) {
 
-    $sql = "SELECT * FROM psv_user WHERE id = :id";
-    $query = $pdo->prepare($sql);
-    $query->bindValue(':id',$id,PDO::PARAM_INT);
-    $query->execute();
-    $user = $query->fetch();
+        $id = $_SESSION['user']['id'];
 
-    if (!empty($user)) {
+        $sql = "SELECT * FROM psv_user WHERE id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id',$id,PDO::PARAM_INT);
+        $query->execute();
+        $user = $query->fetch();
 
-        if (!empty($_POST['submitted'])) {
-            $nom = cleanXss('nom');
-            $prenom = cleanXss('prenom');
-            $email = cleanXss('email');
-            $password = cleanXss('password');
+        if (!empty($user)) {
 
-//            $errors = textValidation($errors,$nom,'nom',2,250);
-//            $errors = textValidation($errors,$prenom,'prenom',2,250);
-//            $errors = emailValidation($errors,$email,'email');
-            if (password_verify($password, $user['password'])) {
-                if (!empty($_POST['nom'])) {
-                    $sql_nom = "UPDATE psv_user SET nom=:nom WHERE id = :id";
-                    $query = $pdo->prepare($sql_nom);
-                    $query->bindValue(':nom',$nom, PDO::PARAM_STR);
-                    $query->bindValue(':id',$id, PDO::PARAM_INT);
-                    $query->execute();
+            if (!empty($_POST['submitted'])) {
+                $nom = cleanXss('nom');
+                $prenom = cleanXss('prenom');
+                $email = cleanXss('email');
+                $password = cleanXss('password');
 
-                    header('Location: profil.php?success=1');
-                    $success = true;
-                } elseif (!empty($_POST['prenom'])) {
-                    $sql_prenom = "UPDATE psv_user SET prenom=:prenom WHERE id = :id";
-                    $query = $pdo->prepare($sql_prenom);
-                    $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
-                    $query->bindValue(':id',$id, PDO::PARAM_INT);
-                    $query->execute();
+    //            $errors = textValidation($errors,$nom,'nom',2,250);
+    //            $errors = textValidation($errors,$prenom,'prenom',2,250);
+    //            $errors = emailValidation($errors,$email,'email');
+                if (password_verify($password, $user['password'])) {
+                    if (!empty($_POST['nom'])) {
+                        $sql_nom = "UPDATE psv_user SET nom=:nom WHERE id = :id";
+                        $query = $pdo->prepare($sql_nom);
+                        $query->bindValue(':nom',$nom, PDO::PARAM_STR);
+                        $query->bindValue(':id',$id, PDO::PARAM_INT);
+                        $query->execute();
 
-                    header('Location: profil.php?success=1');
-                } elseif (!empty($_POST['email'])) {
-                    $sql_email = "UPDATE psv_user SET email=:email WHERE id = :id";
-                    $query = $pdo->prepare($sql_email);
-                    $query->bindValue(':email',$email, PDO::PARAM_STR);
-                    $query->bindValue(':id',$id, PDO::PARAM_INT);
-                    $query->execute();
+                        header('Location: profil.php?success=1');
+                        $success = true;
+                    } elseif (!empty($_POST['prenom'])) {
+                        $sql_prenom = "UPDATE psv_user SET prenom=:prenom WHERE id = :id";
+                        $query = $pdo->prepare($sql_prenom);
+                        $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
+                        $query->bindValue(':id',$id, PDO::PARAM_INT);
+                        $query->execute();
 
-                    header('Location: profil.php?success=1');
-                    // Si on veut tout changer en renseignant forcément tous les champs
-                } elseif (count($errors) == 0) {
-                    $sql2 = "UPDATE psv_user SET nom=:nom, prenom=:prenom, email=:email WHERE id = :id";
-                    $query = $pdo->prepare($sql2);
-                    $query->bindValue(':nom',$nom, PDO::PARAM_STR);
-                    $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
-                    $query->bindValue(':email',$email, PDO::PARAM_STR);
-                    $query->bindValue(':id',$id, PDO::PARAM_INT);
-                    $query->execute();
+                        header('Location: profil.php?success=1');
+                    } elseif (!empty($_POST['email'])) {
+                        $sql_email = "UPDATE psv_user SET email=:email WHERE id = :id";
+                        $query = $pdo->prepare($sql_email);
+                        $query->bindValue(':email',$email, PDO::PARAM_STR);
+                        $query->bindValue(':id',$id, PDO::PARAM_INT);
+                        $query->execute();
 
-                    header('Location: profil.php?success=1');
-                    $success = true;
+                        header('Location: profil.php?success=1');
+                        // Si on veut tout changer en renseignant forcément tous les champs
+                    } elseif (count($errors) == 0) {
+                        $sql2 = "UPDATE psv_user SET nom=:nom, prenom=:prenom, email=:email WHERE id = :id";
+                        $query = $pdo->prepare($sql2);
+                        $query->bindValue(':nom',$nom, PDO::PARAM_STR);
+                        $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
+                        $query->bindValue(':email',$email, PDO::PARAM_STR);
+                        $query->bindValue(':id',$id, PDO::PARAM_INT);
+                        $query->execute();
+
+                        header('Location: profil.php?success=1');
+                        $success = true;
+                    }
+                } else {
+                    $errors['nom'] = 'Veuillez renseigner votre mot de passe pour confirmer';
+                    $errors['prenom'] = 'Veuillez renseigner votre mot de passe pour confirmer';
+                    $errors['email'] = 'Veuillez renseigner votre mot de passe pour confirmer';
                 }
-            } else {
-                $errors['nom'] = 'Veuillez renseigner votre mot de passe pour confirmer';
-                $errors['prenom'] = 'Veuillez renseigner votre mot de passe pour confirmer';
-                $errors['email'] = 'Veuillez renseigner votre mot de passe pour confirmer';
             }
         }
     }
-}
 
 
-include ('inc/header.php'); ?>
+    include ('inc/header.php'); ?>
 
     <section id="home_profil">
         <div class="wrap3">
@@ -129,3 +131,7 @@ include ('inc/header.php'); ?>
     </section>
 <?php
 include ('inc/footer.php');
+} else {
+    header('HTTP/1.0 403 Forbidden');
+    header('Location:error403.php');
+}

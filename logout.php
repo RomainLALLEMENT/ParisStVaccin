@@ -1,5 +1,5 @@
 <?php
-
+require ('inc/fonction.php');
 session_start();
 if (isLogged()) {
     $_SESSION = array();

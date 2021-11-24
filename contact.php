@@ -3,51 +3,49 @@ session_start();
 require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
+$errors = [];
+if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
+    $success = true;
+} else {
+    $success = false;
+}
+//debug($errors);
+if (!empty($_POST['submitted'])) {
+    // Faille XSS
+    $prenom = cleanXss('prenom');
+    $nom = cleanXss('nom');
+    $email = cleanXss('email');
+    $subject = cleanXss('subject');
+    $message = cleanXss('message');
+
+    // Validation des champs
+    $errors = textValidation($errors,$prenom,'prenom',1,50);
+    $errors = textValidation($errors,$nom,'nom',1,50);
+    $errors = emailValidation($errors,$email,'email');
+    $errors = textValidation($errors,$subject,'subject',2,255);
+    $errors = textValidation($errors,$message,'message',5,200);
+
+    // Si aucune erreur, on envoi le mail
+    if (count($errors) == 0 ) {
+        $to = 'alexis.briet2003@gmail.com';
+        $headers = $email;
+//        mail($to,$subject,$message);
+        header('Location: contact.php?success=1');
+    }
+}
 include ('inc/header.php');
-if (isLogged()) {
-	$errors = [];
-
-	if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
-	    $success = true;
-	} else {
-	    $success = false;
-	}
-	//debug($errors);
-	if (!empty($_POST['submitted'])) {
-	    // Faille XSS
-	    $prenom = cleanXss('prenom');
-	    $nom = cleanXss('nom');
-	    $email = cleanXss('email');
-	    $subject = cleanXss('subject');
-	    $message = cleanXss('message');
-
-	    // Validation des champs
-	    $errors = textValidation($errors,$prenom,'prenom',1,50);
-	    $errors = textValidation($errors,$nom,'nom',1,50);
-	    $errors = emailValidation($errors,$email,'email');
-	    $errors = textValidation($errors,$subject,'subject',2,255);
-	    $errors = textValidation($errors,$message,'message',5,200);
-
-	    // Si aucune erreur, on envoi le mail
-	    if (count($errors) == 0 ) {
-	        $to = 'alexis.briet2003@gmail.com';
-	        $headers = $email;
-	        mail($to,$subject,$message);
-	    }
-	}
-
-	?>
+?>
 
 	    <section id="home_contact">
 	        <div class="wrap3">
-	            <?php if (!$success) { ?>
-	                <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez remplir le formulaire ci-dessous pour nous contacter.</div>
-	            <?php } else { ?>
-	                <div class="success">
-	                    <i class="fas fa-thumbs-up"></i> Félicitations, votre mail a été envoyé !<br>
-	                    <u>Vous obtiendrez une réponse de notre part dans les plus brefs délais.</u>
-	                </div>
-	            <?php } ?>
+                <?php if (!$success) { ?>
+                    <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez nous contacter en remplissant le formulaire ci-dessous. Nous vous répondrons dans les meilleurs délais.</div>
+                <?php } else { ?>
+                    <div class="success">
+                        <i class="fas fa-thumbs-up"></i> Félicitations ! <br>
+                        <u>Cependant, ceci est une démo donc le mail n'a pas pu s'envoyer.</u>
+                    </div>
+                <?php } ?>
 	            <form action="" method="post" novalidate>
 	                <div class="wrap4">
 
@@ -94,9 +92,5 @@ if (isLogged()) {
 
 
 
-	<?php
-	include ('inc/footer.php');
-}else{
-        header('HTTP/1.0 403 Forbidden');
-        header('Location:error403.php');
-}
+<?php
+include ('inc/footer.php');

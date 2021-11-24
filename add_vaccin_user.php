@@ -25,32 +25,32 @@ if (isLogged()){
 	        /*On recupêrer les donnés pour l'insert*/
 	        $idVaccin         = intval($vaccin);
 	        $idUser           = $_SESSION['user']['id'];
-					$nombreMoisrappel = getMoisRappel($idVaccin)['temps_rappel'];
-					/*faire une vérife qu'il n'existe déjà pas une occurence entre id vaccin et id user si oui rediriger le user dans la liste de vaccins pourqu'il puisse si besoin modifier les information quand a sa vaccination sinon on envoie les données*/
-				//	$succes = verifOccurenceUserVaccin($idVaccin,$idUser);
-					$verifVaccinsUser = getVaccinsUser($idUser);
-					if(!empty($verifVaccinsUser) === true){
-						for ($i=0 ; $i <= (count($verifVaccinsUser)-1);$i++){
-							if(intval($verifVaccinsUser[$i]) === $idVaccin){
-								$occurence = true;
-								break;
-							}else{
-								$occurence = false;
-							}
-						}
-					}else{
-	                    $occurence = false;
-					}
-					/*si il n'y a pas d'occurence dans la bdd on applique la requette*/
-					if($occurence === false){
-						putNewVaccinOnCarnet($idVaccin,$idUser,$date,$nombreMoisrappel);
-	        	        header('Location: listVaccinsUser.php?success=1');
-					}else{
-						/*redirection vers la page modif info vaccins*/
-					    $errors['vaccin'] = 'Ce vaccin est déjà renseigné';
-	                    /*faire une rediction ou proposé au user de modif le vaccin renseingé*/
-					}
-			}
+            $nombreMoisrappel = getMoisRappel($idVaccin)['temps_rappel'];
+			/*faire une vérife qu'il n'existe déjà pas une occurence entre id vaccin et id user si oui rediriger le user dans la liste de vaccins pourqu'il puisse si besoin modifier les information quand a sa vaccination sinon on envoie les données*/
+			//	$succes = verifOccurenceUserVaccin($idVaccin,$idUser);
+			$verifVaccinsUser = getVaccinsUser($idUser);
+			if(!empty($verifVaccinsUser) === true){
+                for ($i=0 ; $i <= (count($verifVaccinsUser)-1);$i++){
+                    if(intval($verifVaccinsUser[$i]) === $idVaccin){
+                        $occurence = true;
+                        break;
+                    }else{
+                        $occurence = false;
+                    }
+                }
+            }else{
+                $occurence = false;
+            }
+            /*si il n'y a pas d'occurence dans la bdd on applique la requette*/
+            if($occurence === false){
+                putNewVaccinOnCarnet($idVaccin,$idUser,$date,$nombreMoisrappel);
+                header('Location: listVaccinsUser.php?success=1');
+            }else{
+                /*redirection vers la page modif info vaccins*/
+                $errors['vaccin'] = 'Ce vaccin est déjà renseigné';
+                /*faire une rediction ou proposé au user de modif le vaccin renseingé*/
+            }
+        }
 	}
     include ('inc/header.php');
 
