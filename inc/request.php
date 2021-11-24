@@ -1,11 +1,14 @@
 <?php
 /* Partie User */
 // SELECT
-function getUserNotAll()
+function getUserNotAll($itemperpage,$offset)
 {
     global $pdo;
-    $sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user";
+    $sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user LIMIT :itemperpage OFFSET :offset";
+//    $sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user LIMIT 5 OFFSET 5";
     $query = $pdo->prepare($sql);
+    $query->bindValue(':itemperpage',$itemperpage,PDO::PARAM_INT);
+    $query->bindValue(':offset',$offset, PDO::PARAM_INT);
     $query->execute();
     return $query->fetchAll();
 }
