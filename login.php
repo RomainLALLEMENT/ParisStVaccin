@@ -68,6 +68,7 @@ include ('inc/header.php');
                     </div>
 
                     <input type="submit" name="submitted" id="submitted" value="Se connecter">
+                    <a href="forgetPassword.php">Mot de passe oublié</a>
                 </div>
             </form>
         </div>
