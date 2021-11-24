@@ -15,7 +15,7 @@
         <div class="notfound-403">
             <h1>4<span>0</span>3</h1>
         </div>
-        <h2>Vous n'avez pas accès à cette page</h2>
+        <h2>Vous devez être connecté pour l'accès a cette page.</h2>
         <form class="notfound-connexion">
             <a href="login.php" class="btn">Connexion</a>
         </form>

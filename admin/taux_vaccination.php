@@ -9,14 +9,6 @@ $nombreCarnets = getNombreUserCarnet();
 $listVaccin = getAllVaccin();
 
 /*Partie variable pour le js*/
-$test ="['Personne avec un carnet de santé', 'Personne sans un carnet de santé','eree']";
-$test2  = '[\'';
-$test2 .= 'data';
-$test2 .= '\',\'';
-$test2 .= 'data';
-$test2 .= '\']';
-$test3 = "";
-
 $vaccins = getAllVaccin();
 // on mets les donnès dans une chaine en forme de tableau pour JS
 $libelle        = '[\'';
@@ -65,27 +57,23 @@ include('inc/header_back.php');
 						<canvas id="grapTauxVaccination"></canvas>
 						<table class="table">
 							<thead>
-							<tr>
-								<th>Libelle</th>
-								<th>Taux de vaccination</th>
-								<th>Taux de vaccination utilisateur du site</th>
-								<th>Mail</th>
-							</tr>
+								<tr>
+									<th>Libelle</th>
+									<th>Taux de vaccination</th>
+									<th>Taux de vaccination utilisateur du site</th>
+									<th>Mail</th>
+								</tr>
 							</thead>
-							<tbody>
-							<div class="listvaccins"><?php
-                  foreach ($listVaccin as $vaccin){
-                      $taux = getNumberUsersVacinateByVaccin($vaccin['id']);?>
-										<div>
+							<tbody><?php
+								foreach ($listVaccin as $vaccin){
+									$taux = getNumberUsersVacinateByVaccin($vaccin['id']);?>
 											<tr>
 												<th><?=$vaccin['libelle']?></th>
 												<th><?=getPourcentage($taux['nombrePersonneVaccin'], $nombreCarnets['UserCarnet']);?></th>
 												<th><?=getPourcentage($taux['nombrePersonneVaccin'], $nombreUsers['userTotal']);?></th>
 												<th><form action=""><input type="submit" name="envoyeMail" value="rappel mail"></form></th>
 											</tr>
-										</div>
                   <?php } ?>
-							</div>
 							</tbody>
 						</table>
 					</div>
