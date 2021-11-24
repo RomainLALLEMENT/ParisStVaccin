@@ -213,11 +213,11 @@ function putNewVaccinOnCarnet( int $idVaccin,int $idUser, string $date, int $moi
 function carnetModifDateByUser($idCarnet,$mois,$date){
     global $pdo;
     $sql = "UPDATE `psv_carnet` 
-            SET `premiere_date`= NOW(), `date_prochain` = DATE_ADD(`premiere_date`,INTERVAL +4 MONTH) 
+            SET `premiere_date`= :date, `date_prochain` = DATE_ADD(:date,INTERVAL +:mois MONTH) 
             WHERE id =:idCarnet";
     $query = $pdo->prepare($sql);
-    $query->bindValue(':idcarnet',$idCarnet,PDO::PARAM_INT);
-    $query->bindValue(':mois',$mois,PDO::PARAM_INT);
+    $query->bindValue(':idCarnet',$idCarnet,PDO::PARAM_INT);
+    $query->bindValue(':mois',$mois);
     $query->bindValue(':date',$date,PDO::PARAM_STR);
     $query->execute();
 

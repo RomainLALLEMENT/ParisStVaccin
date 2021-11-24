@@ -59,7 +59,7 @@ if($idValide === true){?>
                       <h2>Nom du vaccin : <?= '<span class="bold">'.$vU['libelle'].'</span>' ?></h2>
                       <h2>Date de <u>dernière injection</u> : <?= '<span class="bold">'.$vU['premiere_date'].'</span>' ?></h2>
                   </div>
-                  <div class="boutton"><a href="modificationVaccinUser.php?id=<?= $vU['idVaccin'] ?>" title="Modifier ce vaccin"><i class="fas fa-edit"></i></a></div>
+                  <div class="boutton"><a href="modificationVaccinUser.php?id=<?= $vU['id'] ?>" title="Modifier ce vaccin"><i class="fas fa-edit"></i></a></div>
               </div>
               <?php if ($couleur == 'info') { ?>
                     <div class="info">
@@ -68,12 +68,12 @@ if($idValide === true){?>
               <?php } elseif ($couleur == 'success') { ?>
                   <div class="success">
                       <p><i class="fas fa-check-circle"></i>   Pas encore de rappel pour ce vaccin à ce jour, tout va bien !</p>
-                      <?= '<p><i class="fas fa-calendar-check"></i>    <u>Date du prochain rappel :</u> '.strftime('%A %e %B %Y',strtotime($vU['date_prochain'])).'</p>' ?>
+                      <?= '<p><i class="fas fa-calendar-check"></i>    <u>Date du prochain rappel :</u> '.dateFormat($vU['date_prochain']).'</p>' ?>
                   </div>
               <?php } elseif ($couleur == 'danger') { ?>
                   <div class="danger">
                       <p><i class="fas fa-radiation-alt"></i> <span class="bold">Attention !</span> La date pour effectuer le rappel de ce vaccin a été dépassé !</p>
-                      <?= '<p><i class="far fa-calendar-times"></i>   <u>Date du prochain rappel :</u> '.strftime('%A %e %B %Y',strtotime($vU['date_prochain'])).'</p>' ?>
+                      <?= '<p><i class="far fa-calendar-times"></i>   <u>Date du prochain rappel :</u> '.dateFormat($vU['date_prochain']).'</p>' ?>
                           <form action="" method="post">
                               <input type="submit" name="<?= $vU['id'] ?>" class="uppercase" value="actualiser">
                           </form>
@@ -90,7 +90,7 @@ if($idValide === true){?>
               <?php } elseif ($couleur == 'warning') { ?>
                   <div class="warning">
                         <p><i class="fas fa-exclamation-circle"></i> <span class="bold">Attention !</span> La date pour effectuer le rappel de ce vaccin sera a effectué dans <u>moins de 3 mois.</u></p>
-                      <?= '<p><i class="far fa-calendar-times"></i>    <u>Date du prochain rappel :</u> '.strftime('%A %e %B %Y',strtotime($vU['date_prochain'])).'</p>' ?>
+                      <?= '<p><i class="far fa-calendar-times"></i>    <u>Date du prochain rappel :</u> '.dateFormat($vU['date_prochain']).'</p>' ?>
                           <form action="" method="post">
                               <input type="submit" name="<?= $vU['id'] ?>" class="uppercase" value="actualiser">
                           </form>

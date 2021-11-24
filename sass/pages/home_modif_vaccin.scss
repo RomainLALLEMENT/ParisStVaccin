@@ -1,0 +1,23 @@
+@import "../inc/variable";
+@import "../inc/fonction";
+#home_modif_vaccin {
+  background-size: 100%;
+  .wrap3 {
+
+    .wrap4 {
+
+      h2 {
+        font-family: $roboto;
+        font-weight: 700;
+        font-size: 2rem;
+        color: black;
+        margin: 0 auto;
+        padding: 1rem 0;
+
+        @include breakpoints(tablette) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
