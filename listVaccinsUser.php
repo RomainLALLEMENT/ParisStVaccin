@@ -3,7 +3,10 @@ session_start();
 require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
+
 /*On vérifie que l'id existe bien*/
+
+if (isLogged()){
 $idUser = $_SESSION['user']['id'];
 $idsUserBdd = getAllIdUsers();
 $idValide = verifyIdBdd($idUser,$idsUserBdd);
@@ -121,3 +124,7 @@ if($idValide === true){?>
 include ('inc/footer.php');
 ?>
 <?php
+}else{
+    header('HTTP/1.0 403 Forbidden');
+    header('Location:error403.php');
+}
