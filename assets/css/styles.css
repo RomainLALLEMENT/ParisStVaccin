@@ -812,7 +812,7 @@ textarea {
 }
 @media (max-width: 700px) {
   #header .wrap0 {
-    flex-flow: column;
+    display: none;
   }
 }
 #header .wrap0 nav {
@@ -826,11 +826,11 @@ textarea {
   }
 }
 #header .wrap0 nav .logo {
-  width: 35%;
+  width: 2rem;
 }
 @media (max-width: 700px) {
   #header .wrap0 nav .logo {
-    display: none;
+    width: 1rem;
   }
 }
 #header .wrap0 nav .logo img {

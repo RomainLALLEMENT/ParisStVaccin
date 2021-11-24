@@ -11,7 +11,7 @@ debug($_GET);
 $id_user = $_SESSION['user']['id'];
 var_dump($id_user);
 
-$id_carnet = $_GET['vaccin'];
+$id_carnet = $_GET['id'];
 var_dump($id_carnet);
 
 $vaccin = getLibelleMoisByCarnet($id_carnet);
@@ -30,6 +30,8 @@ if (!empty ($_POST['submitted'])){
     if ($date ==$carnet['premiere_date']){
         $errors['date'] = 'veuillez changer la date';
         debug($errors);
+    } else {
+        
     }
 }
 
