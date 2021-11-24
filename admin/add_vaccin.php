@@ -26,16 +26,7 @@ if (!empty($_POST['submitted'])) {
     if (count($errors) == 0 ) {
         //requete sql
 
-        $sql= "INSERT INTO  psv_vaccin ( libelle, temps_rappel, pays, obligatoire, description, Laboratoire) 
-            VALUES (:libelle, :temps_rappel, :pays, :obligatoire, :description, :laboratoire)";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':libelle',$libelle, PDO::PARAM_STR);
-        $query->bindValue(':temps_rappel',$temps_rappel, PDO::PARAM_INT);
-        $query->bindValue(':pays',$country, PDO::PARAM_STR);
-        $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
-        $query->bindValue(':description',$description, PDO::PARAM_STR);
-        $query->bindValue(':laboratoire',$laboratoire,PDO::PARAM_STR);
-        $query->execute();
+        putNewVaccin($libelle,$temps_rappel,$country,$obligatoire,$description,$laboratoire);
 
         header('Location: list_vaccin.php?success=1');
     }
