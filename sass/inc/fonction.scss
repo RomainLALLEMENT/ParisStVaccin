@@ -20,6 +20,15 @@
 
         padding: 5rem 1rem;
 
+        .danger {
+            background-color: #f8d7da;
+            color: black;
+            font-size: .8rem;
+            padding: 1rem;
+            margin: 0 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px rgba(0,0,0,0.05);
+        }
         .success {
             background-color: #d4edda;
             color: black;
