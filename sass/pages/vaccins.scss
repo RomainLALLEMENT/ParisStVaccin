@@ -16,27 +16,32 @@
       display: flex;
       flex-flow: column;
       align-items: center;
-    }
 
-    .vrecher label {
-      font-size: $sizeH1;
-      @include breakpoints(tablette){
-        font-size: $sizeH3;
-      }
+        form{
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          label{
+            width: 100%;
+            font-size: $sizeH1;
+            text-align: center;
+            @include breakpoints(phone){
+              font-size: $sizeH3;
+            }
+          }
+          input {
+            width: 100%;
+            border-radius: 1rem;
+            border: 1px solid;
+            text-align: center;
+            padding: .7rem;
+            margin: 2rem 0;
+            @include breakpoints(tablette){
+              width: 65%;
+            }
+          }
+        }
     }
-
-    .vrecher input {
-      width: 30%;
-      border-radius: 22px;
-      border: 1px solid;
-      text-align: center;
-      padding: .5rem;
-      margin: 1rem;
-      @include breakpoints(tablette){
-        width: 65%;
-      }
-    }
-
     .vaccins {
       display: flex;
       flex-flow: row wrap;

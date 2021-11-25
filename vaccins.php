@@ -5,7 +5,7 @@ require ('inc/fonction.php');
 require ('inc/request.php');
 include ('inc/header.php');
 $vaccins = getAfficherVaccin();
-if (!empty($_POST['submitted'])&& $_POST['submitted']!=' ') {
+if (!empty($_POST['submitted'])&& $_POST['submitted']!==' ') {
     $recherche = cleanXss('submitted');
     $recherche = getRechercheVaccin($_POST['submitted']);
    }
@@ -42,6 +42,7 @@ if (!empty($recherche))$vaccins = $recherche;
                 <div class="vaccin">
                     <div><div class="vimg"></div></div>
                     <h2><?= $vaccin['libelle'];?></h2>
+										<p><?php if ($vaccin['temps_rappel'] == 0){ echo 'Ce vaccin ne necciste pas de rappel';}else{echo'Temps de rappel : '. $vaccin['temps_rappel'].' mois';} ?></p>
                     <p><?= $vaccin['description'];?></p>
                 </div>
             <?php } ?>
