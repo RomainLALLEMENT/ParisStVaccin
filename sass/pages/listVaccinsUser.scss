@@ -121,6 +121,22 @@
         }
 
     }
+    ul.pagination{
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 1rem;
+        .active{
+            border-radius: 1rem;
+            border: solid $kaki;
+            transition: .5s;
+        }
+        .active:hover{
+            background-color: $lightblue;
+            border: solid $lightblue;
+        }
+
+    }
+
 
     .wrap2 .block:last-of-type {
         border: none;

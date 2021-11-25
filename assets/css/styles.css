@@ -1344,6 +1344,20 @@ textarea {
 #list_vaccins_user .wrap2 .block .bleu {
   background: #cce5ff;
 }
+#list_vaccins_user ul.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1rem;
+}
+#list_vaccins_user ul.pagination .active {
+  border-radius: 1rem;
+  border: solid #88BABF;
+  transition: 0.5s;
+}
+#list_vaccins_user ul.pagination .active:hover {
+  background-color: #7EDBDB;
+  border: solid #7EDBDB;
+}
 #list_vaccins_user .wrap2 .block:last-of-type {
   border: none;
 }

@@ -3,10 +3,12 @@ session_start();
 require ('inc/pdo.php');
 require ('inc/fonction.php');
 require ('inc/request.php');
-
+require 'vendor/autoload.php';
+use JasonGrimes\Paginator;
 /*On vérifie que l'id existe bien*/
 
 if (isLogged()){
+
     if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
         $success = true;
     } else {
@@ -20,7 +22,17 @@ if (isLogged()){
     $carnet = (bool)$vaccinsUser; // indique si le user à un carnet ou non
 
     if($carnet) {
-        $vaccinsUser = getVaccinsUserByCarnet($idUser);
+
+        $totalItems = count($vaccinsUser);
+        $itemsPerPage = 5;
+				if (count($vaccinsUser)>= $itemsPerPage){
+            $currentPage = empty($_GET['page']) ? 0 : (intval($_GET['page']));
+            $urlPattern = '/php/projetGroupe/parisstvaccin/listVaccinsUser.php?page=(:num)';
+            $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+						if ((intval($_GET['page']))>($totalItems%$itemsPerPage)){error404();}
+				}
+        $offset = empty($_GET['page']) ? 0 : (intval($_GET['page']-1)*$itemsPerPage);
+        $vaccinsUser = getVaccinsUserByCarnet($idUser,$itemsPerPage,$offset);
     }
 
     $dateDuJour = strtotime(date('Y-m-d'));
@@ -111,10 +123,32 @@ if($idValide === true){?>
 
                           } ?>
                   </div>
+
+
               <?php } ?>
 			</div>
-<?php       } ?>
 
+<?php       } ?>
+			<ul class="pagination">
+          <?php if ($paginator->getPrevUrl()): ?>
+						<li><a href="<?php echo $paginator->getPrevUrl(); ?>">&laquo; Previous</a></li>
+          <?php endif; ?>
+
+          <?php foreach ($paginator->getPages() as $page): ?>
+              <?php if ($page['url']): ?>
+							<li <?php echo $page['isCurrent'] ? 'class="active"' : ''; ?>>
+								<a href="<?php echo $page['url']; ?>"><?php echo $page['num']; ?></a>
+							</li>
+              <?php else: ?>
+							<li class="disabled"><span><?php echo $page['num']; ?></span></li>
+              <?php endif; ?>
+          <?php endforeach; ?>
+
+          <?php if ($paginator->getNextUrl()): ?>
+						<li><a href="<?php echo $paginator->getNextUrl(); ?>">Next &raquo;</a></li>
+          <?php endif; ?>
+			</ul>
+			<p><?= $paginator->getTotalItems(); ?> vaccins enregistrés dans votre carnet de vaccination.</p>
 			<a href="add_vaccin_user.php" title="Ajouter un vaccin à mon carnet de vaccination">Ajouter <i class="fas fa-plus-circle"></i></a><?php
     }else{?>
 			<div class="block">
