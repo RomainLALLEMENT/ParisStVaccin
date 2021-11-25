@@ -32,7 +32,7 @@ if($idValide === true){?>
 <section id="list_vaccins_user">
     <div class="wrap3">
         <?php if (!$success) { ?>
-            <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez modifier le contenu de votre profil mais vous devrez confirmer vos modifications en entrant votre mot de passe.</div>
+            <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez retrouver tous vos vaccins renseignés sur cette page.</div>
         <?php } else { ?>
             <div class="success">
                 <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
