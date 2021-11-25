@@ -1,4 +1,3 @@
-<?php error404(); ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -16,9 +15,9 @@
         <div class="notfound-404">
             <h1>4<span>0</span>4</h1>
         </div>
-        <h2>Vous devez être connecté pour l'accès a cette page.</h2>
+        <h2>Cette page n'existe pas.</h2>
         <form class="notfound-connexion">
-            <a href="login.php" class="btn">Connexion</a>
+            <a href="index.php" class="btn">Accueil</a>
         </form>
     </div>
 </div>

@@ -4,6 +4,12 @@ require ('../inc/pdo.php');
 require ('../inc/fonction.php');
 require ('../inc/request.php');
 error403();
+if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
+    $success = true;
+} else {
+    $success = false;
+}
+
 $nombreUsers = getNombreUsers();
 $nombreCarnets = getNombreUserCarnet();
 $listVaccin = getAllVaccin();
@@ -49,7 +55,13 @@ include('inc/header_back.php');
 		<!-- ============================================================== -->
 		<!-- Start Page Content -->
 		<!-- ============================================================== -->
-		<div class="row">
+        <?php if ($success) { ?>
+            <div class="alert alert-success" role="alert">
+                <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
+                <u>Cependant cela est une démo donc le mail n'a pas pu aboutir.</u>
+            </div>
+        <?php } ?>
+        <div class="row">
 			<div class="col-12">
 				<div class="card">
 					<!-- Tab panes -->
@@ -71,7 +83,7 @@ include('inc/header_back.php');
 												<th><?=$vaccin['libelle']?></th>
 												<th><?=getPourcentage($taux['nombrePersonneVaccin'], $nombreCarnets['UserCarnet']);?></th>
 												<th><?=getPourcentage($taux['nombrePersonneVaccin'], $nombreUsers['userTotal']);?></th>
-												<th><form action=""><input type="submit" name="envoyeMail" value="rappel mail"></form></th>
+												<th><a href="rappelMail.php?id=<?= $vaccin['id'] ?>">Définir un rappel</a></th>
 											</tr>
                   <?php } ?>
 							</tbody>
