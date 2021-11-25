@@ -1,4 +1,9 @@
-<?php error404(); ?>
+<?php
+$error = $_SERVER['REDIRECT_STATUS'];
+if($error == 400){
+
+
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -24,3 +29,5 @@
 </div>
 </body>
 </html>
+<?php
+}
