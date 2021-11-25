@@ -5,7 +5,7 @@ require ('inc/fonction.php');
 require ('inc/request.php');
 include ('inc/header.php');
 $vaccins = getAfficherVaccin();
-if (!empty($_POST['submitted'])) {
+if (!empty($_POST['submitted'])&& $_POST['submitted']!=' ') {
     $recherche = cleanXss('submitted');
     $recherche = getRechercheVaccin($_POST['submitted']);
    }
