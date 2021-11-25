@@ -21,6 +21,7 @@ include ('inc/header.php');
 <section id="panel_buttons">
     <div class="wrap2 uppercase">
         <div class="container">
+					<?php if(isLogged()){?>
             <div class="element1">
                 <div class="img1"></div>
                 <a class="link" href="add_vaccin_user.php">Se faire vacciner</a>
@@ -28,7 +29,9 @@ include ('inc/header.php');
             <div class="element2">
                 <div class="img2"></div>
                 <a class="link" href="listVaccinsUser.php">Carnet de vaccination</a>
-            </div>
+            </div><?php
+            }
+            ?>
             <div class="element3">
                 <div class="img3"></div>
                 <a class="link" href="vaccins.php">Les vaccins</a>
