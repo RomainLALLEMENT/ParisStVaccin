@@ -8,8 +8,6 @@ if (isLogged()){
 	$occurence ='';
 	// sql recup tous les vaccins pour la liste déroulante
 	$vaccins = getAllVaccinName();
-	// verif id USER
-	/*a réaliser*/
 
 	// Soumission du formulaire
 	if(!empty($_POST['submitted'])) {
@@ -25,7 +23,7 @@ if (isLogged()){
 	        /*On recupêrer les donnés pour l'insert*/
 	        $idVaccin         = intval($vaccin);
 	        $idUser           = $_SESSION['user']['id'];
-            $nombreMoisrappel = getMoisRappel($idVaccin)['temps_rappel'];
+					$nombreMoisrappel = getMoisRappel($idVaccin)['temps_rappel'];
 			/*faire une vérife qu'il n'existe déjà pas une occurence entre id vaccin et id user si oui rediriger le user dans la liste de vaccins pourqu'il puisse si besoin modifier les information quand a sa vaccination sinon on envoie les données*/
 			//	$succes = verifOccurenceUserVaccin($idVaccin,$idUser);
 			$verifVaccinsUser = getVaccinsUser($idUser);
