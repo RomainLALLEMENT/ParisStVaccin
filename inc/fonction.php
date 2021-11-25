@@ -189,8 +189,13 @@ function getPourcentage($numérateur, $diviseur){
     return $resultat;
 }
 
-function dateFormat($date)
+/*function dateFormat($date)
 {
     return strftime('%A %e %B %Y',strtotime($date));
+}*/
+function dateFormat($date): string
+{
+    setlocale(LC_TIME,'french');
+    return utf8_encode(strftime('%A %e %B %Y',strtotime($date)));
 }
 

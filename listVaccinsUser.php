@@ -25,7 +25,6 @@ if (isLogged()){
 
     $dateDuJour = strtotime(date('Y-m-d'));
     $troisMois  = 7884000;
-    setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
 include ('inc/header.php');
 if($idValide === true){?>
