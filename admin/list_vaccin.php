@@ -5,6 +5,19 @@ require ('../inc/fonction.php');
 require ('../inc/request.php');
 error403();
 include('inc/header_back.php');
+require '../vendor/autoload.php';
+
+use JasonGrimes\Paginator;
+
+$totalItems = getNombreVaccins()['vaccinTotal'];
+$itemsPerPage = 5;
+$currentPage = empty($_GET['page']) ? 1 : intval($_GET['page']);
+$urlPattern = '/php/projetGroupe/parisstvaccin/admin/list_vaccin.php?page=(:num)';
+
+$offset = empty($_GET['page']) ? 0 : (intval($_GET['page']-1)*$itemsPerPage);
+
+$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+$listVaccin = getAllVaccinPagination($itemsPerPage,$offset);
 
 if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
     $success = true;
@@ -12,7 +25,7 @@ if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
     $success = false;
 }
 
-$listVaccin = getAllVaccin();
+
 
 
 ?>
@@ -90,6 +103,26 @@ $listVaccin = getAllVaccin();
                                         </div>
                                     </tbody>
                                 </table>
+															<ul class="pagination">
+                                  <?php if ($paginator->getPrevUrl()): ?>
+																		<li class="page-item"><a class="page-link" href="<?php echo $paginator->getPrevUrl(); ?>">&laquo; Previous</a></li>
+                                  <?php endif; ?>
+                                  <?php foreach ($paginator->getPages() as $page): ?>
+                                      <?php if ($page['url']): ?>
+																			<li <?php echo $page['isCurrent'] ? 'class="active page-item"' : ''; ?>>
+																				<a class="page-link" href="<?php echo $page['url']; ?>"><?php echo $page['num']; ?></a>
+																			</li>
+                                      <?php else: ?>
+																			<li class="disabled page-item"><span><?php echo $page['num']; ?></span></li>
+                                      <?php endif; ?>
+                                  <?php endforeach; ?>
+
+                                  <?php if ($paginator->getNextUrl()): ?>
+																		<li class="page-item"><a class="page-link" href="<?php echo $paginator->getNextUrl(); ?>">Next &raquo;</a></li>
+                                  <?php endif; ?>
+															</ul>
+
+															<p><?= $paginator->getTotalItems(); ?> Vaccins présents base de données.</p>
                             </div>
                         </div>
                     </div>

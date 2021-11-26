@@ -27,7 +27,7 @@ if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
     $success = false;
 }
 
-$users = getUserNotAll($itemsPerPage,$offset);
+$users = getAllUserPagination($itemsPerPage,$offset);
 $carnet = getVaccinsUser(2);
 
 include('inc/header_back.php');
@@ -107,7 +107,7 @@ include('inc/header_back.php');
                                         <td><?= '<a href="role_user.php?id='.$user['id'].'">'.$user['role'].'</a>'?></td>
                                         <td><?php //vérification si carnet de vacination existant ou non
                                             if (!empty(getVaccinsUser($user['id']))){?>
-                                            <a href="carnet_vaccination_user.php?id=<?php echo $user['id']?>"><i class="fas fa-info-circle"></i></a><?php
+                                            <a href="carnet_vaccination_user.php?id=<?= $user['id']?>"><i class="fas fa-info-circle"></i></a><?php
                                             }else{echo '<i class="fas fa-times-circle" style="color: red"></i>';}?>
                                         </td>
                                     </tr> <?php
@@ -134,7 +134,7 @@ include('inc/header_back.php');
                                   <?php endif; ?>
 															</ul>
 
-															<p><?= $paginator->getTotalItems(); ?> Vaccins présents base de données.</p>
+															<p><?= $paginator->getTotalItems(); ?> utilsateurs présents base de données.</p>
                             </div>
                         </div>
                     </div>

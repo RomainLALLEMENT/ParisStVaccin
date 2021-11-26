@@ -1,7 +1,7 @@
 <?php
 /* Partie User */
 // SELECT
-function getUserNotAll($itemperpage,$offset)
+function getAllUserPagination($itemperpage,$offset)
 {
     global $pdo;
     $sql = "SELECT id,nom,prenom,age,email,pseudo,role FROM psv_user LIMIT :itemperpage OFFSET :offset";
@@ -150,6 +150,25 @@ function getAllVaccinName(): array
     $query = $pdo->prepare($sql);
     $query->execute();
     return $query->fetchAll(PDO::FETCH_COLUMN);
+}
+
+function getNombreVaccins():array
+{
+    global $pdo;
+    $sql = "SELECT COUNT(psv_vaccin.id) as vaccinTotal FROM psv_vaccin; ";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetch();
+}
+
+function getAllVaccinPagination($itemperpage,$offset){
+    global $pdo;
+    $sql = "SELECT * FROM `psv_vaccin` LIMIT :itemperpage OFFSET :offset";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':itemperpage',$itemperpage,PDO::PARAM_INT);
+    $query->bindValue(':offset',$offset, PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetchAll();
 }
 
 function getAllVaccin(){
