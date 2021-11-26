@@ -1,4 +1,3 @@
-[![logo](assets/img/logo.png)]()
 # Paris St. Vaccin
 [![forthebadge](https://img.shields.io/badge/Bitbucket-330F63?style=for-the-badge&logo=bitbucket&logoColor=white)](https://bitbucket.org/brietgame/parisstvaccin/src/master/)
 [![forthebadge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/HTML)
@@ -58,3 +57,6 @@ _Outils utilisés :_
 * **Alexis BRIET** _alias_ [@BΓΙΣΤGΛΠΣ](https://twitter.com/BRIETGAME)
 * **Anais CRENIER** _alias_ [@AnaisCrenier](#)
 * **Romain LALLEMENT** _alias_ [@𝑻𝒘_𝒀𝒂𝑩](#)
+
+## Conception de la Base de données
+[![BDD](http://image.noelshack.com/fichiers/2021/47/5/1637915907-conception-bdd.png)]()

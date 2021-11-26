@@ -80,14 +80,14 @@ include('inc/header_back.php');
                             <div class="form-group">
                                 <label for="libelle" class="col-md-12">libéllé</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="libelle" id="libelle" placeholder="<?=$vaccin['libelle'] ?>" value="<?= recupInputValue('libelle') ?>" class="form-control form-control-line">
+                                    <input type="text" name="libelle" id="libelle" placeholder="<?=$vaccin['libelle'] ?>" value="<?= $vaccin['libelle'] ?>" class="form-control form-control-line">
                                     <?= viewError($errors,'libelle') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="temps_rappel" class="col-md-12">Temps rappel</label>
                                 <div class="col-md-12">
-                                    <input type="number" name="temps_rappel" id="temps_rappel" placeholder=" <?php if (!empty($vaccin)){ echo $vaccin['temps_rappel'];} else { echo 'Nombre de mois'; } ?>" min="3" max="100" value="<?= recupInputValue('temps_rappel') ?>" class="form-control form-control-line">
+                                    <input type="number" name="temps_rappel" id="temps_rappel" placeholder=" <?php if (!empty($vaccin)){ echo $vaccin['temps_rappel'];} else { echo 'Nombre de mois'; } ?>" min="3" max="100" value="<?= $vaccin['temps_rappel'] ?>" class="form-control form-control-line">
                                     <?= viewError($errors,'temps_rappel') ?>
                                 </div>
                             </div>
@@ -370,14 +370,14 @@ include('inc/header_back.php');
                             <div class="form-group">
                                 <label for="description" class="col-md-12">Description</label>
                                 <div class="col-sm-12">
-                                    <textarea name="description" id="description" placeholder="<?= $vaccin['description'] ?>" class="form-control form-control-line" style="height: 200px; padding: 1rem"><?= recupInputValue('description')?></textarea>
+                                    <textarea name="description" id="description" placeholder="<?= $vaccin['description'] ?>" class="form-control form-control-line" style="height: 200px; padding: 1rem"><?= $vaccin['description'] ?></textarea>
                                     <?= viewError($errors,'description') ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="laboratoire" class="col-md-12">Laboratoire</label>
                                 <div class="col-sm-12">
-                                    <input type="text" name="laboratoire" id="laboratoire" placeholder="<?= $vaccin['laboratoire'] ?>" value="<?= recupInputValue('laboratoire')?>" class="form-control form-control-line">
+                                    <input type="text" name="laboratoire" id="laboratoire" placeholder="<?= $vaccin['laboratoire'] ?>" value="<?= $vaccin['laboratoire'] ?>" class="form-control form-control-line">
                                     <?= viewError($errors,'laboratoire') ?>
                                 </div>
                             </div>
