@@ -259,6 +259,15 @@ function updateVaccin($id,$libelle,$temps_rappel,$country,$obligatoire,$descript
 
 // SELCT
 
+function getNumbreVaccinInCarnetUser(int $idUser):array{
+    global $pdo;
+    $sql = "SELECT COUNT(id_vaccin) as 'nombre vaccins' FROM `psv_carnet` WHERE `id_user` = :idUser";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetch();
+}
+
 function getLibelleMoisByCarnet($id_carnet){
     global $pdo;
 
@@ -323,7 +332,7 @@ function getInfoVaccinUser($idUser){
 function getVaccinsUserByCarnet(int $idUser,int $limit,int $offset = 0):array
 {
     global $pdo;
-    $sql = "SELECT psv_carnet.id,psv_carnet.premiere_date,psv_carnet.date_prochain, psv_vaccin.libelle, psv_vaccin.pays, psv_vaccin.obligatoire, psv_vaccin.description,psv_vaccin.Laboratoire,psv_vaccin.temps_rappel as mois,psv_vaccin.id as idVaccin
+    $sql = "SELECT psv_carnet.id,psv_carnet.premiere_date as 'date dernière injection',psv_carnet.date_prochain as 'date rappel', psv_vaccin.libelle, psv_vaccin.pays, psv_vaccin.obligatoire, psv_vaccin.description,psv_vaccin.Laboratoire,psv_vaccin.temps_rappel as mois,psv_vaccin.id as idVaccin
     FROM psv_carnet INNER JOIN psv_vaccin ON psv_carnet.id_vaccin = psv_vaccin.id WHERE psv_carnet.id_user = :idUser LIMIT :limit OFFSET :offset"  ;
     $query = $pdo->prepare($sql);
     $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
@@ -383,7 +392,6 @@ function carnetModifDateByUser($idCarnet,$mois,$date){
     $query->bindValue(':mois',$mois);
     $query->bindValue(':date',$date,PDO::PARAM_STR);
     $query->execute();
-
 }
 
 
