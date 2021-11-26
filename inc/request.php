@@ -333,6 +333,18 @@ function getVaccinsUserByCarnet(int $idUser,int $limit,int $offset = 0):array
     return $query->fetchAll();
 }
 
+function getVaccinsUserByCarnetOld(int $idUser):array
+{
+    global $pdo;
+    $sql = "SELECT psv_carnet.id,psv_carnet.premiere_date as 'date dernière injection',psv_carnet.date_prochain as 'date rappel', psv_vaccin.libelle, psv_vaccin.pays, psv_vaccin.obligatoire, psv_vaccin.description,psv_vaccin.Laboratoire,psv_vaccin.temps_rappel as mois,psv_vaccin.id as idVaccin
+    FROM psv_carnet INNER JOIN psv_vaccin ON psv_carnet.id_vaccin = psv_vaccin.id WHERE psv_carnet.id_user = :idUser"  ;
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function getCarnetById($idCarnet){
     global $pdo;
     $sql = "SELECT * FROM `psv_carnet` WHERE id = :idCarnet";

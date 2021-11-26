@@ -184,7 +184,7 @@ function verifyIdBddOld($idUser,$idUsers){
     return $idValide;
 }
 
-function verifyIdBdd(int $id,array $idsBdd)
+function verifyIdBdd($id,array $idsBdd)
 {
     if(!empty($id)){
         if(is_numeric($id)){
