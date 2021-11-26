@@ -162,7 +162,7 @@ function error404()
         header('Location:../error404.php');
 }
 
-function verifyIdBdd($idUser,$idUsers){
+function verifyIdBddOld($idUser,$idUsers){
     if(!empty($idUser)){
         if(is_numeric($idUser)){
             foreach ($idUsers as $user){
@@ -182,6 +182,30 @@ function verifyIdBdd($idUser,$idUsers){
         $idValide = false;
     }
     return $idValide;
+}
+
+function verifyIdBdd(int $id,array $idsBdd)
+{
+    if(!empty($id)){
+        if(is_numeric($id)){
+            foreach ($idsBdd as $verifBdd){
+                if ($id == $verifBdd['id']) {
+                    $idValide = true;
+                    break;
+                } else {
+                    $idValide = false;
+                }
+            }
+        }else{
+            $idValide = false;
+            //$idValide = false;
+        }
+    }else{
+        $idValide = false;
+        //$idValide = false;
+    }
+    return $idValide;
+
 }
 
 function getPourcentage($numérateur, $diviseur){

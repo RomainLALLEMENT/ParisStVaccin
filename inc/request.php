@@ -178,6 +178,13 @@ function getAllVaccin(){
     $query->execute();
     return $query->fetchAll();
 }
+function getAllVaccinId(){
+    global $pdo;
+    $sql = "SELECT id FROM `psv_vaccin`";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
 function getMoisRappel(int $id):array
 {
     global $pdo;

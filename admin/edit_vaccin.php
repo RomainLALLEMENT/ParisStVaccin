@@ -6,7 +6,11 @@ require ('../inc/request.php');
 error403();
 $errors = array(); // soit array(); soit ca [] pour qua c'est un tableau
 
-if (!empty($_GET['id'])){
+$vaccins = getAllVaccinId();
+
+$idValide = verifyIdBdd(intval($_GET['id']),$vaccins);
+
+if ($idValide){
     $id = $_GET['id'];
 
     $vaccin = getIdVaccin($id);
