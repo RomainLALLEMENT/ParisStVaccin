@@ -9,13 +9,14 @@ require '../vendor/autoload.php';
 
 use JasonGrimes\Paginator;
 
-$totalItems2 = getNombreUsers();
-$totalItems = 21;
+/*$totalItems = getNombreUsers();*/
+
+$totalItems = getNombreUsers()['userTotal'];
 $itemsPerPage = 5;
-$currentPage = 1;
+$currentPage = empty($_GET['page']) ? 1 : intval($_GET['page']);
 $urlPattern = '/php/projetGroupe/parisstvaccin/admin/list_user.php?page=(:num)';
 
-$offset = empty($_GET['page']) ? 0 : (intval($_GET['page']-1)*5);
+$offset = empty($_GET['page']) ? 0 : (intval($_GET['page']-1)*$itemsPerPage);
 
 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
@@ -116,32 +117,24 @@ include('inc/header_back.php');
                                 </table>
 															<ul class="pagination">
                                   <?php if ($paginator->getPrevUrl()): ?>
-																		<li><a href="<?php echo $paginator->getPrevUrl(); ?>">&laquo; Previous</a></li>
+																		<li class="page-item"><a class="page-link" href="<?php echo $paginator->getPrevUrl(); ?>">&laquo; Previous</a></li>
                                   <?php endif; ?>
-
                                   <?php foreach ($paginator->getPages() as $page): ?>
                                       <?php if ($page['url']): ?>
-																			<li <?php echo $page['isCurrent'] ? 'class="active"' : ''; ?>>
-																				<a href="<?php echo $page['url']; ?>"><?php echo $page['num']; ?></a>
+																			<li <?php echo $page['isCurrent'] ? 'class="active page-item"' : ''; ?>>
+																				<a class="page-link" href="<?php echo $page['url']; ?>"><?php echo $page['num']; ?></a>
 																			</li>
                                       <?php else: ?>
-																			<li class="disabled"><span><?php echo $page['num']; ?></span></li>
+																			<li class="disabled page-item"><span><?php echo $page['num']; ?></span></li>
                                       <?php endif; ?>
                                   <?php endforeach; ?>
 
                                   <?php if ($paginator->getNextUrl()): ?>
-																		<li><a href="<?php echo $paginator->getNextUrl(); ?>">Next &raquo;</a></li>
+																		<li class="page-item"><a class="page-link" href="<?php echo $paginator->getNextUrl(); ?>">Next &raquo;</a></li>
                                   <?php endif; ?>
 															</ul>
 
-															<p>
-                                  <?php echo $paginator->getTotalItems(); ?> found.
-
-																Showing
-                                  <?php echo $paginator->getCurrentPageFirstItem(); ?>
-																-
-                                  <?php echo $paginator->getCurrentPageLastItem(); ?>.
-															</p>
+															<p><?= $paginator->getTotalItems(); ?> Vaccins présents base de données.</p>
                             </div>
                         </div>
                     </div>
