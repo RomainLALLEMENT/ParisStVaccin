@@ -247,6 +247,17 @@ function getLibelleMoisByCarnet($id_carnet){
     return $query->fetch();
 }
 
+function getIdCarnetByIdUserandIdVaccin(int $idUser, int $idVaccin):array
+{
+    global $pdo;
+    $sql = "SELECT id FROM `psv_carnet` WHERE `id_user`= :idUser and `id_vaccin`= :idVaccin ";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':idUser',$idUser,PDO::PARAM_INT);
+    $query->bindValue(':idVaccin',$idVaccin,PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetch();
+}
+
 function getVaccinsUser(int $idUser):array
 {
     global $pdo;
