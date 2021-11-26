@@ -29,6 +29,7 @@ if (empty($_SESSION['user'])) {
 //            header('Location: forgetPassword.php?success=1');
             $token = $user['token'];
             header("Location: resetPassword.php?email=$email&token=$token");
+//            header("Location: forgetPassword.php?success=1");
         }
     }
 } else {
@@ -45,7 +46,7 @@ include ('inc/header.php');
             <?php } else { ?>
                 <div class="danger">
                     <i class="fas fa-thumbs-up"></i> <span class="bold">Attention !</span> Ceci est une démo et étant donné que la fonction mail ne fonctionne pas en local, voici le lien que la personne aurait reçu par mail<br>
-                    <u><a href="resetPassword.php?email=<?= $email?>&token=<?= $token ?>">test</a></u>
+                    <u><a href="resetPassword.php?email=<?= $user['email'] ?>&token=<?= $user['token'] ?>">test</a></u>
                 </div>
             <?php } ?>
             <form action="" method="post" novalidate>

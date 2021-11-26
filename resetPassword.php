@@ -60,7 +60,9 @@ include ('inc/header.php');
     <section id="home_login">
         <div class="wrap3">
             <?php if (!$success) { ?>
-                <div class="info"><i class="fas fa-info-circle"></i> Vous avez perdu votre mot de passe ? Pas d'inquiétude, vous pouvez le récupérer. <span class="bold">Veuillez renseigner votre adresse mail ci-dessous.</span></div>
+                <div class="danger">
+                    <i class="fas fa-thumbs-up"></i> <span class="bold">Attention !</span> Ceci est une démo et étant donné que la fonction mail ne fonctionne pas en local, voici le lien que la personne aurait reçu par mail<br>
+                </div>
             <?php } else { ?>
                 <div class="success">
                     <i class="fas fa-thumbs-up"></i> Félicitations, un mail de réinitialisation vous a été envoyé ! <br>
