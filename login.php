@@ -5,6 +5,12 @@ require ('inc/fonction.php');
 require ('inc/request.php');
 $errors = [];
 //debug($errors);
+if (!empty($_GET['success']) && $_GET['success'] == 1 ) {
+    $success = true;
+} else {
+    $success = false;
+}
+
 if (empty($_SESSION['user'])) {
     if (!empty($_POST['submitted'])) {
         // Faille XSS
@@ -53,6 +59,14 @@ include ('inc/header.php');
 
     <section id="home_login">
         <div class="wrap3">
+            <?php if (!$success) { ?>
+                <div class="info"><i class="fas fa-info-circle"></i> Vous pouvez vous connecter si vous possédez un compte.</div>
+            <?php } else { ?>
+                <div class="success">
+                    <i class="fas fa-thumbs-up"></i> Félicitations, vos modifications ont bien été pris en compte ! <br>
+                    <u>Vous pouvez vous connecter dès à présent avec votre nouveau mot de passe.</u>
+                </div>
+            <?php } ?>
             <form action="" method="post" novalidate>
                 <div class="wrap4">
 

@@ -14,7 +14,7 @@ use JasonGrimes\Paginator;
 $totalItems = getNombreUsers()['userTotal'];
 $itemsPerPage = 5;
 $currentPage = empty($_GET['page']) ? 1 : intval($_GET['page']);
-$urlPattern = '/php/projetGroupe/parisstvaccin/admin/list_user.php?page=(:num)';
+$urlPattern = '/projets/vaccin/admin/list_user.php?page=(:num)';
 
 $offset = empty($_GET['page']) ? 0 : (intval($_GET['page']-1)*$itemsPerPage);
 

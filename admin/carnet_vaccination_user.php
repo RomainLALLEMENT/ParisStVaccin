@@ -71,7 +71,7 @@ if($idUserValid){
 	                                        <td><?php if($info['pays'] == 'France'){echo $info['pays'];}else{echo'non connus';}?></td>
 	                                        <td><?=date('d/m/Y',strtotime($info['date dernière injection']))?></td>
 	                                        <td><?php if(($info['date rappel'])== ($info['date dernière injection'])){echo date('d/m/Y',strtotime($info['date rappel']));}else{echo 'Pas de rappel pour ce vaccin';}?></td>
-	                                    </tr>)
+	                                    </tr>
 	                                    </tbody>
 	                                    <?php
 	                                        }?>
@@ -91,6 +91,6 @@ if($idUserValid){
 
 	<?php
 }else{
-    header('Location : http://localhost/php/projetGroupe/parisstvaccin/admin/list_user.php');
+    header('Location : list_user.php');
 }
 	include('inc/footer_back.php');

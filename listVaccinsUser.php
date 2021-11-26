@@ -27,7 +27,7 @@ if (isLogged()){
         $itemsPerPage = 5;
 				if (count($vaccinsUser)>= $itemsPerPage){
             $currentPage = empty($_GET['page']) ? 1 : (intval($_GET['page']));
-            $urlPattern = '/php/projetGroupe/parisstvaccin/listVaccinsUser.php?page=(:num)';
+            $urlPattern = '/projets/vaccin/listVaccinsUser.php?page=(:num)';
             $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 						/*if ((intval($_GET['page']))>($totalItems%$itemsPerPage) && !empty($_GET['page']))error404();*/
 						if(!empty($_GET['page'])) {
